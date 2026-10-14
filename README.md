@@ -8,7 +8,7 @@ Open `index.html` in a browser, or serve this directory with `python3 -m http.se
 
 ## Accounts
 
-Email sign-up/sign-in, password reset, private cloud collection storage, account isolation and optimistic conflict handling are implemented but **not activated**. A connected Supabase project, schema deployment and SMTP setup are required. Guest mode remains available. See `docs/accounts.md`.
+Supabase is connected, the private per-user database is installed, and sign-in/cloud storage configuration is populated. **Public registration and password reset remain disabled until email delivery is configured.** Guest mode remains available. Server-side owner isolation and concurrency checks passed. See `docs/accounts.md`.
 
 ## Implemented
 

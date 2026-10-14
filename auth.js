@@ -22,7 +22,7 @@
   $('#auth-password').autocomplete=mode==='signin'?'current-password':'new-password';
   $('#auth-title').textContent=user&&mode!=='update'?'Your account':({signin:'Welcome back',signup:'Create your collection',reset:'Reset your password',update:'Choose a new password'})[mode];
   $('#auth-submit').textContent=busy?'Please wait…':({signin:'Sign in',signup:'Create account',reset:'Send reset link',update:'Save new password'})[mode];
-  document.querySelectorAll('[data-auth-mode]').forEach(b=>{b.disabled=busy;b.setAttribute('aria-pressed',b.dataset.authMode===mode);});$('#forgot-password').disabled=busy||!client;
+  document.querySelectorAll('[data-auth-mode]').forEach(b=>{b.disabled=busy||(b.dataset.authMode==='signup'&&!config.registrationEnabled);b.setAttribute('aria-pressed',b.dataset.authMode===mode);});$('#forgot-password').disabled=busy||!client||!config.emailDeliveryReady;$('#registration-notice').hidden=Boolean(config.registrationEnabled)||!client;
   $('#guest-transfer').hidden=!user||phase!=='ready'||!guest().length;
   $('#sign-out').disabled=busy||phase==='loading'||Boolean(store?.dirty());
   $('#sync-retry').hidden=!['error','loading-error'].includes(phase);
@@ -31,7 +31,7 @@
   $('#sync-status').textContent=labels[phase]||'';
   $('#storage-note').textContent=user?'Your account collection is private. Export a backup whenever you need one.':'Guest collection stored in this browser. Export a backup to keep a copy.';
  }
- function setMode(next){mode=next;$('#auth-password').value='';message('');ui();}
+ function setMode(next){if(next==='signup'&&!config.registrationEnabled)return;if(next==='reset'&&!config.emailDeliveryReady)return;mode=next;$('#auth-password').value='';message('');ui();}
  function open(){mode=user?'signin':'signin';message('');ui();$('#account-dialog').showModal();}
  function notify(){ui();callbacks?.onState();}
  async function setAccount(session,force=false){
@@ -73,7 +73,7 @@
   $('#sync-retry').onclick=()=>phase==='loading-error'?setAccount({user},true):store?.retry();
   $('#sync-reload').onclick=()=>{if(store?.dirty()&&!confirm('Reload the cloud collection and discard unsynced changes? Export a backup first if you need to keep them.'))return;void setAccount({user},true);};
   $('#auth-form').onsubmit=async event=>{
-   event.preventDefault();if(!client||busy)return;busy=true;message('');ui();
+   event.preventDefault();if(!client||busy)return;if(mode==='signup'&&!config.registrationEnabled||mode==='reset'&&!config.emailDeliveryReady){message('Account emails are not available yet.');return;}busy=true;message('');ui();
    const email=$('#auth-email').value.trim(),password=$('#auth-password').value,submittedMode=mode;
    try{
     let result;

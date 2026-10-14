@@ -2,7 +2,7 @@
 
 ## Activation status
 
-The interface, Supabase integration, private collection schema and tests are prepared. **Accounts remain unavailable until an authorized Supabase project is connected, the schema is applied, public client configuration is filled, and email delivery is configured.** Empty configuration keeps guest collections working and disables credential submission. No fake accounts or browser-stored passwords are created.
+Supabase project `kgxhbjmalvawuawbkbhg` is connected. The private collection schema is installed, server-side isolation tests passed and the browser-safe project configuration is populated. Email/password sign-in and cloud saving are connected. **Public registration and password-reset requests remain disabled in the interface until custom SMTP is configured and its delivery is verified.** No fake accounts or browser-stored passwords are created. The database currently contains no user collections.
 
 ## Architecture
 
