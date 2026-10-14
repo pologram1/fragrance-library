@@ -2,7 +2,7 @@
 
 ## Activation status
 
-Supabase project `kgxhbjmalvawuawbkbhg` is connected. The private collection schema is installed, server-side isolation tests passed and the browser-safe project configuration is populated. Email/password sign-in and cloud saving are connected. **Public registration and password-reset requests remain disabled in the interface until custom SMTP is configured and its delivery is verified.** No fake accounts or browser-stored passwords are created. The database currently contains no user collections.
+Supabase project `kgxhbjmalvawuawbkbhg` is connected. The private collection schema is installed, server-side isolation tests passed and the browser-safe project configuration is populated. Google sign-in is now the intended account entry point; the button checks provider readiness automatically. **Google requires the owner’s OAuth client credentials before visitors can authenticate. Email/password authentication is disabled until a custom sender is configured.** See `docs/google-signin.md`. No fake accounts or browser-stored passwords are created. The database currently contains no user collections.
 
 ## Architecture
 

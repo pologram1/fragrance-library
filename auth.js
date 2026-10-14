@@ -2,7 +2,7 @@
  'use strict';
  const $=s=>document.querySelector(s);
  const GUEST_KEY='polo-fragrance-library-v1';
- let client=null,user=null,store=null,phase='unconfigured',epoch=0,mode='signin',callbacks=null,busy=false;
+ let client=null,user=null,store=null,phase='unconfigured',epoch=0,mode='signin',callbacks=null,busy=false,googleReady=false,googleChecking=false;
  const config=window.FRAGRANCE_CONFIG||{};
  const redirect=()=>location.origin+location.pathname;
  function message(text){$('#auth-message').textContent=text;}
@@ -10,8 +10,8 @@
  function ui(){
   $('#account-button').textContent=user?'Account':'Sign in';
   $('#account-email').textContent=user?.email||'';
-  $('#account-panel').hidden=!user;$('#auth-form').hidden=Boolean(user)&&mode!=='update';
-  $('#auth-tabs').hidden=Boolean(user)||phase==='unconfigured';
+  $('#account-panel').hidden=!user;$('#auth-form').hidden=mode!=='update'&&(!config.emailPasswordEnabled||Boolean(user));$('#google-panel').hidden=Boolean(user)||mode==='update';$('#google-signin').disabled=busy||!client||!googleReady;$('#google-signin').textContent=busy?'Please wait…':'Continue with Google';$('#google-status').textContent=googleChecking?'Checking Google sign-in…':googleReady?'Create an account or sign in with your Google account.':'Google sign-in is being configured. Your guest collection is available meanwhile.';
+  $('#auth-tabs').hidden=Boolean(user)||phase==='unconfigured'||!config.emailPasswordEnabled;
   $('#account-setup').hidden=phase!=='unconfigured'&&phase!=='unavailable';
   $('#account-setup').textContent=phase==='unconfigured'?'Account setup is in progress. For now, your guest collection is saved only in this browser.':phase==='unavailable'?'Account service could not load. Reload the page to try again.':'';
   $('#auth-submit').disabled=busy||!client||phase==='unconfigured'||phase==='unavailable';
@@ -22,7 +22,7 @@
   $('#auth-password').autocomplete=mode==='signin'?'current-password':'new-password';
   $('#auth-title').textContent=user&&mode!=='update'?'Your account':({signin:'Welcome back',signup:'Create your collection',reset:'Reset your password',update:'Choose a new password'})[mode];
   $('#auth-submit').textContent=busy?'Please wait…':({signin:'Sign in',signup:'Create account',reset:'Send reset link',update:'Save new password'})[mode];
-  document.querySelectorAll('[data-auth-mode]').forEach(b=>{b.disabled=busy||(b.dataset.authMode==='signup'&&!config.registrationEnabled);b.setAttribute('aria-pressed',b.dataset.authMode===mode);});$('#forgot-password').disabled=busy||!client||!config.emailDeliveryReady;$('#registration-notice').hidden=Boolean(config.registrationEnabled)||!client;
+  document.querySelectorAll('[data-auth-mode]').forEach(b=>{b.disabled=busy||(b.dataset.authMode==='signup'&&!config.registrationEnabled);b.setAttribute('aria-pressed',b.dataset.authMode===mode);});$('#forgot-password').disabled=busy||!client||!config.emailDeliveryReady;$('#registration-notice').hidden=Boolean(config.registrationEnabled)||!client||!config.emailPasswordEnabled;
   $('#guest-transfer').hidden=!user||phase!=='ready'||!guest().length;
   $('#sign-out').disabled=busy||phase==='loading'||Boolean(store?.dirty());
   $('#sync-retry').hidden=!['error','loading-error'].includes(phase);
@@ -32,7 +32,8 @@
   $('#storage-note').textContent=user?'Your account collection is private. Export a backup whenever you need one.':'Guest collection stored in this browser. Export a backup to keep a copy.';
  }
  function setMode(next){if(next==='signup'&&!config.registrationEnabled)return;if(next==='reset'&&!config.emailDeliveryReady)return;mode=next;$('#auth-password').value='';message('');ui();}
- function open(){mode=user?'signin':'signin';message('');ui();$('#account-dialog').showModal();}
+ function open(){mode='signin';message('');ui();$('#account-dialog').showModal();if(client)void checkGoogle();}
+ async function checkGoogle(){if(googleChecking)return;googleChecking=true;ui();googleReady=await GoogleSignIn.available(fetch,config.supabaseUrl,config.supabasePublishableKey);googleChecking=false;ui();}
  function notify(){ui();callbacks?.onState();}
  async function setAccount(session,force=false){
   const next=session?.user||null;
@@ -53,7 +54,7 @@
  }
  async function initialize(options){
   callbacks=options;
-  $('#account-button').onclick=open;
+  $('#account-button').onclick=open;$('#google-signin').onclick=async()=>{if(!client||busy||!googleReady)return;busy=true;message('');ui();try{await GoogleSignIn.start(client,redirect());}catch{message('Google sign-in could not start. Please try again.');}finally{busy=false;ui();}};
   document.querySelectorAll('[data-auth-mode]').forEach(b=>b.onclick=()=>setMode(b.dataset.authMode));
   $('#forgot-password').onclick=()=>setMode('reset');
   $('#guest-transfer').onclick=()=>{
@@ -109,7 +110,7 @@
     },0);
    });
    const {data,error}=await client.auth.getSession();if(error)throw error;
-   await setAccount(data.session);ui();
+   await setAccount(data.session);ui();void checkGoogle();const errors=new URLSearchParams(location.hash.slice(1));if(errors.has('error')||new URLSearchParams(location.search).has('error')){open();message('Google sign-in was not completed. You can try again.');}
   }catch{phase='unavailable';client=null;callbacks.onCollection(guest());notify();}
  }
  window.CollectionAccount={initialize,save(items){return store?.save(items)||false;},

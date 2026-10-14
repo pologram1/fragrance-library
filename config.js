@@ -4,5 +4,6 @@ window.FRAGRANCE_CONFIG = {
   "supabaseUrl": "https://kgxhbjmalvawuawbkbhg.supabase.co",
   "supabasePublishableKey": "sb_publishable_KHnfl2C25d8Uw1j6bMLDzQ_adNDkPU2",
   "registrationEnabled": false,
+  "emailPasswordEnabled": false,
   "emailDeliveryReady": false
 };
