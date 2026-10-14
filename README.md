@@ -10,7 +10,10 @@ Open `index.html` in a browser, or serve this directory with `python3 -m http.se
 
 - Collectr-inspired navigation: overview, collection, discover, and wishlist, with bookmarkable hash routes.
 - Dashboard purchase costs, quantity-based pricing coverage, and top three fragrances ranked by total replacement value.
-- Four-name starter catalog; the user chooses the exact concentration and size. Generic bottle illustrations are placeholders, not product photographs.
+- Searchable Open Beauty Facts catalog: 561 product records, 515 photo URLs, 309 distinct brand labels. Records are barcode-specific and can include multiple sizes of one scent.
+- Discover filters by brand and photo availability, supports barcode searches, and displays 24 records per page.
+- Adding a catalog record to collection/wishlist prefills known details, requires concentration/size confirmation, and preserves its photo reference. Missing/unavailable photos use a generic illustration.
+- JSON data for the website plus a SQLite database and reproducible importer. See `docs/catalog.md` and `data/LICENSE.md`.
 - Sort collection by name, brand, or total replacement value.
 
 - Add, edit, and remove fragrance variants: brand, name, concentration, bottle size, standard/tester, quantity, owned/wishlist, and optional purchase price.
@@ -33,11 +36,11 @@ No live pricing feeds, accounts, server database, or independently verified sell
 
 ## Validation
 
-Run `node pricing.test.js` for median, retail fallback, stale/future offers, seller deduplication, and eligibility checks. Browser interactions still need visual QA.
+Run `node catalog.test.js` and `node pricing.test.js` for median, retail fallback, stale/future offers, seller deduplication, and eligibility checks. Browser interactions still need visual QA.
 
 ## Next milestones
 
 1. Review seller APIs/feeds and permissions.
-2. Build a verified fragrance catalog and seller registry.
+2. Expand catalog coverage using approved retailer feeds; independently verify exact variants and seller registry.
 3. Add backend price retrieval with variant matching and freshness tracking.
 4. Add authentication and cross-device collection storage.
