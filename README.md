@@ -52,3 +52,7 @@ Run `node catalog.test.js` and `node pricing.test.js` for median, retail fallbac
 ## Photo quality
 
 Only explicitly reviewed photos appear on cards. Community photo URLs are source candidates; unreviewed images are replaced with a clear placeholder. The approved Afnan 9 PM Night Out reference is the first studio-curated product image. See `docs/photo-standard.md`. Run `node photo-standards.test.js` to check the approval gate.
+
+## Photo ingestion workflow
+
+`photo_pipeline.py` assesses batches against your reference, produces review reports, and publishes only visually approved, identity-matched original files. It records review notes and source hashes; any source change requires reassessment. See `docs/photo-review-workflow.md`. The numerical checks flag issues; Codex still visually reviews every approved photo.

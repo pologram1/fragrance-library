@@ -10,6 +10,8 @@ assert.equal(Photos.approved({id:'obf-123'},manifest),null);
 const photo=manifest.photos[record.id];
 function altered(changes){return {photos:{[record.id]:{...photo,...changes}}};}
 assert.equal(Photos.approved(record,altered({status:'pending'})),null);
+assert.equal(Photos.approved(record,altered({review:undefined})),null);
+assert.equal(Photos.approved(record,altered({review:{...photo.review,identityConfirmed:false}})),null);
 assert.equal(Photos.approved(record,altered({width:100})),null);
 assert.equal(Photos.approved(record,altered({url:'javascript:alert(1)'})),null);
 assert.equal(Photos.approved(record,altered({url:'assets/fragrances/../../config.js'})),null);

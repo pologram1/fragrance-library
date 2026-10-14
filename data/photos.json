@@ -6,15 +6,27 @@
       "status": "approved",
       "width": 375,
       "height": 500,
-      "source": "User-supplied quality reference, image(1).png",
+      "source": "Miguel supplied image(1).png as the catalog quality reference",
       "credit": "Reference supplied by Miguel",
-      "license": "User-supplied asset; separate from the Open Beauty Facts image license",
+      "license": "User-supplied project reference; separate from imported dataset licenses",
       "checks": {
         "sharp": true,
         "labelReadable": true,
         "correctProduct": true,
         "wholeBottle": true,
         "cleanBackground": true
+      },
+      "review": {
+        "reviewedBy": "Codex",
+        "reviewedAt": "2026-10-14T04:33:31.779314+00:00",
+        "sourceSha256": "f4a7ac4e1ef556e5a44dab80f01bc427eeb8c3e014ab3d3f50367e0af383334a",
+        "policyVersion": 1,
+        "identityConfirmed": true,
+        "notes": "Visually inspected against the selected reference: sharp isolated bottle, readable 9 PM Night Out/Afnan/Extrait de Parfum/100 mL label, whole round cap and bottle, natural proportions, clean white background.",
+        "technicalMetrics": {
+          "focusEnergy": 297.1578,
+          "cleanBorderFraction": 1.0
+        }
       }
     }
   },

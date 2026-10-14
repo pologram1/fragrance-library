@@ -1,0 +1,18 @@
+{
+  "version": 1,
+  "catalogReference": "assets/fragrances/afnan-9pm-night-out.png",
+  "minimumWidth": 300,
+  "minimumHeight": 400,
+  "maximumFileBytes": 20000000,
+  "focusWarningRatio": 0.35,
+  "cleanBorderWarningThreshold": 0.8,
+  "requiredVisualChecks": [
+    "sharp",
+    "labelReadable",
+    "correctProduct",
+    "wholeBottle",
+    "cleanBackground"
+  ],
+  "visualDirection": "Sharp isolated product photograph; complete bottle and cap, readable label, accurate proportions, controlled lighting, clean white or transparent background.",
+  "maximumPixels": 40000000
+}
