@@ -1,21 +1,21 @@
-# Daily catalog and photo automation
+# Free catalog and photo automation
 
-GitHub Actions runs `Catalog and photo automation` every day at 08:17 UTC (4:17 AM Puerto Rico). GitHub can delay scheduled jobs. You can also use Actions → Catalog and photo automation → Run workflow.
+GitHub Actions runs `Catalog and photo automation` every day at 08:17 UTC (4:17 AM Puerto Rico). Scheduled jobs can be delayed. You can also use Actions → Catalog and photo automation → Run workflow.
 
-The job imports the current Open Beauty Facts export, preserves existing records missing from that export, and preserves previously reviewed product identities. It screens up to ten image candidates per run and, when configured, sends at most ten image-review requests to OpenAI. This is a request cap, not a monetary spending cap. Model: `gpt-6-luna`.
+The job imports the current Open Beauty Facts export, preserves existing records missing from that export and previously reviewed product identities, and screens up to ten image candidates per run. Resolution, file format, size, focus diagnostics and background diagnostics are checked without a paid service. Diagnostics flag issues; they do not establish visual quality or identity.
 
-## Enable the AI reviewer
+## No paid AI integration
 
-Create an OpenAI API project key with access to the Responses API and an active API billing account. In the GitHub repository, open **Settings → Secrets and variables → Actions → New repository secret**. Name it **OPENAI_API_KEY** and paste the key as its value. Never put it in website code or chat. Then run the catalog workflow once to verify API access. The workflow summary distinguishes enabled, missing-key and API-unavailable states.
+The OpenAI client and secret reference have been removed. No API key, API billing account or credit purchase is needed. Even if an OpenAI key is present in the environment, this script cannot use it. It never approves or publishes images automatically.
 
-Without the secret, catalog imports and technical screening still run. Photos remain pending visual review. Existing approved photos remain visible.
+## Manual visual approval
 
-## Publication rules
+Technically acceptable photos remain `pending_visual_review`. Inspect each original against `assets/fragrances/afnan-9pm-night-out.png`. Confirm a clear label, complete bottle/cap, natural proportions, clean background, no watermark, and the exact fragrance, concentration and bottle size. Matching packaging beside the bottle is allowed. Reject poor photos and hold uncertain identities. Existing approved images remain available.
 
-Automatic publication requires native dimensions and file checks, all five visual checks, no watermark, a complete bottle/cap, and visible evidence of the exact brand, fragrance, concentration and bottle size. Missing size or concentration evidence is held. An estimated confidence below 0.98 is held. AI estimates can be wrong: review published results regularly. Images are not generated, retouched or enlarged. The reference is supplied only to compare style and clarity.
+Use the existing assess/review/publish process in [photo-review-workflow.md](photo-review-workflow.md) to record the reviewer, exact identity, all five checks, source, license and notes before publishing. Photos are never generated, retouched or enlarged. Original files are copied with attribution only after explicit approval.
 
-Only approved Open Beauty Facts source images are imported under their existing CC BY-SA attribution. Seller sites are not scraped by this workflow. Pricing and affiliate feeds remain separate future integrations.
+Only Open Beauty Facts image candidates are downloaded under their existing licensing. Seller sites are not scraped; live market prices and affiliate feeds are not connected by this job. `data/photo-review-log.json` records the technical screening results and source hashes. Rejected unchanged sources are skipped.
 
-`data/photo-review-log.json` records source URLs, hashes, diagnostics and AI notes. Held/rejected unchanged source URLs are skipped; reviewed matching hashes are not sent again. To request a fresh review after correcting metadata or finding another source, remove that candidate's audit row through a reviewed change. Already approved images require the manual replacement workflow.
+The catalog job commits its results and dispatches `Publish fragrance library` so changes reach GitHub Pages automatically. Catalog runs are serialized. Deployments include only frontend files, assets and public catalog data.
 
-The website deploys through `Publish fragrance library`. The catalog job dispatches this deployment explicitly because commits made with GitHub's built-in Actions token do not start another push workflow. Concurrent catalog runs are serialized. Published site artifacts include only front-end files, assets and public catalog data; API keys stay in Actions secrets.
+Hosting uses the public GitHub Pages repository and collections use the existing Supabase Free project. Stay within the providers' free-plan limits; no paid upgrades or custom domain purchases are required for the present setup.

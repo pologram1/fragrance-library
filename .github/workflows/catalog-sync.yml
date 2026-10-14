@@ -24,10 +24,7 @@ jobs:
         run: |
           python scripts/photo_pipeline.test.py
           python scripts/auto_catalog.test.py
-      - name: Refresh catalog and review up to 10 photos
-        env:
-          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
-          PHOTO_REVIEW_MODEL: gpt-6-luna
+      - name: Refresh catalog and screen up to 10 photos
         run: python scripts/auto_catalog.py --limit 10
       - name: Commit catalog and approved originals
         run: |
