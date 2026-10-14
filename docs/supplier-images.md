@@ -1,53 +1,25 @@
-# Supplier image import: 500 approved-image target
+# Supplier catalog images
 
-Current approved images: 28. Additional unique approved images needed: 472. Product rows, variants, downloaded candidates and duplicates do not count as verified images.
+Miguel confirmed on 2026-10-14 that images from FragranceNet, Olfactory Factory LLC and Perfume Box are approved for this app. This is recorded as user-confirmed reuse permission, not a Creative Commons license or independently verified supplier agreement.
 
-## Selected suppliers
+Published catalog: **663 approved photos**, including **635 new supplier photos**. All 663 have distinct original SHA-256 hashes. The supplier batch reviewed 720 candidates; 85 were held after visual/identity checks. Detailed provenance is in `data/supplier-photo-review.json`.
 
-| Supplier | Current route | Publication status |
-| --- | --- | --- |
-| FragranceNet | Obtain written image-use authorization or a licensed affiliate product feed | Waiting for permission/feed |
-| Olfactory Factory LLC | Request a feed and written image-use authorization through its affiliate contact | Waiting for permission/feed |
-| Perfume Box | Request its offered product datafeed and permission covering a fragrance collection app | Waiting for permission/feed |
+This import uses public product metadata from Perfume Box and Olfactory Factory LLC. Only factual product identity and source links are stored; merchant descriptions are not republished. FragranceNet remains an available source for future imports.
 
-Source pages reviewed on 2026-10-14:
-- https://www.fragrancenet.com/help/terms_of_use — sections 3 and 4 restrict content reuse without written approval.
-- https://www.olfactoryfactoryllc.com/policies/terms-of-service — section 2 restricts copying without express written permission; section 12 also addresses scraping.
-- https://perfumebox.com/pages/dropshipping — offers, on request, a product datafeed including product images. This does not establish permission for an unrelated collection app.
-- https://perfumebox.com/pages/terms-condition — reviewed; no blanket catalog-image license identified.
+Each published photo has a source URL, original SHA-256, native dimensions, review date, product identity and visual checks. Review excludes box-only shots, lifestyle compositions, obvious variant conflicts, generated images, samples, gift sets and non-perfume products. Supplier variant metadata provides concentration and nominal bottle capacity; ounce-only sizes use standard marketed mL equivalents, not mathematical fluid-ounce conversion. No barcode is invented.
 
-A publicly accessible image or JSON endpoint does not establish an image reuse license. Affiliate membership also does not establish an image license unless the agreement grants that use. No supplier images were published from these sources in this step.
+Supplier photos remain hosted at their original HTTPS CDN URLs. This keeps the repository small and requires no paid image API. Source credit links appear on the product cards. If a supplier removes an image, or its native dimensions fail the app's checks, a placeholder appears. A URL can change after review; the recorded hash identifies the bytes that were inspected, not an ongoing guarantee of the remote asset.
 
-## Concrete request to the supplier
+## Publishing reviewed images
 
-Request a product feed containing SKU, barcode if available, brand, fragrance name, concentration, exact bottle size in mL, bottle type, high-resolution image URL, product URL, and attribution requirements. Ask for permission to display product photos in Fragrance Library, a Polo Studios collection/discovery app, and whether images may be cached in the public GitHub repository. Clarify permission for current and future commercial/affiliate use, storage requirements, feed refresh limits, and revocation handling. A feed intended solely for a dropshipping store may have a different permitted scope.
+The existing assessment workflow remains unchanged. Download originals, assess their native dimensions and integrity, then visually inspect each image against its source identity and the catalog reference. An assessment alone never approves a photo.
 
-Prefer full bottle/cap shots on white or transparent backgrounds. Need at least 472 new unique photos passing both technical and actual visual review. Prioritize Sauvage variants, Bleu de Chanel, YSL Y/Libre, Armani, Versace, Rabanne, Lattafa, Afnan, Armaf, Rasasi, Maison Alhambra, Creed, Parfums de Marly, Xerjoff, Initio and Maison Francis Kurkdjian.
-
-## Importing an authorized feed
-
-Normalize the supplied feed to CSV with these headers:
+A reviewed report may include `candidateImageUrl` and be published with:
 
 ```
-seller_sku,brand,fragrance,concentration,size_ml,image_url,product_url
+python scripts/photo_pipeline.py publish review.json --remote
 ```
 
-Keep an actual permission record locally, outside public GitHub if it contains private correspondence:
+Remote publication rechecks the local reviewed original and requires an allowed supplier HTTPS host. All visual, identity, source and permission fields remain mandatory. Without `--remote`, the publisher copies the unchanged original into the repository as before.
 
-```
-{"seller":"perfumebox","granted":true,"scope":"catalog-images","evidence":"Reference to the actual supplier permission or applicable feed license"}
-```
-
-The example is a format specification, not permission. Do not mark granted true without actual authorization.
-
-Run:
-
-```
-python scripts/import_seller_feed.py --seller perfumebox --feed authorized-feed.csv --permission-file permission.json --out /tmp/supplier-photo-review --limit 600
-```
-
-This downloads authorized candidate originals, rejects invalid URLs/metadata and technical failures, detects duplicate hashes, and creates `review.json`. It does not modify the live catalog or publish images. Product identity and all visual approval checks remain pending.
-
-Inspect each original against the existing quality reference. Confirm the exact fragrance/concentration/size and full bottle/cap, clear label, focus, natural proportions and clean background. Record reviewer, checks, identityConfirmed and notes only after inspection. Then use `photo_pipeline.py publish` through the existing reviewed workflow. Preserve source credit and permission scope. The approved image manifest count is the completion criterion, not import row count.
-
-No paid API or automated AI reviewer is required by this importer.
+This import adds catalog imagery, not a live pricing feed. Market valuation still requires matching, reviewed seller offers. Remaining mL and consumption-related value changes are already supported by the app.

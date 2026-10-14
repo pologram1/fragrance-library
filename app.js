@@ -23,7 +23,7 @@ async function loadCatalog(){
 function referencePhoto(record){
  const photo=PhotoStandards.approved(record,photoManifest);
  if(!photo)return bottleArt();
- const attribution=['CC BY-SA 3.0','CC-BY-SA-3.0'].includes(photo.license)?`<a href="${esc(safeURL(photo.sourceUrl)||'https://world.openbeautyfacts.org')}" target="_blank" rel="noopener noreferrer">${esc(photo.credit)}</a> · <a href="https://creativecommons.org/licenses/by-sa/3.0/" target="_blank" rel="noopener noreferrer">CC BY-SA 3.0</a>`:'Product image';
+ const attribution=['CC BY-SA 3.0','CC-BY-SA-3.0'].includes(photo.license)?`<a href="${esc(safeURL(photo.sourceUrl)||'https://world.openbeautyfacts.org')}" target="_blank" rel="noopener noreferrer">${esc(photo.credit)}</a> · <a href="https://creativecommons.org/licenses/by-sa/3.0/" target="_blank" rel="noopener noreferrer">CC BY-SA 3.0</a>`:photo.credit&&safeURL(photo.sourceUrl)?`<a href="${esc(safeURL(photo.sourceUrl))}" target="_blank" rel="noopener noreferrer">Photo: ${esc(photo.credit)}</a>`:'Product image';
  return `<figure class="product-photo approved-photo"><img src="${esc(photo.url)}" alt="${esc(record.brand+' '+record.name)} · product image" loading="lazy" data-approved-photo="true"><figcaption>${attribution}</figcaption></figure>`;
 }
 function renderCatalog(){

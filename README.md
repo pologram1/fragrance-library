@@ -59,4 +59,4 @@ Only explicitly reviewed photos appear on cards. Community photo URLs are source
 
 ## Applied photo review
 
-515 source candidates were technically assessed. The first visual review batch approved 13 additional photos and rejected 11; 37 further candidates failed technical checks. There are now 14 approved catalog images including the original reference. 454 candidates await visual review and remain excluded. See `data/photo-review-log.json` for the source audit. Approved originals are hosted locally with their credits.
+The catalog now has 663 approved images: 28 existing local originals plus 635 visually reviewed supplier-hosted photos. All have distinct reviewed SHA-256 hashes. A batch of 720 supplier candidates was inspected; 85 were held for visual or identity/variant concerns. Source links and review metadata are preserved in `data/photos.json` and `data/supplier-photo-review.json`. Miguel confirmed image reuse approval on 2026-10-14. See `docs/supplier-images.md` for publication and remote-image behavior.

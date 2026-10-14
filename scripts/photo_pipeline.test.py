@@ -57,6 +57,19 @@ class PhotoPipelineTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, 'changed after review'):
             pipeline.publish(self.report, root=self.root)
 
+    def test_remote_publish_preserves_review_and_does_not_copy(self):
+        item = self.report['candidates'][0]
+        item['candidateImageUrl'] = 'https://cdn.shopify.com/s/files/product.png?v=123'
+        pipeline.publish(self.report, root=self.root, remote=True)
+        photo = json.loads((self.root / 'data/photos.json').read_text())['photos'][item['product']['id']]
+        self.assertEqual(photo['url'], item['candidateImageUrl'])
+        self.assertEqual(photo['review']['sourceSha256'], pipeline.digest(self.source))
+
+    def test_remote_publish_rejects_untrusted_host(self):
+        self.report['candidates'][0]['candidateImageUrl'] = 'https://example.com/product.png'
+        with self.assertRaisesRegex(ValueError, 'supplier HTTPS'):
+            pipeline.publish(self.report, root=self.root, remote=True)
+
     def test_reject_wrong_product(self):
         self.report['candidates'][0]['product']['name'] = '9 AM Dive'
         with self.assertRaisesRegex(ValueError, 'identity does not match'):

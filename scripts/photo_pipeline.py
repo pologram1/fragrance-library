@@ -83,7 +83,7 @@ def assess(paths):
                 policyVersion=POLICY['version'], candidates=candidates)
 
 
-def publish(report, root=ROOT, replace=False):
+def publish(report, root=ROOT, replace=False, remote=False):
     root = Path(root)
     manifest_path = root / 'data/photos.json'
     manifest = json.loads(manifest_path.read_text())
@@ -139,6 +139,12 @@ def publish(report, root=ROOT, replace=False):
             if old and not replace:
                 raise ValueError('Replacing an approved image requires --replace')
             asset = 'assets/fragrances/' + product_id + '-' + actual['sha256'][:12] + FORMATS[actual['format']]
+        if remote:
+            image_url = item.get('candidateImageUrl', '')
+            parsed = urlparse(image_url)
+            if parsed.scheme != 'https' or parsed.hostname not in ('cdn.shopify.com', 'perfumebox.com', 'www.olfactoryfactoryllc.com') or parsed.username or parsed.password:
+                raise ValueError('Remote publication requires a reviewed supplier HTTPS image URL')
+            asset = image_url
         photo = dict(url=asset, status='approved', width=actual['width'], height=actual['height'],
                      source=item['source'], sourceUrl=source_url, credit=item.get('credit', ''), license=item['usagePermission'],
                      checks=item['checks'], review=dict(reviewedBy=item['reviewedBy'],
@@ -160,10 +166,11 @@ def publish(report, root=ROOT, replace=False):
         raise ValueError('No visually approved candidates to publish')
     # Validate the whole batch before copying any image or changing the manifest.
     for item, photo, record in planned:
-        destination = root / photo['url']
-        destination.parent.mkdir(parents=True, exist_ok=True)
-        if Path(item['path']).resolve() != destination.resolve():
-            shutil.copyfile(item['path'], destination)
+        if not remote:
+            destination = root / photo['url']
+            destination.parent.mkdir(parents=True, exist_ok=True)
+            if Path(item['path']).resolve() != destination.resolve():
+                shutil.copyfile(item['path'], destination)
         manifest['photos'][record['id']] = photo
         if record['id'] not in records:
             manifest.setdefault('additionalRecords', []).append(record)
@@ -183,10 +190,11 @@ if __name__ == '__main__':
     write = sub.add_parser('publish', help='Copy approved original images and update the website manifest')
     write.add_argument('review')
     write.add_argument('--replace', action='store_true')
+    write.add_argument('--remote', action='store_true', help='Display reviewed supplier-hosted originals without copying assets')
     args = parser.parse_args()
     if args.command == 'assess':
         report = assess(args.images)
         Path(args.out).write_text(json.dumps(report, indent=2, ensure_ascii=False) + '\n')
         print(json.dumps({'report': args.out, 'candidates': len(report['candidates']), 'status': 'pending visual review'}))
     else:
-        print(json.dumps({'published': publish(json.loads(Path(args.review).read_text()), replace=args.replace)}))
+        print(json.dumps({'published': publish(json.loads(Path(args.review).read_text()), replace=args.replace, remote=args.remote)}))
