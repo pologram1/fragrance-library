@@ -1,0 +1,44 @@
+name: Catalog and photo automation
+on:
+  schedule:
+    - cron: '17 8 * * *'
+  workflow_dispatch:
+permissions:
+  contents: write
+  actions: write
+concurrency:
+  group: catalog-sync
+  cancel-in-progress: false
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - name: Install image screening dependencies
+        run: pip install -r scripts/photo_requirements.txt
+      - name: Verify photo safeguards
+        run: |
+          python scripts/photo_pipeline.test.py
+          python scripts/auto_catalog.test.py
+      - name: Refresh catalog and review up to 10 photos
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          PHOTO_REVIEW_MODEL: gpt-6-luna
+        run: python scripts/auto_catalog.py --limit 10
+      - name: Commit catalog and approved originals
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add data/catalog.json data/catalog.sqlite data/photos.json data/photo-review-log.json assets/fragrances
+          if ! git diff --cached --quiet; then
+            git commit -m 'Refresh fragrance catalog and reviewed photos'
+            git push
+          fi
+      - name: Publish refreshed website
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh workflow run pages.yml --ref main

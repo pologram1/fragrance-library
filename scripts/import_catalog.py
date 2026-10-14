@@ -71,12 +71,18 @@ def convert(row):
                 reviewStatus='community-sourced', updatedAt=clean(row.get('last_modified_datetime')) or None)
 
 
-def build(dump_path, api_paths):
-    rows = {}
+def build(dump_path, api_paths, preserve=False):
+    existing = json.loads((ROOT / 'data/catalog.json').read_text())['fragrances'] if preserve else []
+    rows = {r['id']: r for r in existing}
+    reviewed = json.loads((ROOT / 'data/photos.json').read_text()).get('photos', {}) if preserve else {}
     with gzip.open(dump_path, 'rt', encoding='utf-8') as stream:
         for row in csv.DictReader(stream, delimiter='\t'):
             record = convert(row)
             if record:
+                previous = rows.get(record['id'])
+                # Preserve reviewed identities if community metadata changes underneath them.
+                if previous and record['id'] in reviewed:
+                    continue
                 rows[record['id']] = record
     for path in api_paths:
         for row in json.loads(Path(path).read_text())['products']:
@@ -84,6 +90,8 @@ def build(dump_path, api_paths):
                 row['categories_tags'] = ','.join(row['categories_tags'])
             record = convert(row)
             if record:
+                if preserve and record['id'] in reviewed and record['id'] in rows:
+                    continue
                 # Preserve known metadata from the dump if the lighter API lacks it.
                 previous = rows.get(record['id'], {})
                 rows[record['id']] = {key: value if value is not None else previous.get(key) for key, value in record.items()}
@@ -112,5 +120,6 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--dump', required=True)
     parser.add_argument('--api-pages', nargs='*', default=[])
+    parser.add_argument('--preserve', action='store_true', help='Keep existing records absent from the export and reviewed identities')
     args = parser.parse_args()
-    build(args.dump, args.api_pages)
+    build(args.dump, args.api_pages, args.preserve)
