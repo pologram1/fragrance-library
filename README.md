@@ -6,6 +6,10 @@ A Polo Studios project by Miguel A. De Jesus. Working product name.
 
 Open `index.html` in a browser, or serve this directory with `python3 -m http.server 8000` and visit http://localhost:8000. No build step or dependencies are required. Use the same browser and origin to retain saved collections.
 
+## Accounts
+
+Email sign-up/sign-in, password reset, private cloud collection storage, account isolation and optimistic conflict handling are implemented but **not activated**. A connected Supabase project, schema deployment and SMTP setup are required. Guest mode remains available. See `docs/accounts.md`.
+
 ## Implemented
 
 - Collectr-inspired navigation: overview, collection, discover, and wishlist, with bookmarkable hash routes.
@@ -32,7 +36,7 @@ Candidate sellers: FragranceNet, Beauty House, Jomashop, and FragFlex. Exact dom
 
 ## Important limitations
 
-No live pricing feeds, accounts, server database, or independently verified seller registry yet. Seller review and offer matching are user attestations in this prototype. The application starts empty and contains no invented market prices. Data is stored only in the current browser; export backups before switching devices or clearing storage. Only full-bottle replacement prices are calculated.
+No live pricing feeds or independently verified seller registry yet. Account/cloud code is prepared but requires backend activation. Seller review and offer matching are user attestations in this prototype. The application starts empty and contains no invented market prices. Data is stored only in the current browser; export backups before switching devices or clearing storage. Only full-bottle replacement prices are calculated.
 
 ## Validation
 

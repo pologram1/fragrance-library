@@ -1,0 +1,25 @@
+'use strict';
+const assert=require('node:assert/strict');
+const {create}=require('./cloud-store.js');
+const tick=()=>new Promise(resolve=>setImmediate(resolve));
+const deferred=()=>{let resolve;return {promise:new Promise(r=>resolve=r),resolve:v=>resolve(v)};};
+(async()=>{
+ const calls=[],requests=[],statuses=[];
+ const client={rpc:async(name,args)=>{calls.push({name,args});const d=deferred();requests.push(d);return d.promise;}};
+ const store=create(client,'user-a',0,s=>statuses.push(s));
+ store.save([{id:'first'}]);store.save([{id:'latest'}]);
+ assert.equal(calls.length,1);assert(store.dirty());
+ assert.equal(calls[0].args.p_owner,'user-a');assert.equal(calls[0].args.p_expected_version,0);
+ requests[0].resolve({data:1,error:null});await tick();
+ assert.equal(calls.length,2);assert.equal(calls[1].args.p_expected_version,1);
+ assert.deepEqual(calls[1].args.p_items,[{id:'latest'}]);
+ requests[1].resolve({data:2,error:null});await tick();assert.equal(store.version(),2);assert(!store.dirty());assert.equal(statuses.at(-1),'saved');
+ store.save([{id:'conflict'}]);requests[2].resolve({data:null,error:{code:'40001'}});await tick();
+ assert(store.dirty());assert.equal(statuses.at(-1),'conflict');assert.equal(store.retry(),false);assert.equal(calls.length,3);
+ store.invalidate();assert.equal(store.save([]),false);
+ let attempts=0;const retry=create({rpc:async()=>++attempts===1?{error:{code:'network'}}:{data:1}},'user-b',0);
+ retry.save([{id:'offline'}]);await tick();assert(retry.dirty());retry.retry();await tick();assert(!retry.dirty());assert.equal(attempts,2);
+ const late=deferred(),lateStatuses=[];const cancelled=create({rpc:()=>late.promise},'user-a',0,s=>lateStatuses.push(s));
+ cancelled.save([]);cancelled.invalidate();late.resolve({data:1});await tick();assert.equal(cancelled.version(),0);assert(!lateStatuses.includes('saved'));
+ console.log('Cloud save checks passed: ordered writes, owner binding, version conflicts, retry, and account-switch cancellation.');
+})().catch(e=>{console.error(e);process.exit(1);});
