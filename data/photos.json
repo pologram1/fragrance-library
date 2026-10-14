@@ -7,6 +7,7 @@
       "width": 375,
       "height": 500,
       "source": "Miguel supplied image(1).png as the catalog quality reference",
+      "sourceUrl": null,
       "credit": "Reference supplied by Miguel",
       "license": "User-supplied project reference; separate from imported dataset licenses",
       "checks": {
@@ -18,14 +19,475 @@
       },
       "review": {
         "reviewedBy": "Codex",
-        "reviewedAt": "2026-10-14T04:33:31.779314+00:00",
+        "reviewedAt": "2026-10-14T04:47:05.639180+00:00",
         "sourceSha256": "f4a7ac4e1ef556e5a44dab80f01bc427eeb8c3e014ab3d3f50367e0af383334a",
         "policyVersion": 1,
         "identityConfirmed": true,
+        "productIdentity": {
+          "brand": "Afnan",
+          "name": "9 PM Night Out",
+          "concentration": "Extrait de Parfum",
+          "sizeMl": 100
+        },
         "notes": "Visually inspected against the selected reference: sharp isolated bottle, readable 9 PM Night Out/Afnan/Extrait de Parfum/100 mL label, whole round cap and bottle, natural proportions, clean white background.",
         "technicalMetrics": {
           "focusEnergy": 297.1578,
           "cleanBorderFraction": 1.0
+        }
+      }
+    },
+    "obf-6290171072836": {
+      "url": "assets/fragrances/obf-6290171072836-7260ba1aba50.jpg",
+      "status": "approved",
+      "width": 416,
+      "height": 446,
+      "source": "https://images.openbeautyfacts.org/images/products/629/017/107/2836/front_es.5.full.jpg",
+      "sourceUrl": "https://world.openbeautyfacts.org/product/6290171072836",
+      "credit": "Open Beauty Facts contributors",
+      "license": "CC BY-SA 3.0",
+      "checks": {
+        "sharp": true,
+        "labelReadable": true,
+        "correctProduct": true,
+        "wholeBottle": true,
+        "cleanBackground": true
+      },
+      "review": {
+        "reviewedBy": "Codex",
+        "reviewedAt": "2026-10-14T04:47:04.981672+00:00",
+        "sourceSha256": "7260ba1aba50fb8da94d4fe7da5f8dbd1954a47b2529425c8c94a2ab3ecd503b",
+        "policyVersion": 1,
+        "identityConfirmed": true,
+        "productIdentity": {
+          "brand": "Afnan",
+          "name": "Afnan 9am Dive Eau De Parfum 100ml Unisex - Apple - One Size",
+          "concentration": "Eau de Parfum",
+          "sizeMl": 100
+        },
+        "notes": "Visually inspected original candidate. Whole 9 AM Dive bottle with its matching box, clean white background, readable Afnan/name and 100 mL Eau de Parfum on the source packaging.",
+        "technicalMetrics": {
+          "focusEnergy": 167.4715,
+          "cleanBorderFraction": 0.8768
+        }
+      }
+    },
+    "obf-0974567066932": {
+      "url": "assets/fragrances/obf-0974567066932-409df2649755.jpg",
+      "status": "approved",
+      "width": 544,
+      "height": 440,
+      "source": "https://images.openbeautyfacts.org/images/products/097/456/706/6932/front_es.3.full.jpg",
+      "sourceUrl": "https://world.openbeautyfacts.org/product/0974567066932",
+      "credit": "Open Beauty Facts contributors",
+      "license": "CC BY-SA 3.0",
+      "checks": {
+        "sharp": true,
+        "labelReadable": true,
+        "correctProduct": true,
+        "wholeBottle": true,
+        "cleanBackground": true
+      },
+      "review": {
+        "reviewedBy": "Codex",
+        "reviewedAt": "2026-10-14T04:47:05.001724+00:00",
+        "sourceSha256": "409df26497554231c95133bd06f0c20f6f5a395f8c013bc17515051c1818d650",
+        "policyVersion": 1,
+        "identityConfirmed": true,
+        "productIdentity": {
+          "brand": "Armaf",
+          "name": "Armaf Club De Nuit Intense Man EDT Men New in Box, 3.6 Fl Oz",
+          "concentration": "Eau de Toilette",
+          "sizeMl": 105
+        },
+        "notes": "Visually inspected original candidate. Whole Club de Nuit Intense Man bottle and matching box, crisp label and cap detail, EDT and 105 mL visibly printed on box.",
+        "technicalMetrics": {
+          "focusEnergy": 245.7053,
+          "cleanBorderFraction": 0.6881
+        }
+      }
+    },
+    "obf-0088300196890": {
+      "url": "assets/fragrances/obf-0088300196890-cd0479925960.jpg",
+      "status": "approved",
+      "width": 376,
+      "height": 481,
+      "source": "https://images.openbeautyfacts.org/images/products/008/830/019/6890/front_en.6.full.jpg",
+      "sourceUrl": "https://world.openbeautyfacts.org/product/0088300196890",
+      "credit": "Open Beauty Facts contributors",
+      "license": "CC BY-SA 3.0",
+      "checks": {
+        "sharp": true,
+        "labelReadable": true,
+        "correctProduct": true,
+        "wholeBottle": true,
+        "cleanBackground": true
+      },
+      "review": {
+        "reviewedBy": "Codex",
+        "reviewedAt": "2026-10-14T04:47:05.015785+00:00",
+        "sourceSha256": "cd0479925960c6bb4fba427a302f65cbce8b5d48aedc39378b2e492af62e86b0",
+        "policyVersion": 1,
+        "identityConfirmed": true,
+        "productIdentity": {
+          "brand": "Calvin Klein",
+          "name": "Calvin Klein CK In2U Him Eau de Toilette",
+          "concentration": "Eau de Toilette",
+          "sizeMl": 100
+        },
+        "notes": "Visually inspected original candidate. Clean CK IN2U Him bottle/box product shot, complete cap and base, readable CK IN2U branding, EDT and 100 mL printed on matching box.",
+        "technicalMetrics": {
+          "focusEnergy": 130.5447,
+          "cleanBorderFraction": 0.9993
+        }
+      }
+    },
+    "obf-0088300178278": {
+      "url": "assets/fragrances/obf-0088300178278-687cf52ace14.jpg",
+      "status": "approved",
+      "width": 784,
+      "height": 567,
+      "source": "https://images.openbeautyfacts.org/images/products/008/830/017/8278/front_es.5.full.jpg",
+      "sourceUrl": "https://world.openbeautyfacts.org/product/0088300178278",
+      "credit": "Open Beauty Facts contributors",
+      "license": "CC BY-SA 3.0",
+      "checks": {
+        "sharp": true,
+        "labelReadable": true,
+        "correctProduct": true,
+        "wholeBottle": true,
+        "cleanBackground": true
+      },
+      "review": {
+        "reviewedBy": "Codex",
+        "reviewedAt": "2026-10-14T04:47:05.061348+00:00",
+        "sourceSha256": "687cf52ace14114568003e1d526df4d769f3cd4db437ebf216ae5ad6727cd76b",
+        "policyVersion": 1,
+        "identityConfirmed": true,
+        "productIdentity": {
+          "brand": "Calvin Klein",
+          "name": "Calvin Klein Euphoria Men - Eau de Toilette 100ml",
+          "concentration": "Eau de Toilette",
+          "sizeMl": 100
+        },
+        "notes": "Visually inspected original candidate. Clean Euphoria Men bottle with matching box; full cap/base, readable name, eau de toilette and 100 mL on the box.",
+        "technicalMetrics": {
+          "focusEnergy": 212.6313,
+          "cleanBorderFraction": 0.9904
+        }
+      }
+    },
+    "obf-3145891165203": {
+      "url": "assets/fragrances/obf-3145891165203-5d5d9c7d1635.jpg",
+      "status": "approved",
+      "width": 650,
+      "height": 576,
+      "source": "https://images.openbeautyfacts.org/images/products/314/589/116/5203/front_fr.6.full.jpg",
+      "sourceUrl": "https://world.openbeautyfacts.org/product/3145891165203",
+      "credit": "Open Beauty Facts contributors",
+      "license": "CC BY-SA 3.0",
+      "checks": {
+        "sharp": true,
+        "labelReadable": true,
+        "correctProduct": true,
+        "wholeBottle": true,
+        "cleanBackground": true
+      },
+      "review": {
+        "reviewedBy": "Codex",
+        "reviewedAt": "2026-10-14T04:47:05.090866+00:00",
+        "sourceSha256": "5d5d9c7d1635d1922a56669c5140a4d594e638cef79d8f05f77eb4390ebc4cda",
+        "policyVersion": 1,
+        "identityConfirmed": true,
+        "productIdentity": {
+          "brand": "Chanel",
+          "name": "Coco Mademoiselle 100 ml",
+          "concentration": "Eau de Parfum",
+          "sizeMl": 100
+        },
+        "notes": "Visually inspected original candidate. Clean Coco Mademoiselle bottle/box shot, complete bottle and cap, sharp box branding, Eau de Parfum and 100 mL visible on source box.",
+        "technicalMetrics": {
+          "focusEnergy": 64.1405,
+          "cleanBorderFraction": 0.8711
+        }
+      }
+    },
+    "obf-3348901321129": {
+      "url": "assets/fragrances/obf-3348901321129-933fd38ee03a.jpg",
+      "status": "approved",
+      "width": 987,
+      "height": 997,
+      "source": "https://images.openbeautyfacts.org/images/products/334/890/132/1129/front_en.6.full.jpg",
+      "sourceUrl": "https://world.openbeautyfacts.org/product/3348901321129",
+      "credit": "Open Beauty Facts contributors",
+      "license": "CC BY-SA 3.0",
+      "checks": {
+        "sharp": true,
+        "labelReadable": true,
+        "correctProduct": true,
+        "wholeBottle": true,
+        "cleanBackground": true
+      },
+      "review": {
+        "reviewedBy": "Codex",
+        "reviewedAt": "2026-10-14T04:47:05.144613+00:00",
+        "sourceSha256": "933fd38ee03ad531d06fb1fac2ce90ab7cfa18e49d7c62a1a36d51f09ff2b3a6",
+        "policyVersion": 1,
+        "identityConfirmed": true,
+        "productIdentity": {
+          "brand": "Dior",
+          "name": "Dior Sauvage EDT Erkek Parfüm 200 ml",
+          "concentration": "Eau de Toilette",
+          "sizeMl": 200
+        },
+        "notes": "Visually inspected original candidate. Complete Sauvage bottle and matching EDT box against white, readable Sauvage/Dior branding. Size matched to the linked 200 mL barcode product record; no contradictory size on photo.",
+        "technicalMetrics": {
+          "focusEnergy": 123.5849,
+          "cleanBorderFraction": 0.9239
+        }
+      }
+    },
+    "obf-6291108737194": {
+      "url": "assets/fragrances/obf-6291108737194-a30305707d57.jpg",
+      "status": "approved",
+      "width": 1136,
+      "height": 982,
+      "source": "https://images.openbeautyfacts.org/images/products/629/110/873/7194/front_fr.6.full.jpg",
+      "sourceUrl": "https://world.openbeautyfacts.org/product/6291108737194",
+      "credit": "Open Beauty Facts contributors",
+      "license": "CC BY-SA 3.0",
+      "checks": {
+        "sharp": true,
+        "labelReadable": true,
+        "correctProduct": true,
+        "wholeBottle": true,
+        "cleanBackground": true
+      },
+      "review": {
+        "reviewedBy": "Codex",
+        "reviewedAt": "2026-10-14T04:47:05.200779+00:00",
+        "sourceSha256": "a30305707d57d4da14ff38f809a0d6aa5177dfc2e07fb2d7b1acf4e370d2b2d6",
+        "policyVersion": 1,
+        "identityConfirmed": true,
+        "productIdentity": {
+          "brand": "Lattafa",
+          "name": "Lattafa Khamrah - Eau de Parfum 100ml",
+          "concentration": "Eau de Parfum",
+          "sizeMl": 100
+        },
+        "notes": "Visually inspected original candidate. Whole Khamrah bottle and matching box, clean white background, readable Khamrah/Lattafa name; 100 mL EDP identity matched to source barcode record.",
+        "technicalMetrics": {
+          "focusEnergy": 133.792,
+          "cleanBorderFraction": 0.9568
+        }
+      }
+    },
+    "obf-0088300605309": {
+      "url": "assets/fragrances/obf-0088300605309-09e4f4d4c6bf.jpg",
+      "status": "approved",
+      "width": 344,
+      "height": 584,
+      "source": "https://images.openbeautyfacts.org/images/products/008/830/060/5309/front_en.4.full.jpg",
+      "sourceUrl": "https://world.openbeautyfacts.org/product/0088300605309",
+      "credit": "Open Beauty Facts contributors",
+      "license": "CC BY-SA 3.0",
+      "checks": {
+        "sharp": true,
+        "labelReadable": true,
+        "correctProduct": true,
+        "wholeBottle": true,
+        "cleanBackground": true
+      },
+      "review": {
+        "reviewedBy": "Codex",
+        "reviewedAt": "2026-10-14T04:47:05.220905+00:00",
+        "sourceSha256": "09e4f4d4c6bf0ca5ed1dd32b88f4961a697ca29794e2398f0b73cb57f3f5a79c",
+        "policyVersion": 1,
+        "identityConfirmed": true,
+        "productIdentity": {
+          "brand": "Calvin Klein",
+          "name": "Calvin Klein Eternity For Men - Eau de Toilette 50ml",
+          "concentration": "Eau de Toilette",
+          "sizeMl": 50
+        },
+        "notes": "Visually inspected original candidate. Isolated complete Eternity for Men bottle, clear name and eau de toilette label, white background; size matched to linked 50 mL source identity.",
+        "technicalMetrics": {
+          "focusEnergy": 297.4203,
+          "cleanBorderFraction": 0.6262
+        }
+      }
+    },
+    "obf-8435415012669": {
+      "url": "assets/fragrances/obf-8435415012669-e8d7921555e7.jpg",
+      "status": "approved",
+      "width": 601,
+      "height": 691,
+      "source": "https://images.openbeautyfacts.org/images/products/843/541/501/2669/front_en.7.full.jpg",
+      "sourceUrl": "https://world.openbeautyfacts.org/product/8435415012669",
+      "credit": "Open Beauty Facts contributors",
+      "license": "CC BY-SA 3.0",
+      "checks": {
+        "sharp": true,
+        "labelReadable": true,
+        "correctProduct": true,
+        "wholeBottle": true,
+        "cleanBackground": true
+      },
+      "review": {
+        "reviewedBy": "Codex",
+        "reviewedAt": "2026-10-14T04:47:05.252205+00:00",
+        "sourceSha256": "e8d7921555e74daf3335bfc93928195d1239e36b25c9c7101ba1ef96335ae2a8",
+        "policyVersion": 1,
+        "identityConfirmed": true,
+        "productIdentity": {
+          "brand": "Jean Paul Gaultier",
+          "name": "J.P. Gaultier Le Male - Eau de Toilette 125 ml",
+          "concentration": "Eau de Toilette",
+          "sizeMl": 125
+        },
+        "notes": "Visually inspected original candidate. Clean Le Male bottle with matching presentation tin, complete atomizer and bottle, sharp silhouette; source product identifies EDT 125 mL.",
+        "technicalMetrics": {
+          "focusEnergy": 104.2294,
+          "cleanBorderFraction": 0.9312
+        }
+      }
+    },
+    "obf-3605533286555": {
+      "url": "assets/fragrances/obf-3605533286555-5f3f8699bc8e.jpg",
+      "status": "approved",
+      "width": 816,
+      "height": 1016,
+      "source": "https://images.openbeautyfacts.org/images/products/360/553/328/6555/front_en.4.full.jpg",
+      "sourceUrl": "https://world.openbeautyfacts.org/product/3605533286555",
+      "credit": "Open Beauty Facts contributors",
+      "license": "CC BY-SA 3.0",
+      "checks": {
+        "sharp": true,
+        "labelReadable": true,
+        "correctProduct": true,
+        "wholeBottle": true,
+        "cleanBackground": true
+      },
+      "review": {
+        "reviewedBy": "Codex",
+        "reviewedAt": "2026-10-14T04:47:05.294356+00:00",
+        "sourceSha256": "5f3f8699bc8ee5b38bb49248b7064a2ed2cd12bc450ebe3af573e29ecd18ade8",
+        "policyVersion": 1,
+        "identityConfirmed": true,
+        "productIdentity": {
+          "brand": "Lancôme",
+          "name": "Lancome La Vie Est Belle EDP Kadın Parfüm 100 ml",
+          "concentration": "Eau de Parfum",
+          "sizeMl": 100
+        },
+        "notes": "Visually inspected original candidate. Clean isolated La Vie Est Belle bottle, full transparent cap and recognizable silver ribbon, sharp glass detail and natural proportions; EDP 100 mL matched to source record. Bottle design has no front text label.",
+        "technicalMetrics": {
+          "focusEnergy": 309.6305,
+          "cleanBorderFraction": 0.996
+        }
+      }
+    },
+    "obf-8011003817498": {
+      "url": "assets/fragrances/obf-8011003817498-79184428f2a3.jpg",
+      "status": "approved",
+      "width": 1024,
+      "height": 1024,
+      "source": "https://images.openbeautyfacts.org/images/products/801/100/381/7498/front_en.4.full.jpg",
+      "sourceUrl": "https://world.openbeautyfacts.org/product/8011003817498",
+      "credit": "Open Beauty Facts contributors",
+      "license": "CC BY-SA 3.0",
+      "checks": {
+        "sharp": true,
+        "labelReadable": true,
+        "correctProduct": true,
+        "wholeBottle": true,
+        "cleanBackground": true
+      },
+      "review": {
+        "reviewedBy": "Codex",
+        "reviewedAt": "2026-10-14T04:47:05.344755+00:00",
+        "sourceSha256": "79184428f2a365c48d568311be9fcf50e120516f0619bcac5a054d402928c3aa",
+        "policyVersion": 1,
+        "identityConfirmed": true,
+        "productIdentity": {
+          "brand": "Versace",
+          "name": "Versace Bright Crystal EDT Kadın Parfüm 200 ml",
+          "concentration": "Eau de Toilette",
+          "sizeMl": 200
+        },
+        "notes": "Visually inspected original candidate. Whole Bright Crystal bottle/cap with matching box on white; sharp branding and visible Eau de Toilette / 200 mL on box.",
+        "technicalMetrics": {
+          "focusEnergy": 199.5822,
+          "cleanBorderFraction": 0.8663
+        }
+      }
+    },
+    "obf-8011003891467": {
+      "url": "assets/fragrances/obf-8011003891467-1e1a05c53975.jpg",
+      "status": "approved",
+      "width": 803,
+      "height": 701,
+      "source": "https://images.openbeautyfacts.org/images/products/801/100/389/1467/front_en.4.full.jpg",
+      "sourceUrl": "https://world.openbeautyfacts.org/product/8011003891467",
+      "credit": "Open Beauty Facts contributors",
+      "license": "CC BY-SA 3.0",
+      "checks": {
+        "sharp": true,
+        "labelReadable": true,
+        "correctProduct": true,
+        "wholeBottle": true,
+        "cleanBackground": true
+      },
+      "review": {
+        "reviewedBy": "Codex",
+        "reviewedAt": "2026-10-14T04:47:05.376979+00:00",
+        "sourceSha256": "1e1a05c53975b71fd269c0e2106278d47c96092edf42cfa07ee3d75f86ce572e",
+        "policyVersion": 1,
+        "identityConfirmed": true,
+        "productIdentity": {
+          "brand": "Versace",
+          "name": "Versace Bright Crystal Parfum",
+          "concentration": "Parfum",
+          "sizeMl": 50
+        },
+        "notes": "Visually inspected original candidate. Clean isolated Bright Crystal Parfum bottle, complete crystal cap and readable gold Parfum/name; 50 mL matched to the linked source record.",
+        "technicalMetrics": {
+          "focusEnergy": 130.8915,
+          "cleanBorderFraction": 0.9119
+        }
+      }
+    },
+    "obf-8018365500020": {
+      "url": "assets/fragrances/obf-8018365500020-3eaaaf553da5.jpg",
+      "status": "approved",
+      "width": 495,
+      "height": 538,
+      "source": "https://images.openbeautyfacts.org/images/products/801/836/550/0020/front_nl.9.full.jpg",
+      "sourceUrl": "https://world.openbeautyfacts.org/product/8018365500020",
+      "credit": "Open Beauty Facts contributors",
+      "license": "CC BY-SA 3.0",
+      "checks": {
+        "sharp": true,
+        "labelReadable": true,
+        "correctProduct": true,
+        "wholeBottle": true,
+        "cleanBackground": true
+      },
+      "review": {
+        "reviewedBy": "Codex",
+        "reviewedAt": "2026-10-14T04:47:05.406061+00:00",
+        "sourceSha256": "3eaaaf553da52743a97a6c8f9c8492e44c3e974bd6f90b7b5397efb8ce5bf247",
+        "policyVersion": 1,
+        "identityConfirmed": true,
+        "productIdentity": {
+          "brand": "Versace",
+          "name": "Versace Man Eau Fraiche - Eau de Toilette 50ml",
+          "concentration": "Eau de Toilette",
+          "sizeMl": 50
+        },
+        "notes": "Visually inspected original candidate. Clean complete Versace Man Eau Fraiche bottle, cap and glass detail clear; label readable, rear text identifies 50 mL; EDT matched to product identity.",
+        "technicalMetrics": {
+          "focusEnergy": 118.5573,
+          "cleanBorderFraction": 0.8765
         }
       }
     }

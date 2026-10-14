@@ -56,3 +56,7 @@ Only explicitly reviewed photos appear on cards. Community photo URLs are source
 ## Photo ingestion workflow
 
 `photo_pipeline.py` assesses batches against your reference, produces review reports, and publishes only visually approved, identity-matched original files. It records review notes and source hashes; any source change requires reassessment. See `docs/photo-review-workflow.md`. The numerical checks flag issues; Codex still visually reviews every approved photo.
+
+## Applied photo review
+
+515 source candidates were technically assessed. The first visual review batch approved 13 additional photos and rejected 11; 37 further candidates failed technical checks. There are now 14 approved catalog images including the original reference. 454 candidates await visual review and remain excluded. See `data/photo-review-log.json` for the source audit. Approved originals are hosted locally with their credits.

@@ -123,6 +123,9 @@ def publish(report, root=ROOT, replace=False):
                 raise ValueError('Concentration does not match the catalog record')
             if previous_record.get('sizeMl') and previous_record['sizeMl'] != size:
                 raise ValueError('Bottle size does not match the catalog record')
+        source_url = item.get('sourceUrl')
+        if source_url and urlparse(source_url).scheme != 'https':
+            raise ValueError('Source product URL must use HTTPS')
         actual = metrics(item['path'])
         if actual['sha256'] != item.get('sha256'):
             raise ValueError('Candidate changed after review; reassess it')
@@ -137,10 +140,11 @@ def publish(report, root=ROOT, replace=False):
                 raise ValueError('Replacing an approved image requires --replace')
             asset = 'assets/fragrances/' + product_id + '-' + actual['sha256'][:12] + FORMATS[actual['format']]
         photo = dict(url=asset, status='approved', width=actual['width'], height=actual['height'],
-                     source=item['source'], credit=item.get('credit', ''), license=item['usagePermission'],
+                     source=item['source'], sourceUrl=source_url, credit=item.get('credit', ''), license=item['usagePermission'],
                      checks=item['checks'], review=dict(reviewedBy=item['reviewedBy'],
                      reviewedAt=datetime.now(timezone.utc).isoformat(), sourceSha256=actual['sha256'],
                      policyVersion=POLICY['version'], identityConfirmed=True,
+                     productIdentity={key: product[key] for key in ('brand','name','concentration','sizeMl')},
                      notes=item['reviewNotes'], technicalMetrics={key: actual[key] for key in ('focusEnergy', 'cleanBorderFraction')}))
         if not previous_record:
             if not product_id.startswith('studio-'):

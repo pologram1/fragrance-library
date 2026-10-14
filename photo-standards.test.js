@@ -6,6 +6,8 @@ const manifest=JSON.parse(fs.readFileSync(__dirname+'/data/photos.json','utf8'))
 const record=manifest.additionalRecords[0];
 assert(Photos.approved(record,manifest));
 assert(Photos.approved({catalogId:record.id},manifest));
+assert.equal(Photos.approved({catalogId:record.id,concentration:'Eau de Parfum',size:100},manifest),null);
+assert.equal(Photos.approved({catalogId:record.id,concentration:'Extrait de Parfum',size:50},manifest),null);
 assert.equal(Photos.approved({id:'obf-123'},manifest),null);
 const photo=manifest.photos[record.id];
 function altered(changes){return {photos:{[record.id]:{...photo,...changes}}};}
