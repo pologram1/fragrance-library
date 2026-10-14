@@ -1,0 +1,34 @@
+{
+  "version": 1,
+  "photos": {
+    "studio-afnan-9pm-night-out": {
+      "url": "assets/fragrances/afnan-9pm-night-out.png",
+      "status": "approved",
+      "width": 375,
+      "height": 500,
+      "source": "User-supplied quality reference, image(1).png",
+      "credit": "Reference supplied by Miguel",
+      "license": "User-supplied asset; separate from the Open Beauty Facts image license",
+      "checks": {
+        "sharp": true,
+        "labelReadable": true,
+        "correctProduct": true,
+        "wholeBottle": true,
+        "cleanBackground": true
+      }
+    }
+  },
+  "additionalRecords": [
+    {
+      "id": "studio-afnan-9pm-night-out",
+      "barcode": null,
+      "brand": "Afnan",
+      "name": "9 PM Night Out",
+      "quantity": "100 mL",
+      "sizeMl": 100,
+      "concentration": "Extrait de Parfum",
+      "sourceUrl": null,
+      "reviewStatus": "Identified from the supplied bottle label"
+    }
+  ]
+}

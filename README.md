@@ -48,3 +48,7 @@ Run `node catalog.test.js` and `node pricing.test.js` for median, retail fallbac
 2. Expand catalog coverage using approved retailer feeds; independently verify exact variants and seller registry.
 3. Add backend price retrieval with variant matching and freshness tracking.
 4. Add authentication and cross-device collection storage.
+
+## Photo quality
+
+Only explicitly reviewed photos appear on cards. Community photo URLs are source candidates; unreviewed images are replaced with a clear placeholder. The approved Afnan 9 PM Night Out reference is the first studio-curated product image. See `docs/photo-standard.md`. Run `node photo-standards.test.js` to check the approval gate.
