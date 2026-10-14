@@ -8,6 +8,11 @@ Open `index.html` in a browser, or serve this directory with `python3 -m http.se
 
 ## Implemented
 
+- Collectr-inspired navigation: overview, collection, discover, and wishlist, with bookmarkable hash routes.
+- Dashboard purchase costs, quantity-based pricing coverage, and top three fragrances ranked by total replacement value.
+- Four-name starter catalog; the user chooses the exact concentration and size. Generic bottle illustrations are placeholders, not product photographs.
+- Sort collection by name, brand, or total replacement value.
+
 - Add, edit, and remove fragrance variants: brand, name, concentration, bottle size, standard/tester, quantity, owned/wishlist, and optional purchase price.
 - Search and filter the collection.
 - Enter exact seller product links, prices, availability, review status, and check dates.
