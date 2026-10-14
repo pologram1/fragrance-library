@@ -3,11 +3,11 @@
   "reviewedAt": "2026-10-14T05:52:09.065722+00:00",
   "assessed": 515,
   "technicalRejections": 37,
-  "visuallyReviewed": 24,
+  "visuallyReviewed": 34,
   "summary": {
-    "pending_visual_review": 454,
+    "pending_visual_review": 444,
     "rejected": 48,
-    "approved": 13
+    "approved": 23
   },
   "candidates": [
     {
@@ -190,7 +190,8 @@
       "warnings": [
         "Low edge detail relative to the reference; inspect focus and label"
       ],
-      "status": "pending_visual_review"
+      "status": "approved",
+      "reviewNotes": "Readable Antonio Banderas Blue Seduction label; matching packaging states Eau de Toilette and 100 mL. Individually inspected native image for focus, legible label, accurate proportions, clean white background and no watermark. Original bytes retained."
     },
     {
       "id": "obf-8436616350451",
@@ -219,7 +220,8 @@
       "cleanBorderFraction": 0.898,
       "hardFailures": [],
       "warnings": [],
-      "status": "pending_visual_review"
+      "status": "approved",
+      "reviewNotes": "Complete Gran Paradiso bottle/cap and matching Aqua di Polo box with Eau de Parfum and 50 mL label. Individually inspected native image for focus, legible label, accurate proportions, clean white background and no watermark. Original bytes retained."
     },
     {
       "id": "obf-5301010028806",
@@ -232,7 +234,8 @@
       "cleanBorderFraction": 0.917,
       "hardFailures": [],
       "warnings": [],
-      "status": "pending_visual_review"
+      "status": "approved",
+      "reviewNotes": "Readable Aqua di Polo Bolsena bottle and box; Eau de Parfum and 50 mL visible. Individually inspected native image for focus, legible label, accurate proportions, clean white background and no watermark. Original bytes retained."
     },
     {
       "id": "obf-8682367012760",
@@ -245,7 +248,8 @@
       "cleanBorderFraction": 0.9588,
       "hardFailures": [],
       "warnings": [],
-      "status": "pending_visual_review"
+      "status": "approved",
+      "reviewNotes": "Complete Aqua di Polo Gran Paradiso Red bottle and matching packaging; Eau de Parfum, 50 mL visible. Individually inspected native image for focus, legible label, accurate proportions, clean white background and no watermark. Original bytes retained."
     },
     {
       "id": "obf-0974567066932",
@@ -2336,7 +2340,8 @@
       "cleanBorderFraction": 0.9323,
       "hardFailures": [],
       "warnings": [],
-      "status": "pending_visual_review"
+      "status": "approved",
+      "reviewNotes": "Complete My Soul Enchanted for Him bottle/cap; matching box clearly states 100 mL Eau de Parfum. Individually inspected native image for focus, legible label, accurate proportions, clean white background and no watermark. Original bytes retained."
     },
     {
       "id": "obf-8480000403841",
@@ -2349,7 +2354,8 @@
       "cleanBorderFraction": 0.9339,
       "hardFailures": [],
       "warnings": [],
-      "status": "pending_visual_review"
+      "status": "approved",
+      "reviewNotes": "Complete My Soul for Him bottle/cap; matching packaging clearly states 100 mL Eau de Parfum. Individually inspected native image for focus, legible label, accurate proportions, clean white background and no watermark. Original bytes retained."
     },
     {
       "id": "obf-8480000608888",
@@ -2388,7 +2394,8 @@
       "cleanBorderFraction": 0.877,
       "hardFailures": [],
       "warnings": [],
-      "status": "pending_visual_review"
+      "status": "approved",
+      "reviewNotes": "Complete My Soul Supreme for Him bottle/cap; matching packaging clearly states 100 mL Eau de Parfum. Individually inspected native image for focus, legible label, accurate proportions, clean white background and no watermark. Original bytes retained."
     },
     {
       "id": "obf-8480000403872",
@@ -5328,7 +5335,8 @@
       "cleanBorderFraction": 1.0,
       "hardFailures": [],
       "warnings": [],
-      "status": "pending_visual_review"
+      "status": "approved",
+      "reviewNotes": "Complete Marc Jacobs Perfect bottle/cap; matching box clearly states Eau de Parfum and 50 mL. Individually inspected native image for focus, legible label, accurate proportions, clean white background and no watermark. Original bytes retained."
     },
     {
       "id": "obf-8691541003487",
@@ -5980,7 +5988,8 @@
       "cleanBorderFraction": 1.0,
       "hardFailures": [],
       "warnings": [],
-      "status": "pending_visual_review"
+      "status": "approved",
+      "reviewNotes": "Complete Nautica Voyage Sport bottle/cap; matching packaging states Eau de Toilette and 100 mL. Individually inspected native image for focus, legible label, accurate proportions, clean white background and no watermark. Original bytes retained."
     },
     {
       "sha256": "be179b2fb47e7c3f318166ae2fdf2ef79764d3c87df6e1bbd3e24a09a442cb98",
@@ -6696,7 +6705,8 @@
       "cleanBorderFraction": 1.0,
       "hardFailures": [],
       "warnings": [],
-      "status": "pending_visual_review"
+      "status": "approved",
+      "reviewNotes": "Complete Ferragamo Signorina Unica bottle/cap; matching packaging states Eau de Parfum and 50 mL. Individually inspected native image for focus, legible label, accurate proportions, clean white background and no watermark. Original bytes retained."
     },
     {
       "id": "obf-4607183282528",

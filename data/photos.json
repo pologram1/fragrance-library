@@ -490,6 +490,356 @@
           "cleanBorderFraction": 0.8765
         }
       }
+    },
+    "obf-8411061081150": {
+      "url": "assets/fragrances/obf-8411061081150-be6c819851c2.jpg",
+      "status": "approved",
+      "width": 572,
+      "height": 490,
+      "source": "Open Beauty Facts",
+      "sourceUrl": "https://world.openbeautyfacts.org/product/8411061081150",
+      "credit": "Open Beauty Facts contributors",
+      "license": "CC-BY-SA-3.0",
+      "checks": {
+        "sharp": true,
+        "labelReadable": true,
+        "correctProduct": true,
+        "wholeBottle": true,
+        "cleanBackground": true
+      },
+      "review": {
+        "reviewedBy": "Codex visual review",
+        "reviewedAt": "2026-10-14T06:20:57.471368+00:00",
+        "sourceSha256": "be6c819851c27cc527a8dc25b5fe708a4e275d70610f8b7951eaed6701bfe65e",
+        "policyVersion": 1,
+        "identityConfirmed": true,
+        "productIdentity": {
+          "brand": "Antonio Banderas",
+          "name": "Antonio Banderas Blue Seduction For Men - Eau de Toilette 100ml",
+          "concentration": "Eau de Toilette",
+          "sizeMl": 100
+        },
+        "notes": "Readable Antonio Banderas Blue Seduction label; matching packaging states Eau de Toilette and 100 mL. Individually inspected native image for focus, legible label, accurate proportions, clean white background and no watermark. Original bytes retained.",
+        "technicalMetrics": {
+          "focusEnergy": 58.3365,
+          "cleanBorderFraction": 0.9357
+        }
+      }
+    },
+    "obf-5161010058711": {
+      "url": "assets/fragrances/obf-5161010058711-a33e964807d6.jpg",
+      "status": "approved",
+      "width": 754,
+      "height": 844,
+      "source": "Open Beauty Facts",
+      "sourceUrl": "https://world.openbeautyfacts.org/product/5161010058711",
+      "credit": "Open Beauty Facts contributors",
+      "license": "CC-BY-SA-3.0",
+      "checks": {
+        "sharp": true,
+        "labelReadable": true,
+        "correctProduct": true,
+        "wholeBottle": true,
+        "cleanBackground": true
+      },
+      "review": {
+        "reviewedBy": "Codex visual review",
+        "reviewedAt": "2026-10-14T06:20:57.509413+00:00",
+        "sourceSha256": "a33e964807d60b59d05a747a6cec1a65d3a527e63490ba715479d16f16a79481",
+        "policyVersion": 1,
+        "identityConfirmed": true,
+        "productIdentity": {
+          "brand": "Aqua di Polo",
+          "name": "Aqua di Polo 1987 Gran Paradiso EDP Erkek Parfüm 50 ml",
+          "concentration": "Eau de Parfum",
+          "sizeMl": 50
+        },
+        "notes": "Complete Gran Paradiso bottle/cap and matching Aqua di Polo box with Eau de Parfum and 50 mL label. Individually inspected native image for focus, legible label, accurate proportions, clean white background and no watermark. Original bytes retained.",
+        "technicalMetrics": {
+          "focusEnergy": 259.3942,
+          "cleanBorderFraction": 0.898
+        }
+      }
+    },
+    "obf-5301010028806": {
+      "url": "assets/fragrances/obf-5301010028806-66085ae0d0e6.jpg",
+      "status": "approved",
+      "width": 873,
+      "height": 834,
+      "source": "Open Beauty Facts",
+      "sourceUrl": "https://world.openbeautyfacts.org/product/5301010028806",
+      "credit": "Open Beauty Facts contributors",
+      "license": "CC-BY-SA-3.0",
+      "checks": {
+        "sharp": true,
+        "labelReadable": true,
+        "correctProduct": true,
+        "wholeBottle": true,
+        "cleanBackground": true
+      },
+      "review": {
+        "reviewedBy": "Codex visual review",
+        "reviewedAt": "2026-10-14T06:20:57.547740+00:00",
+        "sourceSha256": "66085ae0d0e639eef1d1f45d6a9d769259f9b073d391fa9baf2709b6bc55199a",
+        "policyVersion": 1,
+        "identityConfirmed": true,
+        "productIdentity": {
+          "brand": "Aqua di Polo",
+          "name": "Bolsena Eau de Parfum",
+          "concentration": "Eau de Parfum",
+          "sizeMl": 50
+        },
+        "notes": "Readable Aqua di Polo Bolsena bottle and box; Eau de Parfum and 50 mL visible. Individually inspected native image for focus, legible label, accurate proportions, clean white background and no watermark. Original bytes retained.",
+        "technicalMetrics": {
+          "focusEnergy": 277.0493,
+          "cleanBorderFraction": 0.917
+        }
+      }
+    },
+    "obf-8682367012760": {
+      "url": "assets/fragrances/obf-8682367012760-a716ea3d894c.jpg",
+      "status": "approved",
+      "width": 854,
+      "height": 882,
+      "source": "Open Beauty Facts",
+      "sourceUrl": "https://world.openbeautyfacts.org/product/8682367012760",
+      "credit": "Open Beauty Facts contributors",
+      "license": "CC-BY-SA-3.0",
+      "checks": {
+        "sharp": true,
+        "labelReadable": true,
+        "correctProduct": true,
+        "wholeBottle": true,
+        "cleanBackground": true
+      },
+      "review": {
+        "reviewedBy": "Codex visual review",
+        "reviewedAt": "2026-10-14T06:20:57.590662+00:00",
+        "sourceSha256": "a716ea3d894c8d5be7f4b5841bb2ae5821f3c73091e6e3f93e29bcfb4ec433d5",
+        "policyVersion": 1,
+        "identityConfirmed": true,
+        "productIdentity": {
+          "brand": "Aqua di Polo",
+          "name": "Gran Paradiso Red Eau de Parfum",
+          "concentration": "Eau de Parfum",
+          "sizeMl": 50
+        },
+        "notes": "Complete Aqua di Polo Gran Paradiso Red bottle and matching packaging; Eau de Parfum, 50 mL visible. Individually inspected native image for focus, legible label, accurate proportions, clean white background and no watermark. Original bytes retained.",
+        "technicalMetrics": {
+          "focusEnergy": 342.9639,
+          "cleanBorderFraction": 0.9588
+        }
+      }
+    },
+    "obf-8480000231147": {
+      "url": "assets/fragrances/obf-8480000231147-6984da49c590.jpg",
+      "status": "approved",
+      "width": 1329,
+      "height": 1341,
+      "source": "Open Beauty Facts",
+      "sourceUrl": "https://world.openbeautyfacts.org/product/8480000231147",
+      "credit": "Open Beauty Facts contributors",
+      "license": "CC-BY-SA-3.0",
+      "checks": {
+        "sharp": true,
+        "labelReadable": true,
+        "correctProduct": true,
+        "wholeBottle": true,
+        "cleanBackground": true
+      },
+      "review": {
+        "reviewedBy": "Codex visual review",
+        "reviewedAt": "2026-10-14T06:20:57.663387+00:00",
+        "sourceSha256": "6984da49c5905d33b0257d5919cca7dc9fbcee016d1d4940cdb53e6b19102faa",
+        "policyVersion": 1,
+        "identityConfirmed": true,
+        "productIdentity": {
+          "brand": "Deliplus",
+          "name": "Eau de parfum hombre My Soul Enchanted for him",
+          "concentration": "Eau de Parfum",
+          "sizeMl": 100
+        },
+        "notes": "Complete My Soul Enchanted for Him bottle/cap; matching box clearly states 100 mL Eau de Parfum. Individually inspected native image for focus, legible label, accurate proportions, clean white background and no watermark. Original bytes retained.",
+        "technicalMetrics": {
+          "focusEnergy": 160.767,
+          "cleanBorderFraction": 0.9323
+        }
+      }
+    },
+    "obf-8480000403841": {
+      "url": "assets/fragrances/obf-8480000403841-4c0a1fd7ad86.jpg",
+      "status": "approved",
+      "width": 1328,
+      "height": 1341,
+      "source": "Open Beauty Facts",
+      "sourceUrl": "https://world.openbeautyfacts.org/product/8480000403841",
+      "credit": "Open Beauty Facts contributors",
+      "license": "CC-BY-SA-3.0",
+      "checks": {
+        "sharp": true,
+        "labelReadable": true,
+        "correctProduct": true,
+        "wholeBottle": true,
+        "cleanBackground": true
+      },
+      "review": {
+        "reviewedBy": "Codex visual review",
+        "reviewedAt": "2026-10-14T06:20:57.743935+00:00",
+        "sourceSha256": "4c0a1fd7ad861c2e3e00d0761cc45e2b535fc8f25698923864c6a0ba3ab3fd4e",
+        "policyVersion": 1,
+        "identityConfirmed": true,
+        "productIdentity": {
+          "brand": "Deliplus",
+          "name": "Eau de parfum hombre My Soul for him",
+          "concentration": "Eau de Parfum",
+          "sizeMl": 100
+        },
+        "notes": "Complete My Soul for Him bottle/cap; matching packaging clearly states 100 mL Eau de Parfum. Individually inspected native image for focus, legible label, accurate proportions, clean white background and no watermark. Original bytes retained.",
+        "technicalMetrics": {
+          "focusEnergy": 296.0789,
+          "cleanBorderFraction": 0.9339
+        }
+      }
+    },
+    "obf-8480000134370": {
+      "url": "assets/fragrances/obf-8480000134370-450d8c2947dc.jpg",
+      "status": "approved",
+      "width": 1328,
+      "height": 1325,
+      "source": "Open Beauty Facts",
+      "sourceUrl": "https://world.openbeautyfacts.org/product/8480000134370",
+      "credit": "Open Beauty Facts contributors",
+      "license": "CC-BY-SA-3.0",
+      "checks": {
+        "sharp": true,
+        "labelReadable": true,
+        "correctProduct": true,
+        "wholeBottle": true,
+        "cleanBackground": true
+      },
+      "review": {
+        "reviewedBy": "Codex visual review",
+        "reviewedAt": "2026-10-14T06:20:57.833614+00:00",
+        "sourceSha256": "450d8c2947dc4fc7860999929d852d52672a5183be34b9647270d2dd3a1b3a0a",
+        "policyVersion": 1,
+        "identityConfirmed": true,
+        "productIdentity": {
+          "brand": "Deliplus",
+          "name": "Eau de parfum hombre My Soul Supreme for him",
+          "concentration": "Eau de Parfum",
+          "sizeMl": 100
+        },
+        "notes": "Complete My Soul Supreme for Him bottle/cap; matching packaging clearly states 100 mL Eau de Parfum. Individually inspected native image for focus, legible label, accurate proportions, clean white background and no watermark. Original bytes retained.",
+        "technicalMetrics": {
+          "focusEnergy": 359.6554,
+          "cleanBorderFraction": 0.877
+        }
+      }
+    },
+    "obf-3614227086029": {
+      "url": "assets/fragrances/obf-3614227086029-41976b14d448.jpg",
+      "status": "approved",
+      "width": 772,
+      "height": 752,
+      "source": "Open Beauty Facts",
+      "sourceUrl": "https://world.openbeautyfacts.org/product/3614227086029",
+      "credit": "Open Beauty Facts contributors",
+      "license": "CC-BY-SA-3.0",
+      "checks": {
+        "sharp": true,
+        "labelReadable": true,
+        "correctProduct": true,
+        "wholeBottle": true,
+        "cleanBackground": true
+      },
+      "review": {
+        "reviewedBy": "Codex visual review",
+        "reviewedAt": "2026-10-14T06:20:57.869667+00:00",
+        "sourceSha256": "41976b14d44848ca3b67932067b47d0a2ac78fee288dddf9a18d5501902df5cc",
+        "policyVersion": 1,
+        "identityConfirmed": true,
+        "productIdentity": {
+          "brand": "Marc Jacobs",
+          "name": "Perfect Eau de Parfum",
+          "concentration": "Eau de Parfum",
+          "sizeMl": 50
+        },
+        "notes": "Complete Marc Jacobs Perfect bottle/cap; matching box clearly states Eau de Parfum and 50 mL. Individually inspected native image for focus, legible label, accurate proportions, clean white background and no watermark. Original bytes retained.",
+        "technicalMetrics": {
+          "focusEnergy": 168.097,
+          "cleanBorderFraction": 1.0
+        }
+      }
+    },
+    "obf-0818253701380": {
+      "url": "assets/fragrances/obf-0818253701380-c37cbce5c23d.jpg",
+      "status": "approved",
+      "width": 896,
+      "height": 1190,
+      "source": "Open Beauty Facts",
+      "sourceUrl": "https://world.openbeautyfacts.org/product/0818253701380",
+      "credit": "Open Beauty Facts contributors",
+      "license": "CC-BY-SA-3.0",
+      "checks": {
+        "sharp": true,
+        "labelReadable": true,
+        "correctProduct": true,
+        "wholeBottle": true,
+        "cleanBackground": true
+      },
+      "review": {
+        "reviewedBy": "Codex visual review",
+        "reviewedAt": "2026-10-14T06:20:57.951921+00:00",
+        "sourceSha256": "c37cbce5c23d186a177d493b0cf536a3895fe0d7b24a43d80fa54ede56fcbdd7",
+        "policyVersion": 1,
+        "identityConfirmed": true,
+        "productIdentity": {
+          "brand": "Nautica",
+          "name": "Nautica Voyage Sport Eau De Toilette Spray 3.4 Oz",
+          "concentration": "Eau de Toilette",
+          "sizeMl": 100
+        },
+        "notes": "Complete Nautica Voyage Sport bottle/cap; matching packaging states Eau de Toilette and 100 mL. Individually inspected native image for focus, legible label, accurate proportions, clean white background and no watermark. Original bytes retained.",
+        "technicalMetrics": {
+          "focusEnergy": 145.7173,
+          "cleanBorderFraction": 1.0
+        }
+      }
+    },
+    "obf-8052464896080": {
+      "url": "assets/fragrances/obf-8052464896080-020e2ca874c2.jpg",
+      "status": "approved",
+      "width": 944,
+      "height": 440,
+      "source": "Open Beauty Facts",
+      "sourceUrl": "https://world.openbeautyfacts.org/product/8052464896080",
+      "credit": "Open Beauty Facts contributors",
+      "license": "CC-BY-SA-3.0",
+      "checks": {
+        "sharp": true,
+        "labelReadable": true,
+        "correctProduct": true,
+        "wholeBottle": true,
+        "cleanBackground": true
+      },
+      "review": {
+        "reviewedBy": "Codex visual review",
+        "reviewedAt": "2026-10-14T06:20:57.975173+00:00",
+        "sourceSha256": "020e2ca874c226a7167bff8878e595f81d6a36a7ae0484d816aed4ea2a6d62c8",
+        "policyVersion": 1,
+        "identityConfirmed": true,
+        "productIdentity": {
+          "brand": "Salvatore Ferragamo",
+          "name": "Ferragamo Signorina Unica Eau de Parfum",
+          "concentration": "Eau de Parfum",
+          "sizeMl": 50
+        },
+        "notes": "Complete Ferragamo Signorina Unica bottle/cap; matching packaging states Eau de Parfum and 50 mL. Individually inspected native image for focus, legible label, accurate proportions, clean white background and no watermark. Original bytes retained.",
+        "technicalMetrics": {
+          "focusEnergy": 116.9638,
+          "cleanBorderFraction": 1.0
+        }
+      }
     }
   },
   "additionalRecords": [

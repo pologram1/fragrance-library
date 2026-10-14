@@ -9,8 +9,8 @@
  function guest(){try{return callbacks.validate(JSON.parse(localStorage.getItem(GUEST_KEY)||'[]'));}catch{return [];}}
  function ui(){
   $('#account-button').textContent=user?'Account':'Sign in';
-  $('#account-email').textContent=user?.email||'';
-  $('#account-panel').hidden=!user;$('#auth-form').hidden=mode!=='update'&&(!config.emailPasswordEnabled||Boolean(user));$('#google-panel').hidden=Boolean(user)||mode==='update';$('#google-signin').disabled=busy||!client||!googleReady;$('#google-signin').textContent=busy?'Please wait…':'Continue with Google';$('#google-status').textContent=googleChecking?'Checking Google sign-in…':googleReady?'Create an account or sign in with your Google account.':'Google sign-in is being configured. Your guest collection is available meanwhile.';
+  $('#account-email').textContent=UsernameAuth.display(user);$('#signup-button').hidden=Boolean(user);$('#signup-button').disabled=busy||!client;
+  $('#account-panel').hidden=!user;$('#auth-form').hidden=mode!=='update'&&(!config.emailPasswordEnabled||Boolean(user));$('#google-panel').hidden=Boolean(config.usernameAccounts)||Boolean(user)||mode==='update';$('#google-signin').disabled=busy||!client||!googleReady;$('#google-signin').textContent=busy?'Please wait…':'Continue with Google';$('#google-status').textContent=googleChecking?'Checking Google sign-in…':googleReady?'Create an account or sign in with your Google account.':'Google sign-in is being configured. Your guest collection is available meanwhile.';
   $('#auth-tabs').hidden=Boolean(user)||phase==='unconfigured'||!config.emailPasswordEnabled;
   $('#account-setup').hidden=phase!=='unconfigured'&&phase!=='unavailable';
   $('#account-setup').textContent=phase==='unconfigured'?'Account setup is in progress. For now, your guest collection is saved only in this browser.':phase==='unavailable'?'Account service could not load. Reload the page to try again.':'';
@@ -18,7 +18,7 @@
   $('#auth-email').disabled=!client;$('#auth-password').disabled=!client;
   $('#auth-email-label').hidden=mode==='update';$('#auth-email').required=mode!=='update';
   $('#auth-password-label').hidden=mode==='reset';$('#auth-password').required=mode!=='reset';
-  $('#auth-password').minLength=mode==='signin'?1:12;
+  $('#auth-password').minLength=mode==='signin'?1:12;$('#auth-confirm-label').hidden=mode!=='signup';$('#auth-confirm').required=mode==='signup';$('#auth-confirm').disabled=busy||mode!=='signup';$('#forgot-password').hidden=!config.emailDeliveryReady;
   $('#auth-password').autocomplete=mode==='signin'?'current-password':'new-password';
   $('#auth-title').textContent=user&&mode!=='update'?'Your account':({signin:'Welcome back',signup:'Create your collection',reset:'Reset your password',update:'Choose a new password'})[mode];
   $('#auth-submit').textContent=busy?'Please wait…':({signin:'Sign in',signup:'Create account',reset:'Send reset link',update:'Save new password'})[mode];
@@ -31,8 +31,8 @@
   $('#sync-status').textContent=labels[phase]||'';
   $('#storage-note').textContent=user?'Your account collection is private. Export a backup whenever you need one.':'Guest collection stored in this browser. Export a backup to keep a copy.';
  }
- function setMode(next){if(next==='signup'&&!config.registrationEnabled)return;if(next==='reset'&&!config.emailDeliveryReady)return;mode=next;$('#auth-password').value='';message('');ui();}
- function open(){mode='signin';message('');ui();$('#account-dialog').showModal();if(client)void checkGoogle();}
+ function setMode(next){if(next==='signup'&&!config.registrationEnabled)return;if(next==='reset'&&!config.emailDeliveryReady)return;mode=next;$('#auth-password').value='';$('#auth-confirm').value='';message('');ui();}
+ function open(next='signin'){mode=typeof next==='string'?next:'signin';message('');ui();$('#account-dialog').showModal();if(client&&!config.usernameAccounts)void checkGoogle();}
  async function checkGoogle(){if(googleChecking)return;googleChecking=true;ui();googleReady=await GoogleSignIn.available(fetch,config.supabaseUrl,config.supabasePublishableKey);googleChecking=false;ui();}
  function notify(){ui();callbacks?.onState();}
  async function setAccount(session,force=false){
@@ -54,7 +54,7 @@
  }
  async function initialize(options){
   callbacks=options;
-  $('#account-button').onclick=open;$('#google-signin').onclick=async()=>{if(!client||busy||!googleReady)return;busy=true;message('');ui();try{await GoogleSignIn.start(client,redirect());}catch{message('Google sign-in could not start. Please try again.');}finally{busy=false;ui();}};
+  $('#account-button').onclick=()=>open();$('#signup-button').onclick=()=>open('signup');$('#google-signin').onclick=async()=>{if(!client||busy||!googleReady)return;busy=true;message('');ui();try{await GoogleSignIn.start(client,redirect());}catch{message('Google sign-in could not start. Please try again.');}finally{busy=false;ui();}};
   document.querySelectorAll('[data-auth-mode]').forEach(b=>b.onclick=()=>setMode(b.dataset.authMode));
   $('#forgot-password').onclick=()=>setMode('reset');
   $('#guest-transfer').onclick=()=>{
@@ -75,22 +75,24 @@
   $('#sync-reload').onclick=()=>{if(store?.dirty()&&!confirm('Reload the cloud collection and discard unsynced changes? Export a backup first if you need to keep them.'))return;void setAccount({user},true);};
   $('#auth-form').onsubmit=async event=>{
    event.preventDefault();if(!client||busy)return;if(mode==='signup'&&!config.registrationEnabled||mode==='reset'&&!config.emailDeliveryReady){message('Account emails are not available yet.');return;}busy=true;message('');ui();
-   const email=$('#auth-email').value.trim(),password=$('#auth-password').value,submittedMode=mode;
+   const password=$('#auth-password').value,submittedMode=mode;
    try{
     let result;
-    if(mode==='signup')result=await client.auth.signUp({email,password,options:{emailRedirectTo:redirect()}});
+    const credentials=UsernameAuth.credentials($('#auth-email').value,password,$('#auth-confirm').value,mode==='signup');
+    const email=credentials.email;
+    if(mode==='signup')result=await client.auth.signUp(credentials);
     else if(mode==='reset')result=await client.auth.resetPasswordForEmail(email,{redirectTo:redirect()});
     else if(mode==='update')result=await client.auth.updateUser({password});
     else result=await client.auth.signInWithPassword({email,password});
     if(result.error)throw result.error;
     $('#auth-password').value='';
-    if(submittedMode==='signup')message('If registration is available for this email, check your inbox to confirm your account before signing in.');
+    if(submittedMode==='signup'){if(result.data?.session){await setAccount(result.data.session,true);message('Account created. Your collection is ready.');}else message('Account creation did not return a session. Please try signing in.');}
     else if(submittedMode==='reset')message('If an account exists for this email, a password reset link will arrive in your inbox.');
     else if(submittedMode==='update'){setMode('signin');message('Password updated.');}
     else $('#account-dialog').close();
    }catch(error){
-    const code=error.code;
-    message(code==='email_not_confirmed'?'Confirm your email before signing in.':code==='over_email_send_rate_limit'||code==='over_request_rate_limit'?'Too many attempts. Please wait and try again.':submittedMode==='signin'?'Could not sign in. Check your email and password.':submittedMode==='signup'?'Account creation failed. Please try again later or use another email.':'The request could not be completed. Try again.');
+    const code=error.code;if(!code&&error.message&&/characters|Passwords do not match|Enter your password/.test(error.message)){message(error.message);return;}
+    message(code==='email_not_confirmed'?'Confirm your email before signing in.':code==='over_email_send_rate_limit'||code==='over_request_rate_limit'?'Too many attempts. Please wait and try again.':submittedMode==='signin'?'Could not sign in. Check your username and password.':submittedMode==='signup'?'Could not create this account. Try another username or wait and try again.':'The request could not be completed. Try again.');
    }finally{busy=false;ui();}
   };
   window.addEventListener('beforeunload',e=>{if(store?.dirty()){e.preventDefault();e.returnValue='';}});
@@ -110,7 +112,7 @@
     },0);
    });
    const {data,error}=await client.auth.getSession();if(error)throw error;
-   await setAccount(data.session);ui();void checkGoogle();const errors=new URLSearchParams(location.hash.slice(1));if(errors.has('error')||new URLSearchParams(location.search).has('error')){open();message('Google sign-in was not completed. You can try again.');}
+   await setAccount(data.session);ui();if(!config.usernameAccounts)void checkGoogle();const errors=new URLSearchParams(location.hash.slice(1));if(errors.has('error')||new URLSearchParams(location.search).has('error')){open();message('Google sign-in was not completed. You can try again.');}
   }catch{phase='unavailable';client=null;callbacks.onCollection(guest());notify();}
  }
  window.CollectionAccount={initialize,save(items){return store?.save(items)||false;},
