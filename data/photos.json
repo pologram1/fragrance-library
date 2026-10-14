@@ -840,6 +840,146 @@
           "cleanBorderFraction": 1.0
         }
       }
+    },
+    "obf-0737052339047": {
+      "url": "assets/fragrances/obf-0737052339047-f8ee05ea0b0f.jpg",
+      "status": "approved",
+      "width": 472,
+      "height": 432,
+      "source": "Open Beauty Facts",
+      "sourceUrl": "https://world.openbeautyfacts.org/product/0737052339047",
+      "credit": "Open Beauty Facts contributors",
+      "license": "CC BY-SA 3.0",
+      "checks": {
+        "sharp": true,
+        "labelReadable": true,
+        "correctProduct": true,
+        "wholeBottle": true,
+        "cleanBackground": true
+      },
+      "review": {
+        "reviewedBy": "Codex visual review",
+        "reviewedAt": "2026-10-14T20:08:31.736697+00:00",
+        "sourceSha256": "f8ee05ea0b0fbfe18926761133420580149cf09f128d272c306e9a0b5eff747a",
+        "policyVersion": 1,
+        "identityConfirmed": true,
+        "productIdentity": {
+          "brand": "Gucci",
+          "name": "Gucci Guilty Pour Homme - Eau de Toilette 90ml",
+          "concentration": "Eau de Toilette",
+          "sizeMl": 90
+        },
+        "notes": "Gucci Guilty Pour Homme; matching box visibly states Eau de Toilette, 90 mL. Original inspected individually: complete bottle and cap, sharp readable product identity, clean white background, accurate proportions, no watermark. Original bytes retained.",
+        "technicalMetrics": {
+          "focusEnergy": 291.2848,
+          "cleanBorderFraction": 0.6649
+        }
+      }
+    },
+    "obf-6290360590677": {
+      "url": "assets/fragrances/obf-6290360590677-b59fd5f0c43c.jpg",
+      "status": "approved",
+      "width": 436,
+      "height": 425,
+      "source": "Open Beauty Facts",
+      "sourceUrl": "https://world.openbeautyfacts.org/product/6290360590677",
+      "credit": "Open Beauty Facts contributors",
+      "license": "CC BY-SA 3.0",
+      "checks": {
+        "sharp": true,
+        "labelReadable": true,
+        "correctProduct": true,
+        "wholeBottle": true,
+        "cleanBackground": true
+      },
+      "review": {
+        "reviewedBy": "Codex visual review",
+        "reviewedAt": "2026-10-14T20:08:31.684552+00:00",
+        "sourceSha256": "b59fd5f0c43c5d4cedf39a09978a9429b0d4ccd1549f56666ba37422bc7ef0a1",
+        "policyVersion": 1,
+        "identityConfirmed": true,
+        "productIdentity": {
+          "brand": "Maison Alhambra",
+          "name": "Daring Blue for Life Eau",
+          "concentration": "Eau de Parfum",
+          "sizeMl": 100
+        },
+        "notes": "Maison Alhambra Daring Blue for Life; matching box visibly states Eau de Parfum, 100 mL. Original inspected individually: complete bottle and cap, sharp readable product identity, clean white background, accurate proportions, no watermark. Original bytes retained.",
+        "technicalMetrics": {
+          "focusEnergy": 334.8199,
+          "cleanBorderFraction": 0.9999
+        }
+      }
+    },
+    "obf-3349668515660": {
+      "url": "assets/fragrances/obf-3349668515660-1e5df5d400d1.jpg",
+      "status": "approved",
+      "width": 792,
+      "height": 536,
+      "source": "Open Beauty Facts",
+      "sourceUrl": "https://world.openbeautyfacts.org/product/3349668515660",
+      "credit": "Open Beauty Facts contributors",
+      "license": "CC BY-SA 3.0",
+      "checks": {
+        "sharp": true,
+        "labelReadable": true,
+        "correctProduct": true,
+        "wholeBottle": true,
+        "cleanBackground": true
+      },
+      "review": {
+        "reviewedBy": "Codex visual review",
+        "reviewedAt": "2026-10-14T20:08:31.702341+00:00",
+        "sourceSha256": "1e5df5d400d1b4e3fdc8346e0075cfc6e6e6216fc24c80875558f3cab485b7c3",
+        "policyVersion": 1,
+        "identityConfirmed": true,
+        "productIdentity": {
+          "brand": "Rabanne",
+          "name": "Paco Rabanne Invictus Eau de Toilette",
+          "concentration": "Eau de Toilette",
+          "sizeMl": 100
+        },
+        "notes": "Paco Rabanne Invictus; matching box visibly states Eau de Toilette, 100 mL. Original inspected individually: complete bottle and cap, sharp readable product identity, clean white background, accurate proportions, no watermark. Original bytes retained.",
+        "technicalMetrics": {
+          "focusEnergy": 252.2338,
+          "cleanBorderFraction": 0.8439
+        }
+      }
+    },
+    "obf-3349668021345": {
+      "url": "assets/fragrances/obf-3349668021345-355315ee537d.jpg",
+      "status": "approved",
+      "width": 769,
+      "height": 697,
+      "source": "Open Beauty Facts",
+      "sourceUrl": "https://world.openbeautyfacts.org/product/3349668021345",
+      "credit": "Open Beauty Facts contributors",
+      "license": "CC BY-SA 3.0",
+      "checks": {
+        "sharp": true,
+        "labelReadable": true,
+        "correctProduct": true,
+        "wholeBottle": true,
+        "cleanBackground": true
+      },
+      "review": {
+        "reviewedBy": "Codex visual review",
+        "reviewedAt": "2026-10-14T20:08:31.726380+00:00",
+        "sourceSha256": "355315ee537dabff430dd1dd0116ea33d5b179c16cb2026c8948f8b49d48fe17",
+        "policyVersion": 1,
+        "identityConfirmed": true,
+        "productIdentity": {
+          "brand": "Paco Rabanne",
+          "name": "Pour Homme Eau de Toilette 100 ml",
+          "concentration": "Eau de Toilette",
+          "sizeMl": 100
+        },
+        "notes": "Paco Rabanne Pour Homme; matching box visibly states Eau de Toilette, 100 mL. Original inspected individually: complete bottle and cap, sharp readable product identity, clean white background, accurate proportions, no watermark. Original bytes retained.",
+        "technicalMetrics": {
+          "focusEnergy": 171.2861,
+          "cleanBorderFraction": 0.7734
+        }
+      }
     }
   },
   "additionalRecords": [

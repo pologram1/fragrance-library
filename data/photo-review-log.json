@@ -3,11 +3,11 @@
   "reviewedAt": "2026-10-14T13:43:21.941677+00:00",
   "assessed": 515,
   "technicalRejections": 37,
-  "visuallyReviewed": 34,
+  "visuallyReviewed": 38,
   "summary": {
-    "pending_visual_review": 442,
-    "rejected": 50,
-    "approved": 23
+    "pending_visual_review": 439,
+    "rejected": 49,
+    "approved": 27
   },
   "candidates": [
     {
@@ -3936,22 +3936,20 @@
       "status": "pending_visual_review"
     },
     {
-      "sha256": "3fbc9d0ab09195bed0feec13b8f6a867393b10a7d80d293795a1ba918783616c",
-      "width": 400,
-      "height": 366,
-      "cleanBorderFraction": 0.6099,
-      "focusRatioToReference": 1.132,
-      "hardFailures": [
-        "Insufficient native resolution for catalog cards"
-      ],
+      "id": "obf-0737052339047",
+      "sourceUrl": "https://world.openbeautyfacts.org/product/0737052339047",
+      "sourceImageUrl": "https://images.openbeautyfacts.org/images/products/073/705/233/9047/front_ar.8.full.jpg",
+      "sha256": "f8ee05ea0b0fbfe18926761133420580149cf09f128d272c306e9a0b5eff747a",
+      "width": 472,
+      "height": 432,
+      "focusRatioToReference": 0.9802,
+      "cleanBorderFraction": 0.6649,
+      "hardFailures": [],
       "warnings": [
         "Background differs from the clean catalog reference; inspect composition"
       ],
-      "id": "obf-0737052339047",
-      "sourceUrl": "https://world.openbeautyfacts.org/product/0737052339047",
-      "sourceImageUrl": "https://images.openbeautyfacts.org/images/products/073/705/233/9047/front_ar.8.400.jpg",
-      "status": "rejected",
-      "screenedAt": "2026-10-14T13:43:18.843500+00:00"
+      "status": "approved",
+      "reviewNotes": "Gucci Guilty Pour Homme; matching box visibly states Eau de Toilette, 90 mL. Original inspected individually: complete bottle and cap, sharp readable product identity, clean white background, accurate proportions, no watermark. Original bytes retained."
     },
     {
       "id": "obf-3616305266743",
@@ -5301,7 +5299,8 @@
       "cleanBorderFraction": 0.9999,
       "hardFailures": [],
       "warnings": [],
-      "status": "pending_visual_review"
+      "status": "approved",
+      "reviewNotes": "Maison Alhambra Daring Blue for Life; matching box visibly states Eau de Parfum, 100 mL. Original inspected individually: complete bottle and cap, sharp readable product identity, clean white background, accurate proportions, no watermark. Original bytes retained."
     },
     {
       "id": "obf-3700559603116",
@@ -6184,7 +6183,8 @@
       "warnings": [
         "Background differs from the clean catalog reference; inspect composition"
       ],
-      "status": "pending_visual_review"
+      "status": "approved",
+      "reviewNotes": "Paco Rabanne Pour Homme; matching box visibly states Eau de Toilette, 100 mL. Original inspected individually: complete bottle and cap, sharp readable product identity, clean white background, accurate proportions, no watermark. Original bytes retained."
     },
     {
       "sha256": "9181b52c96e3eb21df51b896915f96c9984b022f828aa29b930344bc0a62de7b",
@@ -6455,7 +6455,8 @@
       "cleanBorderFraction": 0.8439,
       "hardFailures": [],
       "warnings": [],
-      "status": "pending_visual_review"
+      "status": "approved",
+      "reviewNotes": "Paco Rabanne Invictus; matching box visibly states Eau de Toilette, 100 mL. Original inspected individually: complete bottle and cap, sharp readable product identity, clean white background, accurate proportions, no watermark. Original bytes retained."
     },
     {
       "id": "obf-3349668582297",
