@@ -1,0 +1,14 @@
+(function(root){
+const MAX_AGE_DAYS=7;
+function eligible(offer,now=Date.now()){
+ const checked=Date.parse(offer.checked+'T00:00:00Z');
+ return offer.currency==='USD' && offer.stock===true && offer.reviewed===true && offer.matching===true && Number.isFinite(offer.price) && offer.price>0 && Number.isFinite(checked) && checked<=now && now-checked<=MAX_AGE_DAYS*86400000;
+}
+function value(offers,now=Date.now()){
+ const bySeller=new Map();for(const o of offers.filter(o=>eligible(o,now))){let key;try{key=new URL(o.url).hostname.replace(/^www\./,'');}catch{key=o.seller||String(bySeller.size);}const previous=bySeller.get(key);if(!previous||o.checked>=previous.checked)bySeller.set(key,o);}const valid=[...bySeller.values()];const discount=valid.filter(o=>o.kind==='discount');const retail=valid.filter(o=>o.kind==='retail');const chosen=discount.length?discount:retail;
+ if(!chosen.length)return {price:null,lowest:null,count:0,kind:null};
+ const sorted=chosen.map(o=>o.price).sort((a,b)=>a-b),m=Math.floor(sorted.length/2);
+ return {price:sorted.length%2?sorted[m]:(sorted[m-1]+sorted[m])/2,lowest:Math.min(...valid.map(o=>o.price)),count:chosen.length,kind:discount.length?'market':'retail'};
+}
+const api={value,eligible,MAX_AGE_DAYS};if(typeof module!=='undefined')module.exports=api;else root.Pricing=api;
+})(typeof window!=='undefined'?window:globalThis);
