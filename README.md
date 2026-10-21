@@ -8,7 +8,7 @@ Open `index.html` in a browser, or serve this directory with `python3 -m http.se
 
 ## Accounts
 
-Supabase is connected, the private per-user database is installed, and sign-in/cloud storage configuration is populated. Google sign-in is implemented and awaits the owner’s Google OAuth client setup (`docs/google-signin.md`). Email/password authentication remains disabled until email delivery is configured. Guest mode remains available. Server-side owner isolation and concurrency checks passed. See `docs/accounts.md`.
+Supabase is connected with username/password registration, private per-user collections and cross-device saving. Guest mode remains available. Sign-in waits for the account collection to load; guest bottles can be transferred without replacing existing account entries. Email recovery and Google sign-in are not enabled. See `docs/accounts.md`.
 
 ## Implemented
 
@@ -16,7 +16,8 @@ Supabase is connected, the private per-user database is installed, and sign-in/c
 - Dashboard purchase costs, quantity-based pricing coverage, and top three fragrances ranked by total replacement value.
 - Searchable Open Beauty Facts catalog: 561 product records, 515 photo URLs, 309 distinct brand labels. Records are barcode-specific and can include multiple sizes of one scent.
 - Discover filters by brand and photo availability, supports barcode searches, and displays 24 records per page.
-- Adding a catalog record to collection/wishlist prefills known details, requires concentration/size confirmation, and preserves its photo reference. Missing/unavailable photos use a generic illustration.
+- Add fragrance opens catalog search first. Known bottle variants save directly to the selected collection/wishlist in one click. Each capacity is a separate entry with its reviewed photo; incomplete records use the secondary manual-entry flow. Duplicates in the same list are prevented.
+- A separate shared price database links checked seller offers automatically to exact bottle identities, concentrations, sizes and bottle types. Daily refresh through GitHub Actions requires no paid API. See `docs/market-prices.md`.
 - JSON data for the website plus a SQLite database and reproducible importer. See `docs/catalog.md` and `data/LICENSE.md`.
 - Sort collection by name, brand, or total replacement value.
 
@@ -36,18 +37,16 @@ Candidate sellers: FragranceNet, Beauty House, Jomashop, and FragFlex. Exact dom
 
 ## Important limitations
 
-No live pricing feeds or independently verified seller registry yet. Account/cloud code is prepared but requires backend activation. Seller review and offer matching are user attestations in this prototype. The application starts empty and contains no invented market prices. Data is stored only in the current browser; export backups before switching devices or clearing storage. Only full-bottle replacement prices are calculated.
+Seller prices are checked snapshots, not instant purchase quotes. Coverage is incomplete; unavailable, mismatched or stale offers are excluded. Prices do not include shipping or tax and are proportional replacement estimates, not used-bottle resale values. Collections save to the current browser in guest mode or privately to an account when signed in. Export backups to keep independent copies.
 
 ## Validation
 
-Run `node catalog.test.js` and `node pricing.test.js` for median, retail fallback, stale/future offers, seller deduplication, and eligibility checks. Browser interactions still need visual QA.
+Run `node --test '*.test.js'` and `python scripts/refresh_prices.test.py`. Coverage includes account isolation/save ordering, exact price matching, freshness, source eligibility, direct-add destinations and duplicates, remaining mL valuation, theme switching and photo approval. The live search → wishlist → move-to-collection → reload flow is visually checked after deployment.
 
 ## Next milestones
 
-1. Review seller APIs/feeds and permissions.
-2. Expand catalog coverage using approved retailer feeds; independently verify exact variants and seller registry.
-3. Add backend price retrieval with variant matching and freshness tracking.
-4. Add authentication and cross-device collection storage.
+Expand checked seller coverage and exact variant photos; add approved affiliate links and account recovery.
+
 
 ## Photo quality
 
