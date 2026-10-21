@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-10-21T08:13:00.127383+00:00",
+  "updatedAt": "2026-10-21T14:29:43.782163+00:00",
   "currency": "USD",
   "method": "Latest price per seller; arithmetic average of all eligible reviewed sellers including official retail; seven-day freshness; excludes shipping and tax.",
   "sources": [
