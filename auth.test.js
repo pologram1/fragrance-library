@@ -40,3 +40,13 @@ test('a failed collection load keeps editing blocked and shows a retry path',asy
  assert.equal(s.account.canEdit(),false);assert.equal(s.element('#account-dialog').open,true);assert.equal(s.element('#sync-retry').hidden,false);assert.match(s.element('#auth-message').textContent,/collection could not load/);
  s.failRead(false);s.element('#sync-retry').onclick();await tick();assert.equal(s.account.canEdit(),true);assert.equal(s.element('#sync-retry').hidden,true);
 });
+
+// Check the actual page as well as the simulated UI: every auth selector must exist.
+test('account UI elements are present in the deployed HTML', async () => {
+ const {readFile}=await import('node:fs/promises');
+ const html=await readFile(require('node:path').join(__dirname,'index.html'),'utf8');
+ const script=await readFile(require('node:path').join(__dirname,'auth.js'),'utf8');
+ for(const [,id] of script.matchAll(/\$\('#([a-z0-9-]+)'\)/g)) {
+  assert.ok(html.includes(`id="${id}"`),`Missing account UI element: ${id}`);
+ }
+});
