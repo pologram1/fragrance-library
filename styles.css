@@ -32,3 +32,25 @@ body,header,button,input,select,dialog,.card,.stats article,.overview article,.n
 input[type=checkbox]{accent-color:var(--accent)}
 @media(max-width:550px){.header-account .studio{flex-basis:100%}.header-account{justify-content:flex-start}.header-account .theme-toggle{margin-right:auto}}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{transition:none!important}}
+
+/* Small, useful motion and clear feedback; reduced-motion settings are respected. */
+.beta-badge{display:inline-flex;align-items:center;gap:9px;margin:2px 0 8px;padding:5px 12px;border:1px solid var(--line);border-radius:999px;color:var(--muted);font-size:.75rem;letter-spacing:.04em}
+.beta-badge>span{width:6px;height:6px;border-radius:50%;background:var(--accent);animation:beta-pulse 1.6s ease-out 2}
+.save-prompt{display:flex;justify-content:space-between;align-items:center;gap:24px;padding:20px 22px;margin:20px 0;border:1px solid var(--line);border-left:3px solid var(--accent);border-radius:8px;background:var(--panel)}.save-prompt strong{font-size:.95rem}.save-prompt p{font-size:.85rem;margin:3px 0 0}.save-prompt button{flex-shrink:0;font-size:.85rem}
+#message.toast{position:fixed;bottom:24px;left:50%;z-index:1000;width:max-content;max-width:min(560px,calc(100% - 32px));margin:0;padding:13px 20px;background:var(--panel);color:var(--text);border:1px solid var(--line);border-radius:10px;box-shadow:0 8px 35px #0003;opacity:0;pointer-events:none;transform:translate(-50%,12px);transition:opacity .2s ease,transform .2s ease}
+#message.toast.visible{opacity:1;transform:translate(-50%,0)}
+.card{transition:transform .2s ease,box-shadow .2s ease,border-color .2s ease,background-color .18s ease}.collection>.card{animation:card-enter .3s ease-out backwards}.collection>.card:nth-child(2){animation-delay:.025s}.collection>.card:nth-child(3){animation-delay:.05s}.collection>.card:nth-child(4){animation-delay:.075s}.collection>.card:nth-child(5){animation-delay:.1s}.collection>.card:nth-child(n+6){animation-delay:.125s}
+.overview article,.empty{animation:card-enter .32s ease-out backwards}.fill-level span{transform-origin:left;animation:fill-enter .45s ease-out}
+button:not(:disabled):active{transform:scale(.98)}.app-nav a{transition:color .18s,border-color .18s}.app-nav a:hover{color:var(--accent)}
+dialog[open]{animation:dialog-enter .2s ease-out}dialog[open]::backdrop{animation:backdrop-enter .2s ease-out}
+.photo-preview{display:block;position:relative;width:100%;height:220px;padding:0;border:0;border-radius:0;background:#fff;overflow:hidden;cursor:zoom-in}.photo-preview:hover{background:#fff;border:0}.photo-preview img{transition:transform .25s ease}.photo-zoom-hint{position:absolute;right:10px;bottom:10px;padding:4px 8px;border-radius:4px;background:#171a1ce8;color:#fff;font-size:.7rem;opacity:0;transition:opacity .2s}
+.photo-preview:focus-visible{outline-offset:-4px}.photo-preview:focus-visible .photo-zoom-hint{opacity:1}.photo-dialog{width:min(700px,calc(100% - 24px))}.photo-dialog .eyebrow{margin:0 0 6px}.photo-dialog .dialog-top h2{font-family:Georgia,serif;font-weight:400;font-size:1.6rem}.photo-dialog>img{display:block;width:100%;height:min(52vh,420px);object-fit:contain;background:#fff;border-radius:6px;margin:22px 0 14px}.photo-dialog>a{font-size:.85rem;color:var(--accent)}.photo-dialog .card-actions{border-top:1px solid var(--line);padding-top:18px}.password-toggle{justify-self:start;background:transparent;border:0;padding:6px 0;font-size:.85rem;color:var(--accent)}
+@media(hover:hover){.card:hover{transform:translateY(-3px);border-color:var(--accent);box-shadow:0 10px 25px #00000010}.photo-preview:hover img{transform:scale(1.025)}.photo-preview:hover .photo-zoom-hint{opacity:1}}
+@media(hover:none){.photo-zoom-hint{opacity:1}}
+@media(max-width:550px){.save-prompt{align-items:stretch;flex-direction:column;gap:14px;padding:18px}.save-prompt button{align-self:flex-start}#message.toast{bottom:16px}.photo-dialog .card-actions button{flex:1}}
+@keyframes card-enter{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+@keyframes dialog-enter{from{opacity:0;transform:translateY(8px) scale(.985)}to{opacity:1;transform:translateY(0) scale(1)}}
+@keyframes backdrop-enter{from{opacity:0}to{opacity:1}}
+@keyframes fill-enter{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+@keyframes beta-pulse{0%{box-shadow:0 0 0 0 #b3925c55}100%{box-shadow:0 0 0 7px #b3925c00}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}.card:hover,.photo-preview:hover img,button:not(:disabled):active{transform:none}}
