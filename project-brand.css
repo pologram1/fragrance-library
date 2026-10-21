@@ -1,0 +1,4 @@
+/* Shared project identity, readable in either app theme. */
+a.project-brand-link{display:inline-flex;flex-shrink:0;align-items:center;line-height:0;letter-spacing:normal;text-decoration:none}
+a.project-brand-link img.project-brand-logo{display:block;width:210px;height:110px;max-width:none;object-fit:cover;object-position:center;background:#f4efe5;border:1px solid #b6a58d66;border-radius:8px}
+@media(max-width:550px){a.project-brand-link img.project-brand-logo{width:178px;height:94px}}
