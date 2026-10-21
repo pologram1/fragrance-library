@@ -90,6 +90,26 @@ class PhotoPipelineTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, 'usage permission'):
             pipeline.publish(self.report, root=self.root)
 
+    def test_editorial_requires_distinct_composition_review(self):
+        item = self.report['candidates'][0]
+        item.update(composition='brand-editorial', sourceKind='official-brand')
+        item['checks']['cleanBackground'] = False
+        item['checks']['backgroundSuitable'] = True
+        with self.assertRaisesRegex(ValueError, 'explicit official-brand'):
+            pipeline.publish(self.report, root=self.root)
+        item['editorialCompositionConfirmed'] = True
+        pipeline.publish(self.report, root=self.root)
+        photo = json.loads((self.root / 'data/photos.json').read_text())['photos'][item['product']['id']]
+        self.assertFalse(photo['checks']['cleanBackground'])
+        self.assertEqual(photo['composition'], 'brand-editorial')
+        self.assertTrue(photo['review']['editorialCompositionConfirmed'])
+
+    def test_editorial_still_requires_background_suitability(self):
+        item = self.report['candidates'][0]
+        item.update(composition='brand-editorial', sourceKind='official-brand', editorialCompositionConfirmed=True)
+        with self.assertRaisesRegex(ValueError, 'Every visual criterion'):
+            pipeline.publish(self.report, root=self.root)
+
     def test_duplicate_batch_is_atomic(self):
         before = (self.root / 'data/photos.json').read_bytes()
         self.report['candidates'].append(copy.deepcopy(self.report['candidates'][0]))

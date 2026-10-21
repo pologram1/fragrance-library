@@ -1,6 +1,6 @@
 # Fragrance photography standard
 
-The user's two Afnan 9 PM Night Out examples set the visual direction. Catalog and collection cards use the clean isolated bottle style. Editorial/lifestyle imagery is appropriate for detail pages and promotional covers after review; it is not automatically substituted for an exact product image.
+The user's two Afnan 9 PM Night Out examples set the visual direction. Catalog and collection cards use the clean isolated bottle style. Editorial/lifestyle imagery is never automatically substituted for an exact product image. For the user-requested official Terra Mater import on 2026-10-21, policy v2 adds a separate, explicitly reviewed official-brand editorial category for catalog cards. These photos retain their original styled backgrounds; they are not classified as isolated white-background images.
 
 ## Approval requirements
 
@@ -22,3 +22,9 @@ The first approved asset is the user's unmodified clean bottle reference, stored
 If the approval manifest fails to load, the application displays placeholders instead of falling back to unreviewed image URLs. Broken or undersized approved assets also use placeholders. Pending images are labeled **Photo coming soon**. Existing collections retain their catalog IDs and acquire approved photos as those IDs are reviewed.
 
 Photo approvals are separate from the public Open Beauty Facts JSON/SQLite database. The manifest can add studio-curated product identities without modifying the imported dataset or implying their pictures have the same license.
+
+## Official-brand editorial review (policy v2)
+
+A brand-editorial image requires `sourceKind: official-brand`, `composition: brand-editorial`, policy version 2 or later and an explicit `editorialCompositionConfirmed` review. Sharpness, label readability, exact product identity, complete bottle/cap and `backgroundSuitable` must all pass. The original `cleanBackground` check remains false for these images. This preserves the isolated-photo approval gate and makes the exception auditable. Missing editorial approval or a failed label/background check still produces a placeholder.
+
+Terra Mater adds 11 visually reviewed official product photos and 12 bottle-size records. San Juan Spritz 50 mL has no approved image because the brand supplies the same 100 mL-labeled bottle photograph for both sizes. The discovery set is excluded because it combines four fragrances. See `data/terra-mater-review.json`. No photos were retouched, stretched, generated or upscaled.

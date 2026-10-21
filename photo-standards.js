@@ -11,7 +11,10 @@
   if(!photo.review?.identityConfirmed||!photo.review?.reviewedBy||!/^([a-f0-9]{64})$/.test(photo.review?.sourceSha256||''))return null;
   const identity=photo.review.productIdentity;
   if(identity&&record?.catalogId&&((record.concentration&&record.concentration!==identity.concentration)||(record.size&&record.size!==identity.sizeMl)))return null;
-  if(!['sharp','labelReadable','correctProduct','wholeBottle','cleanBackground'].every(k=>photo.checks?.[k]===true))return null;
+  const editorial=photo.composition==='brand-editorial';
+  if(editorial&&(photo.sourceKind!=='official-brand'||photo.review.editorialCompositionConfirmed!==true||(!Number.isInteger(photo.review.policyVersion)||photo.review.policyVersion<2)))return null;
+  const checks=['sharp','labelReadable','correctProduct','wholeBottle',editorial?'backgroundSuitable':'cleanBackground'];
+  if(!checks.every(k=>photo.checks?.[k]===true))return null;
   return photo;
  }
  const api={safeAsset,approved};if(typeof module!=='undefined'&&module.exports)module.exports=api;else root.PhotoStandards=api;

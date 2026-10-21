@@ -21,3 +21,9 @@ assert.equal(Photos.approved(record,altered({checks:{...photo.checks,labelReadab
 assert.equal(Photos.approved(record,altered({checks:{...photo.checks,correctProduct:false}})),null);
 assert.equal(Photos.approved(record,altered({checks:{...photo.checks,cleanBackground:false}})),null);
 console.log('Photo checks passed: reviewed assets, exact product identity, dimensions, source URL safety and rejected low-quality images.');
+// Explicitly reviewed official-brand editorial photos retain their original backgrounds.
+const editorial={...photo,composition:'brand-editorial',sourceKind:'official-brand',checks:{...photo.checks,cleanBackground:false,backgroundSuitable:true},review:{...photo.review,policyVersion:2,editorialCompositionConfirmed:true}};
+assert(Photos.approved(record,{photos:{[record.id]:editorial}}));
+assert.equal(Photos.approved(record,{photos:{[record.id]:{...editorial,review:{...editorial.review,editorialCompositionConfirmed:false}}}}),null);
+assert.equal(Photos.approved(record,{photos:{[record.id]:{...editorial,checks:{...editorial.checks,backgroundSuitable:false}}}}),null);
+assert.equal(Photos.approved(record,{photos:{[record.id]:{...editorial,checks:{...editorial.checks,labelReadable:false}}}}),null);

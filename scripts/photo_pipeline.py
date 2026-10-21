@@ -96,7 +96,11 @@ def publish(report, root=ROOT, replace=False, remote=False):
             continue
         if item.get('hardFailures'):
             raise ValueError('Rejected technical checks cannot be overridden')
-        if not all(item.get('checks', {}).get(key) is True for key in POLICY['requiredVisualChecks']):
+        editorial = item.get('composition') == 'brand-editorial'
+        required = POLICY.get('requiredEditorialVisualChecks', []) if editorial else POLICY['requiredVisualChecks']
+        if editorial and (not required or item.get('sourceKind') != 'official-brand' or item.get('editorialCompositionConfirmed') is not True):
+            raise ValueError('Editorial photography requires explicit official-brand composition review')
+        if not all(item.get('checks', {}).get(key) is True for key in required):
             raise ValueError('Every visual criterion must be inspected and approved')
         if not item.get('reviewedBy') or not item.get('reviewNotes') or not item.get('source') or not item.get('usagePermission'):
             raise ValueError('Record the reviewer, notes, source and usage permission')
@@ -152,6 +156,9 @@ def publish(report, root=ROOT, replace=False, remote=False):
                      policyVersion=POLICY['version'], identityConfirmed=True,
                      productIdentity={key: product[key] for key in ('brand','name','concentration','sizeMl')},
                      notes=item['reviewNotes'], technicalMetrics={key: actual[key] for key in ('focusEnergy', 'cleanBorderFraction')}))
+        if editorial:
+            photo.update(composition='brand-editorial', sourceKind='official-brand')
+            photo['review']['editorialCompositionConfirmed'] = True
         if not previous_record:
             if not product_id.startswith('studio-'):
                 raise ValueError('Unknown imported product ID; use a studio identity for new entries')

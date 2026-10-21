@@ -2,7 +2,7 @@
 
 Miguel confirmed on 2026-10-14 that images from FragranceNet, Olfactory Factory LLC and Perfume Box are approved for this app. This is recorded as user-confirmed reuse permission, not a Creative Commons license or independently verified supplier agreement.
 
-Published catalog: **663 approved photos**, including **635 new supplier photos**. All 663 have distinct original SHA-256 hashes. The supplier batch reviewed 720 candidates; 85 were held after visual/identity checks. Detailed provenance is in `data/supplier-photo-review.json`.
+Published catalog: **674 approved photos**, including **635 supplier photos** and **11 official Terra Mater editorial photos**. All 674 have distinct original SHA-256 hashes. The supplier batch reviewed 720 candidates; 85 were held after visual/identity checks. Detailed provenance is in `data/supplier-photo-review.json`.
 
 This import uses public product metadata from Perfume Box and Olfactory Factory LLC. Only factual product identity and source links are stored; merchant descriptions are not republished. FragranceNet remains an available source for future imports.
 
@@ -23,3 +23,5 @@ python scripts/photo_pipeline.py publish review.json --remote
 Remote publication rechecks the local reviewed original and requires an allowed supplier HTTPS host. All visual, identity, source and permission fields remain mandatory. Without `--remote`, the publisher copies the unchanged original into the repository as before.
 
 This import adds catalog imagery, not a live pricing feed. Market valuation still requires matching, reviewed seller offers. Remaining mL and consumption-related value changes are already supported by the app.
+
+The user-requested Terra Mater import on 2026-10-21 uses a separate official-brand editorial composition review under policy v2. Its photos retain their styled backgrounds and are not marked as clean white-background assets. See `data/terra-mater-review.json` and `docs/photo-standard.md`.
