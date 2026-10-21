@@ -1,8 +1,8 @@
 {
   "version": 1,
-  "updatedAt": "2026-10-21T08:00:57.920852+00:00",
+  "updatedAt": "2026-10-21T08:13:00.127383+00:00",
   "currency": "USD",
-  "method": "Latest price per seller; median of eligible discount sellers, official retail fallback; seven-day freshness; excludes shipping and tax.",
+  "method": "Latest price per seller; arithmetic average of all eligible reviewed sellers including official retail; seven-day freshness; excludes shipping and tax.",
   "sources": [
     {
       "host": "terramaterperfumes.com",
