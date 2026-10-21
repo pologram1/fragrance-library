@@ -31,7 +31,7 @@ Supabase is connected with username/password registration, private per-user coll
 
 Eligible offers match the exact bottle variant, are in stock, USD, from a user-reviewed seller, and checked within 7 days. This freshness window is an initial product decision and can be adjusted. One eligible offer per seller hostname is used; the latest checked entry wins.
 
-Market price is the median of eligible discount offers. When none exist, use the median of eligible official-retail offers. Lowest available price includes all eligible offers. Missing prices are unknown, not zero; totals show coverage and are labeled partial when needed. Tax and shipping are excluded. This is replacement cost, not resale value.
+Market price is the arithmetic average of all eligible reviewed seller offers, including official retail. Each seller domain contributes once. If official retail is the only available source type, the result is labeled official retail. Lowest available price includes all eligible offers. Missing prices are unknown, not zero; totals show coverage and are labeled partial when needed. Tax and shipping are excluded. This is replacement cost, not resale value.
 
 Candidate sellers: FragranceNet, Beauty House, Jomashop, and FragFlex. Exact domains, reputation, regional eligibility, and integration methods require review. Additional reputable sellers may be included. Official brand retail is a fallback for fragrances without reliable discount offers.
 

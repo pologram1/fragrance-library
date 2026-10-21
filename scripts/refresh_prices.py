@@ -74,7 +74,7 @@ def main():
     if offer:
      products.append({'catalogId':f['id'],'brand':f['brand'],'name':f['name'],'concentration':f['concentration'],'sizeMl':f['sizeMl'],'type':'standard','offers':[offer]});count+=1
    reports.append({'host':host,'status':'ok','exactVariants':count})
- result={'version':1,'updatedAt':datetime.datetime.now(datetime.timezone.utc).isoformat(),'currency':'USD','method':'Latest price per seller; median of eligible discount sellers, official retail fallback; seven-day freshness; excludes shipping and tax.','sources':reports,'products':sorted(products,key=lambda f:f['catalogId'])}
+ result={'version':1,'updatedAt':datetime.datetime.now(datetime.timezone.utc).isoformat(),'currency':'USD','method':'Latest price per seller; arithmetic average of all eligible reviewed sellers including official retail; seven-day freshness; excludes shipping and tax.','sources':reports,'products':sorted(products,key=lambda f:f['catalogId'])}
  if not products:raise RuntimeError('No verified prices available; keeping previous database')
  path.write_text(json.dumps(result,ensure_ascii=False,indent=2)+'\n')
  db=sqlite3.connect(ROOT/'data/prices.sqlite')
