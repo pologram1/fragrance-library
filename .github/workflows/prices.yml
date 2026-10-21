@@ -1,0 +1,38 @@
+name: Refresh fragrance prices
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '17 9 * * *'
+  push:
+    branches: [main]
+    paths:
+      - scripts/refresh_prices.py
+      - .github/workflows/prices.yml
+permissions:
+  contents: write
+concurrency:
+  group: fragrance-price-refresh
+  cancel-in-progress: false
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          ref: main
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - name: Refresh exact seller variants
+        run: python scripts/refresh_prices.py
+      - name: Validate refresh rules
+        run: python scripts/refresh_prices.test.py
+      - name: Publish price reference data
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add data/prices.json data/prices.sqlite
+          if git diff --cached --quiet; then exit 0; fi
+          git commit -m 'Refresh exact fragrance seller prices'
+          git push origin HEAD:main

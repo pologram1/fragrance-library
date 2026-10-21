@@ -3,6 +3,10 @@ on:
   push:
     branches: [main]
   workflow_dispatch:
+  workflow_run:
+    workflows: [Refresh fragrance prices]
+    types: [completed]
+    branches: [main]
 permissions:
   contents: read
   pages: write
@@ -12,6 +16,7 @@ concurrency:
   cancel-in-progress: false
 jobs:
   deploy:
+    if: github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success'
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
@@ -22,7 +27,7 @@ jobs:
       - name: Prepare public website files
         run: |
           mkdir _site
-          cp index.html styles.css theme.js app.js pricing.js portfolio.js catalog.js config.js auth.js cloud-store.js google-signin.js username-auth.js photo-standards.js _site/
+          cp index.html styles.css theme.js app.js market-prices.js pricing.js portfolio.js catalog.js config.js auth.js cloud-store.js google-signin.js username-auth.js photo-standards.js _site/
           cp -R assets data _site/
           touch _site/.nojekyll
       - uses: actions/upload-pages-artifact@v4
