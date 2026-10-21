@@ -19,6 +19,7 @@ Supabase is connected with username/password registration, private per-user coll
 - Add fragrance opens catalog search first. Known bottle variants save directly to the selected collection/wishlist in one click. Each capacity is a separate entry with its reviewed photo; incomplete records use the secondary manual-entry flow. Duplicates in the same list are prevented.
 - A separate shared price database links checked seller offers automatically to exact bottle identities, concentrations, sizes and bottle types. Daily refresh through GitHub Actions requires no paid API. See `docs/market-prices.md`.
 - JSON data for the website plus a SQLite database and reproducible importer. See `docs/catalog.md` and `data/LICENSE.md`.
+- Bookmarkable fragrance profiles with sourced notes/stories and direct seller shopping links without affiliate tracking. See `docs/fragrance-discovery.md`.
 - Sort collection by name, brand, or total replacement value.
 
 - Add, edit, and remove fragrance variants: brand, name, concentration, bottle size, standard/tester, quantity, owned/wishlist, and optional purchase price.

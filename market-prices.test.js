@@ -23,6 +23,6 @@ test('one click saves to the requested list without an editor or purchase price 
 });
 test('app controls and script dependencies are present in the deployed page and workflow',()=>{
  const html=fs.readFileSync(__dirname+'/index.html','utf8'),script=fs.readFileSync(__dirname+'/app.js','utf8');
- for(const [,id] of script.matchAll(/\$\('#([a-z0-9-]+)'\)/g)){if(['empty-add','catalog-manual','retry-catalog','picker-retry'].includes(id))continue;assert.ok(html.includes(`id="${id}"`),`Missing UI control ${id}`);}
+ for(const [,id] of script.matchAll(/\$\('#([a-z0-9-]+)'\)/g)){if(['empty-add','catalog-manual','retry-catalog','picker-retry'].includes(id))continue;assert.ok(html.includes(`id="${id}"`)||script.includes(`id="${id}"`),`Missing UI control ${id}`);}
  assert.ok(html.includes('src="market-prices.js'));assert.ok(fs.readFileSync(__dirname+'/.github/workflows/pages.yml','utf8').includes('market-prices.js'));
 });

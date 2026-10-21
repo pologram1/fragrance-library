@@ -1,0 +1,718 @@
+{
+  "version": 1,
+  "profiles": [
+    {
+      "id": "lattafa-asad",
+      "brand": "Lattafa",
+      "name": "Asad",
+      "concentration": "Eau de Parfum",
+      "catalogIds": [
+        "studio-retail-e469a4a6c73bafc589d0b56c",
+        "obf-6291108735411"
+      ],
+      "notes": {
+        "top": [
+          "Black pepper",
+          "Pineapple",
+          "Tobacco"
+        ],
+        "heart": [
+          "Coffee",
+          "Iris",
+          "Patchouli"
+        ],
+        "base": [
+          "Amber",
+          "Vanilla",
+          "Dry woods",
+          "Benzoin",
+          "Labdanum"
+        ]
+      },
+      "summary": "Pepper and tobacco meet a coffee-and-iris heart, with a vanilla-resin finish.",
+      "story": "Released in 2021, Asad is part of Lattafa’s amber fragrance offering. Its published composition moves from spicy fruit and tobacco into coffee, iris and warm resins.",
+      "launchYear": 2021,
+      "creator": null,
+      "sources": [
+        {
+          "label": "Lattafa · Official fragrance information",
+          "url": "https://lattafa.com/product/asad/",
+          "checked": "2026-10-21"
+        }
+      ]
+    },
+    {
+      "id": "lattafa-asad-bourbon",
+      "brand": "Lattafa",
+      "name": "Asad Bourbon",
+      "concentration": "Eau de Parfum",
+      "catalogIds": [
+        "studio-retail-233a93b14e66deb5546ac60e"
+      ],
+      "notes": {
+        "top": [
+          "Pink pepper",
+          "Lavender",
+          "Mirabelle plum"
+        ],
+        "heart": [
+          "Cacao",
+          "Davana",
+          "Nutmeg"
+        ],
+        "base": [
+          "Vetiver",
+          "Bourbon vanilla",
+          "Amber"
+        ]
+      },
+      "summary": "Plum, lavender and cacao bring a sweet-spiced direction to the Asad collection.",
+      "story": "Lattafa presents Asad Bourbon as a unisex Eau de Parfum. Its fruit-and-lavender opening develops through cacao and spices toward a vanilla, amber and vetiver base.",
+      "launchYear": null,
+      "creator": null,
+      "sources": [
+        {
+          "label": "Lattafa · Official fragrance information",
+          "url": "https://lattafa.com/product/asad-bourbon/",
+          "checked": "2026-10-21"
+        }
+      ]
+    },
+    {
+      "id": "lattafa-asad-zanzibar",
+      "brand": "Lattafa",
+      "name": "Asad Zanzibar",
+      "concentration": "Eau de Parfum",
+      "catalogIds": [
+        "studio-retail-7e77329b6cb3d41949bd5ddb"
+      ],
+      "notes": {
+        "top": [
+          "Black pepper",
+          "Sea lavender"
+        ],
+        "heart": [
+          "Salty coconut water",
+          "Iris"
+        ],
+        "base": [
+          "Vanilla",
+          "Incense"
+        ]
+      },
+      "summary": "Salty coconut water and iris sit between peppery freshness and vanilla incense.",
+      "story": "Named for Zanzibar, this Asad interpretation draws on the island’s seaside setting. Lattafa describes travel and tropical discovery as the inspiration behind its coconut-water and aromatic composition.",
+      "launchYear": null,
+      "creator": null,
+      "sources": [
+        {
+          "label": "Lattafa · Official fragrance information",
+          "url": "https://lattafa.com/product/asad-zanzibar/",
+          "checked": "2026-10-21"
+        }
+      ]
+    },
+    {
+      "id": "lattafa-khamrah",
+      "brand": "Lattafa",
+      "name": "Khamrah",
+      "concentration": "Eau de Parfum",
+      "catalogIds": [
+        "obf-6291108737194"
+      ],
+      "notes": {
+        "top": [
+          "Bergamot",
+          "Cinnamon",
+          "Nutmeg"
+        ],
+        "heart": [
+          "Dates accord",
+          "Lily of the valley",
+          "Praline",
+          "Tuberose"
+        ],
+        "base": [
+          "Roasted tonka",
+          "Benzoin Laos",
+          "Myrrh",
+          "Akigalawood",
+          "Vanilla",
+          "Amber wood"
+        ]
+      },
+      "summary": "Warm baking spices, dates and praline give this fragrance its gourmand character.",
+      "story": "Introduced in 2022, Khamrah is a unisex aromatic-spicy fragrance. The brand’s note list pairs a cinnamon-led opening with a sweet dates-and-praline heart and a woody, resinous vanilla base.",
+      "launchYear": 2022,
+      "creator": null,
+      "sources": [
+        {
+          "label": "Lattafa · Official fragrance information",
+          "url": "https://lattafa.com/product/khamrah/",
+          "checked": "2026-10-21"
+        }
+      ]
+    },
+    {
+      "id": "lattafa-khamrah-qahwa",
+      "brand": "Lattafa",
+      "name": "Khamrah Qahwa",
+      "concentration": "Eau de Parfum",
+      "catalogIds": [
+        "obf-6290360593661"
+      ],
+      "notes": {
+        "top": [
+          "Ginger",
+          "Cinnamon",
+          "Cardamom"
+        ],
+        "heart": [
+          "Praline",
+          "Candied fruits",
+          "White flowers"
+        ],
+        "base": [
+          "Arabica coffee",
+          "Tonka beans",
+          "Musk",
+          "Benzoin",
+          "Vanilla"
+        ]
+      },
+      "summary": "A spiced gourmand with praline, candied fruit and a coffee-vanilla base.",
+      "story": "Lattafa introduced Khamrah Qahwa in 2023. This variation emphasizes Arabica coffee in the base, alongside the collection’s warm spices and sweet gourmand notes.",
+      "launchYear": 2023,
+      "creator": null,
+      "sources": [
+        {
+          "label": "Lattafa · Official fragrance information",
+          "url": "https://lattafa.com/product/khamrah-qahwa/",
+          "checked": "2026-10-21"
+        }
+      ]
+    },
+    {
+      "id": "lattafa-yara",
+      "brand": "Lattafa",
+      "name": "Yara",
+      "concentration": "Eau de Parfum",
+      "catalogIds": [
+        "obf-0700620479254"
+      ],
+      "notes": {
+        "top": [
+          "Tangerine",
+          "Heliotrope",
+          "Orchid"
+        ],
+        "heart": [
+          "Tropical notes",
+          "Gourmand accord"
+        ],
+        "base": [
+          "Vanilla",
+          "Sandalwood",
+          "Musk"
+        ]
+      },
+      "summary": "A soft floral-gourmand composition with tropical fruit, vanilla and musk.",
+      "story": "Launched in 2020, Yara belongs to Lattafa’s amber-vanilla offering. Its published notes balance orchid and heliotrope with tropical gourmand accords and a creamy woody base.",
+      "launchYear": 2020,
+      "creator": null,
+      "sources": [
+        {
+          "label": "Lattafa · Official fragrance information",
+          "url": "https://lattafa.com/product/yara/",
+          "checked": "2026-10-21"
+        }
+      ]
+    },
+    {
+      "id": "creed-aventus-cologne",
+      "brand": "Creed",
+      "name": "Aventus Cologne",
+      "concentration": "Eau de Parfum",
+      "catalogIds": [
+        "studio-retail-740b4ffc91bdfbc93202360b"
+      ],
+      "notes": {
+        "top": [
+          "Calabrian bergamot"
+        ],
+        "heart": [
+          "Ginger"
+        ],
+        "base": [
+          "Musk accord"
+        ]
+      },
+      "summary": "A fresh woody interpretation of the Aventus line, led by bergamot and ginger.",
+      "story": "Creed introduced Aventus Cologne in 2019 as a fresher expression of the Aventus identity. Despite its name, it is an Eau de Parfum. Creed’s comparison highlights bergamot, a ginger heart and a smooth musk base.",
+      "launchYear": 2019,
+      "creator": null,
+      "sources": [
+        {
+          "label": "Creed · Official fragrance information",
+          "url": "https://www.creedfragrance.com/c/journal/difference-between-aventus-and-aventuscologne/",
+          "checked": "2026-10-21"
+        }
+      ]
+    },
+    {
+      "id": "dior-sauvage-edt",
+      "brand": "Dior",
+      "name": "Sauvage",
+      "concentration": "Eau de Toilette",
+      "catalogIds": [
+        "obf-3348901321129"
+      ],
+      "notes": {
+        "featured": [
+          "Calabrian bergamot",
+          "Sichuan pepper",
+          "Ambroxan",
+          "Elemi",
+          "Woody accords"
+        ]
+      },
+      "summary": "Citrus and pepper over a marine-amber woody trail.",
+      "story": "Dior connects Sauvage Eau de Toilette with open landscapes and raw freshness. The house describes François Demachy’s work with Calabrian bergamot growers and a structure anchored by ambroxan and resinous woods.",
+      "launchYear": null,
+      "creator": "François Demachy",
+      "sources": [
+        {
+          "label": "Dior · Official fragrance information",
+          "url": "https://www.dior.com/en_int/beauty/products/sauvage-eau-de-toilette-Y0685240.html",
+          "checked": "2026-10-21"
+        }
+      ]
+    },
+    {
+      "id": "mfk-baccarat-rouge-540-edp",
+      "brand": "Maison Francis Kurkdjian",
+      "name": "Baccarat Rouge 540",
+      "concentration": "Eau de Parfum",
+      "catalogIds": [
+        "studio-retail-3c426f2eec6189b43db44f7d",
+        "obf-3700559603116"
+      ],
+      "notes": {
+        "featured": [
+          "Jasmine",
+          "Saffron",
+          "Ambergris accord",
+          "Dry woody tones",
+          "Ethyl maltol"
+        ]
+      },
+      "summary": "A luminous floral-amber composition with mineral woods and a gourmand facet.",
+      "story": "Created through the meeting of Maison Francis Kurkdjian and Baccarat, this fragrance marks the crystal house’s 250th anniversary. Its concept translates crystal-making into airy, mineral and fiery olfactory effects.",
+      "launchYear": null,
+      "creator": "Francis Kurkdjian",
+      "sources": [
+        {
+          "label": "Maison Francis Kurkdjian · Official fragrance information",
+          "url": "https://www.franciskurkdjian.com/int-en/p/baccarat-rouge-540-eau-de-parfum-RA12232.html",
+          "checked": "2026-10-21"
+        }
+      ]
+    },
+    {
+      "id": "mfk-baccarat-rouge-540-extrait",
+      "brand": "Maison Francis Kurkdjian",
+      "name": "Baccarat Rouge 540",
+      "concentration": "Extrait de Parfum",
+      "catalogIds": [
+        "studio-retail-9404e70b4efb4abc3481e499"
+      ],
+      "notes": {
+        "featured": [
+          "Grandiflorum jasmine",
+          "Bitter almond",
+          "Ethyl maltol",
+          "Ambergris accord",
+          "Woody ambery musky accord"
+        ]
+      },
+      "summary": "A denser interpretation of Baccarat Rouge 540, accented by bitter almond and musky woods.",
+      "story": "The extrait develops the crystal-inspired concept of the Eau de Parfum with a distinct emphasis on bitter almond and a rounded woody-musky accord. The brand connects its red bottle with Baccarat’s signature crystal color.",
+      "launchYear": null,
+      "creator": "Francis Kurkdjian",
+      "sources": [
+        {
+          "label": "Maison Francis Kurkdjian · Official fragrance information",
+          "url": "https://www.franciskurkdjian.com/int-en/p/baccarat-rouge-540-extrait-de-parfum-RA142321.html",
+          "checked": "2026-10-21"
+        }
+      ]
+    },
+    {
+      "id": "terra-berry-rose",
+      "brand": "Terra Mater Perfumes",
+      "name": "Berry Rose",
+      "concentration": "Eau de Parfum",
+      "catalogIds": [
+        "studio-terra-mater-9122145534150"
+      ],
+      "notes": {
+        "featured": [
+          "Rose",
+          "Red fruits"
+        ]
+      },
+      "summary": "A rose composition supported by red-fruit nuances.",
+      "story": "Part of PROCESS by Terra Mater, Berry Rose explores roses and their natural nuances against a red-fruit backdrop. PROCESS presents compositions drawn from the studio’s creative formulation archive.",
+      "launchYear": null,
+      "creator": "Darwin J. Marrero · Creative direction; Juan M. Pérez · Perfumer",
+      "sources": [
+        {
+          "label": "Terra Mater Perfumes · Official fragrance information",
+          "url": "https://terramaterperfumes.com/products/sandalwood-milk-copy",
+          "checked": "2026-10-21"
+        }
+      ]
+    },
+    {
+      "id": "terra-coco-gourmand",
+      "brand": "Terra Mater Perfumes",
+      "name": "Coco Gourmand",
+      "concentration": "Eau de Parfum",
+      "catalogIds": [
+        "studio-terra-mater-9122053030086"
+      ],
+      "notes": {
+        "featured": [
+          "Toasted coconut"
+        ]
+      },
+      "summary": "A gourmand study focused on toasted coconut.",
+      "story": "Coco Gourmand belongs to PROCESS, Terra Mater’s exploration of compositions developed during formulation. The brand identifies toasted coconut as this composition’s central idea.",
+      "launchYear": null,
+      "creator": "Darwin J. Marrero · Creative direction; Juan M. Pérez · Perfumer",
+      "sources": [
+        {
+          "label": "Terra Mater Perfumes · Official fragrance information",
+          "url": "https://terramaterperfumes.com/products/untitled-oct19_21-16-53",
+          "checked": "2026-10-21"
+        }
+      ]
+    },
+    {
+      "id": "terra-sandalwood-milk",
+      "brand": "Terra Mater Perfumes",
+      "name": "Sandalwood Milk",
+      "concentration": "Eau de Parfum",
+      "catalogIds": [
+        "studio-terra-mater-9122145009862"
+      ],
+      "notes": {
+        "featured": [
+          "New Caledonian sandalwood",
+          "Milk accord"
+        ]
+      },
+      "summary": "Creamy sandalwood paired with a milk accord.",
+      "story": "In the PROCESS collection, Sandalwood Milk explores New Caledonian sandalwood through a milky accord. The series offers a look into Terra Mater’s creative development archive.",
+      "launchYear": null,
+      "creator": "Darwin J. Marrero · Creative direction; Juan M. Pérez · Perfumer",
+      "sources": [
+        {
+          "label": "Terra Mater Perfumes · Official fragrance information",
+          "url": "https://terramaterperfumes.com/products/wine-marmalade-copy",
+          "checked": "2026-10-21"
+        }
+      ]
+    },
+    {
+      "id": "terra-wine-marmalade",
+      "brand": "Terra Mater Perfumes",
+      "name": "Wine Marmalade",
+      "concentration": "Eau de Parfum",
+      "catalogIds": [
+        "studio-terra-mater-9122144026822"
+      ],
+      "notes": {
+        "featured": [
+          "Wine accord",
+          "Concord grape nuance",
+          "Red-fruit marmalade"
+        ]
+      },
+      "summary": "Concord-grape-like wine nuances over a red-fruit marmalade accord.",
+      "story": "Wine Marmalade is a PROCESS composition built around a wine-and-fruit idea. Terra Mater compares its wine character with concord grape juice and pairs it with a red-fruit preserve accord.",
+      "launchYear": null,
+      "creator": "Darwin J. Marrero · Creative direction; Juan M. Pérez · Perfumer",
+      "sources": [
+        {
+          "label": "Terra Mater Perfumes · Official fragrance information",
+          "url": "https://terramaterperfumes.com/products/wine-marmalade",
+          "checked": "2026-10-21"
+        }
+      ]
+    },
+    {
+      "id": "terra-capullito-de-alel",
+      "brand": "Terra Mater Perfumes",
+      "name": "Capullito de Alelí",
+      "concentration": "Extrait de Parfum",
+      "catalogIds": [
+        "studio-terra-mater-9044224671942"
+      ],
+      "notes": {
+        "top": [
+          "Red berries",
+          "Coconut",
+          "Dew",
+          "Green notes"
+        ],
+        "heart": [
+          "Gardenia",
+          "Bubblegum accord",
+          "Frangipani absolute",
+          "Solar notes",
+          "Ylang ylang"
+        ],
+        "base": [
+          "Driftwood",
+          "Vanilla",
+          "Tonka",
+          "Ambergris",
+          "Musk"
+        ]
+      },
+      "summary": "A tropical floral combining red berries, coconut and a sunlit floral heart.",
+      "story": "The second soliflore in Terra Mater’s Memoria en Flor series recalls the fragrance of alelí in family patios. Its nostalgic concept connects garden flowers with the memory of mothers’ and grandmothers’ homes.",
+      "launchYear": null,
+      "creator": "Darwin J. Marrero · Creative direction; Juan M. Pérez · Perfumer",
+      "sources": [
+        {
+          "label": "Terra Mater Perfumes · Official fragrance information",
+          "url": "https://terramaterperfumes.com/products/capullito-de-aleli-1-7oz-50ml-copy",
+          "checked": "2026-10-21"
+        }
+      ]
+    },
+    {
+      "id": "terra-san-juan-spritz",
+      "brand": "Terra Mater Perfumes",
+      "name": "San Juan Spritz",
+      "concentration": "Extrait de Parfum",
+      "catalogIds": [
+        "studio-terra-mater-9042225070278",
+        "studio-terra-mater-9042217730246"
+      ],
+      "notes": {
+        "top": [
+          "Lime",
+          "Mandarin",
+          "Grapefruit",
+          "Pineapple",
+          "Acerola",
+          "Prosecco",
+          "Spearmint",
+          "Rosemary"
+        ],
+        "heart": [
+          "Ylang ylang",
+          "Solar notes",
+          "Water lily",
+          "Coconut soda",
+          "Sea salt"
+        ],
+        "base": [
+          "Sandalwood",
+          "Vetiver",
+          "Ambergris",
+          "Tonka bean",
+          "Vanilla"
+        ]
+      },
+      "summary": "Citrus, tropical fruit and coconut soda over a woody ambergris base.",
+      "story": "Inspired by San Juan and the Aperol Spritz, Terra Mater reimagines the aperitif as a Caribbean fragrance. Citrus, prosecco and tropical-fruit accords express the brand’s vision of a bright Puerto Rican summer.",
+      "launchYear": null,
+      "creator": "Darwin J. Marrero · Creative direction; Juan M. Pérez · Perfumer",
+      "sources": [
+        {
+          "label": "Terra Mater Perfumes · Official fragrance information",
+          "url": "https://terramaterperfumes.com/products/san-juan-spritz-3-4-oz-100ml",
+          "checked": "2026-10-21"
+        }
+      ]
+    },
+    {
+      "id": "terra-memoria-en-flor",
+      "brand": "Terra Mater Perfumes",
+      "name": "Memoria en Flor",
+      "concentration": "Extrait de Parfum",
+      "catalogIds": [
+        "studio-terra-mater-8729607700678"
+      ],
+      "notes": {
+        "top": [
+          "Guava",
+          "Pear",
+          "Banana",
+          "Coconut water",
+          "Dew"
+        ],
+        "heart": [
+          "Green notes",
+          "Fresh gardenia",
+          "Ylang ylang",
+          "Solar notes",
+          "Jasmine sambac absolute"
+        ],
+        "base": [
+          "New Caledonian sandalwood",
+          "Ambergris",
+          "Ambertonic™",
+          "Operanide™",
+          "Musk"
+        ]
+      },
+      "summary": "A gardenia-centered floral surrounded by tropical fruit, green notes and creamy woods.",
+      "story": "The first fragrance in Terra Mater’s soliflore series revisits gardenias in Caribbean home gardens. Its story draws on childhood patios, tropical rain and the scent of flowers mingling with fruit.",
+      "launchYear": null,
+      "creator": "Darwin J. Marrero · Creative direction; Juan M. Pérez · Perfumer",
+      "sources": [
+        {
+          "label": "Terra Mater Perfumes · Official fragrance information",
+          "url": "https://terramaterperfumes.com/products/memoria-en-flor-1-7oz-50ml",
+          "checked": "2026-10-21"
+        }
+      ]
+    },
+    {
+      "id": "terra-iris-rouge",
+      "brand": "Terra Mater Perfumes",
+      "name": "Iris Rouge",
+      "concentration": "Extrait de Parfum",
+      "catalogIds": [
+        "studio-terra-mater-8714332733638"
+      ],
+      "notes": {
+        "top": [
+          "Cherry",
+          "Strawberry",
+          "Raspberry",
+          "Pomegranate",
+          "Rose"
+        ],
+        "heart": [
+          "Iris germanica resinoid",
+          "Iris pallida butter",
+          "Castoreum",
+          "Moss",
+          "Bourbon vetiver"
+        ],
+        "base": [
+          "Leather",
+          "Laos oud",
+          "Labdanum",
+          "Ambrostar™",
+          "Musk"
+        ]
+      },
+      "summary": "Red fruit and rose meet earthy iris, moss, leather and dark woods.",
+      "story": "Terra Mater builds Iris Rouge around contrasts: juicy fruit against earthy iris, moss and leather. The brand places the composition within a modern chypre structure influenced by traditional French perfumery.",
+      "launchYear": null,
+      "creator": "Darwin J. Marrero · Creative direction; Juan M. Pérez · Perfumer",
+      "sources": [
+        {
+          "label": "Terra Mater Perfumes · Official fragrance information",
+          "url": "https://terramaterperfumes.com/products/iris-rouge-1-7oz-50ml",
+          "checked": "2026-10-21"
+        }
+      ]
+    },
+    {
+      "id": "terra-tabaquero-1918",
+      "brand": "Terra Mater Perfumes",
+      "name": "Tabaquero 1918",
+      "concentration": "Extrait de Parfum",
+      "catalogIds": [
+        "studio-terra-mater-8713404317894"
+      ],
+      "notes": {
+        "top": [
+          "Hoja Prieto tobacco",
+          "Whiskey",
+          "Patchouli",
+          "Earthy notes"
+        ],
+        "heart": [
+          "Roasted coffee",
+          "Dark cacao",
+          "Cattleya orchid",
+          "Cinnamon",
+          "Pepper",
+          "Nutmeg",
+          "Vanilla",
+          "Dried fruits"
+        ],
+        "base": [
+          "Leather",
+          "Laos oud",
+          "Cedar",
+          "Amber",
+          "Tonka bean",
+          "Musk"
+        ]
+      },
+      "summary": "Tobacco and whiskey develop through coffee, cacao and spices into leather and woods.",
+      "story": "A tribute to Puerto Rico’s tobacco fields and cigar culture, Tabaquero 1918 centers on a Hoja Prieto tobacco accord. The brand’s narrative combines tobacco craftsmanship with coffee, cacao, whiskey and humidor-like cedar.",
+      "launchYear": null,
+      "creator": "Darwin J. Marrero · Creative direction; Juan M. Pérez · Perfumer",
+      "sources": [
+        {
+          "label": "Terra Mater Perfumes · Official fragrance information",
+          "url": "https://terramaterperfumes.com/products/copy-esperanza-1866-1-7oz-50ml-1",
+          "checked": "2026-10-21"
+        }
+      ]
+    },
+    {
+      "id": "terra-esperanza-1866",
+      "brand": "Terra Mater Perfumes",
+      "name": "Esperanza 1866",
+      "concentration": "Extrait de Parfum",
+      "catalogIds": [
+        "studio-terra-mater-8490034888902"
+      ],
+      "notes": {
+        "top": [
+          "Sugarcane molasses",
+          "Oak barrel",
+          "Spiced Caribbean rum",
+          "Patchouli",
+          "Earthy notes"
+        ],
+        "heart": [
+          "Brown sugar",
+          "Ylang-ylang",
+          "Vanilla",
+          "Dried fruits",
+          "Animalic notes"
+        ],
+        "base": [
+          "Cedar",
+          "Amber",
+          "Tonka bean",
+          "Musk"
+        ]
+      },
+      "summary": "Sugarcane, spiced rum and oak lead into a warm vanilla-amber base.",
+      "story": "Esperanza 1866 draws its inspiration from Puerto Rico’s sugarcane fields and rum-making heritage. Its composition follows that story through molasses, oak, spiced rum and warm earthy notes.",
+      "launchYear": null,
+      "creator": "Darwin J. Marrero · Creative direction; Juan M. Pérez · Perfumer",
+      "sources": [
+        {
+          "label": "Terra Mater Perfumes · Official fragrance information",
+          "url": "https://terramaterperfumes.com/products/esperanza-1866-1-7-oz-50-ml",
+          "checked": "2026-10-21"
+        }
+      ]
+    }
+  ]
+}
