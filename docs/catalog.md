@@ -4,7 +4,7 @@
 
 561 public fragrance product records with 515 photo URLs and 309 distinct brand labels. This is an initial community-sourced catalog, not a complete fragrance encyclopedia. Different barcode records can represent sizes of the same scent; brand labels sometimes include distributors or aliases. Images can show boxes, older packaging, samples, or bottles. They are reference photos, not a promise that a user-selected variant has identical packaging.
 
-The app searches names, brands and barcodes with accent-insensitive matching; offers brand and photo filters; and paginates 24 records at a time. Adding an item prefills explicit concentration and single mL quantities where known. Unknown fields require user selection. Each saved collection item carries the catalog ID to display the reference photo. Existing browser collections and JSON backups remain compatible.
+The app searches names, brands and barcodes with accent-insensitive matching; offers brand, concentration, collection/wishlist and market-price filters; and paginates 24 records at a time. Adding an item prefills explicit concentration and single mL quantities where known. Unknown fields require user selection. Each saved collection item carries the catalog ID to display the reference photo. Existing saved collections remain compatible; photo review is an internal quality gate, not a browsing checkbox.
 
 ## Files
 

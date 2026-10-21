@@ -8,25 +8,25 @@ Open `index.html` in a browser, or serve this directory with `python3 -m http.se
 
 ## Accounts
 
-Supabase is connected with username/password registration, private per-user collections and cross-device saving. Guest mode remains available. Sign-in waits for the account collection to load; guest bottles can be transferred without replacing existing account entries. Email recovery and Google sign-in are not enabled. See `docs/accounts.md`.
+Supabase is connected with username/password registration, private per-user collections and cross-device saving. Guest mode remains available. Sign-in waits for the account collection to load; device bottles merge automatically once per account without replacing existing entries. Saves, reconnects and load-on-open happen automatically. Email recovery and Google sign-in are not enabled. See `docs/accounts.md`.
 
 ## Implemented
 
 - Collectr-inspired navigation: overview, collection, discover, and wishlist, with bookmarkable hash routes.
-- Dashboard purchase costs, quantity-based pricing coverage, and top three fragrances ranked by total replacement value.
+- Dashboard market movement, consumption value, remaining mL, quantity-based pricing coverage and top fragrances ranked by remaining market value.
 - Searchable Open Beauty Facts catalog: 561 product records, 515 photo URLs, 309 distinct brand labels. Records are barcode-specific and can include multiple sizes of one scent.
-- Discover filters by brand and photo availability, supports barcode searches, and displays 24 records per page.
+- Discover filters by brand, concentration, collection/wishlist status and market price, supports barcode searches, and displays 24 records per page.
 - Add fragrance opens catalog search first. Known bottle variants save directly to the selected collection/wishlist in one click. Each capacity is a separate entry with its reviewed photo; incomplete records use the secondary manual-entry flow. Duplicates in the same list are prevented.
 - A separate shared price database links checked seller offers automatically to exact bottle identities, concentrations, sizes and bottle types. Daily refresh through GitHub Actions requires no paid API. See `docs/market-prices.md`.
 - JSON data for the website plus a SQLite database and reproducible importer. See `docs/catalog.md` and `data/LICENSE.md`.
 - Bookmarkable fragrance profiles with sourced notes/stories and direct seller shopping links without affiliate tracking. See `docs/fragrance-discovery.md`.
 - Sort collection by name, brand, or total replacement value.
 
-- Add, edit, and remove fragrance variants: brand, name, concentration, bottle size, standard/tester, quantity, owned/wishlist, and optional purchase price.
+- Add, edit, and remove fragrance variants: brand, name, concentration, bottle size, standard/tester, quantity, owned/wishlist.
 - Search and filter the collection.
-- Enter exact seller product links, prices, availability, review status, and check dates.
+- View linked seller prices and direct store listings; pricing updates through the shared database.
 - Calculate per-bottle replacement price and quantity-adjusted collection totals.
-- Browser storage with JSON backup export/import and input validation.
+- Automatic browser storage for guests and private account saving with durable offline drafts, retry and input validation.
 
 ## Market pricing rules
 
@@ -38,7 +38,7 @@ Candidate sellers: FragranceNet, Beauty House, Jomashop, and FragFlex. Exact dom
 
 ## Important limitations
 
-Seller prices are checked snapshots, not instant purchase quotes. Coverage is incomplete; unavailable, mismatched or stale offers are excluded. Prices do not include shipping or tax and are proportional replacement estimates, not used-bottle resale values. Collections save to the current browser in guest mode or privately to an account when signed in. Export backups to keep independent copies.
+Seller prices are checked snapshots, not instant purchase quotes. Coverage is incomplete; unavailable, mismatched or stale offers are excluded. Prices do not include shipping or tax and are proportional replacement estimates, not used-bottle resale values. Collections save to the current browser in guest mode or privately to an account when signed in.
 
 ## Validation
 
