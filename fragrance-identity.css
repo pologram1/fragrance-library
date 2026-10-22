@@ -1,0 +1,10 @@
+/* Transparent Fragrance Library identity: dark ink on light surfaces, white ink on dark. */
+img.fragrance-identity{object-fit:contain!important;object-position:center;background:transparent!important;border:0!important;border-radius:0!important;box-shadow:none!important;padding:0!important;filter:brightness(0);transition:filter .18s ease}
+:root[data-theme=dark] img.fragrance-identity{filter:brightness(0) invert(1)}
+a.project-brand-link img.fragrance-identity{object-fit:contain;width:210px;height:110px}
+.showcase-slide[data-project=fragrance] .showcase-art{background:transparent;border:0;border-radius:0;box-shadow:none;transform:none;overflow:visible}
+.showcase-slide[data-project=fragrance] .showcase-art::after{display:none}
+/* The showcase is an always-dark presentation in both page themes. */
+.studio-showcase img.fragrance-identity{filter:brightness(0) invert(1)}
+@media(max-width:550px){a.project-brand-link img.fragrance-identity{width:178px;height:94px}}
+@media(prefers-reduced-motion:reduce){img.fragrance-identity{transition:none}}
