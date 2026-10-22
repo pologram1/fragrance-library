@@ -5,7 +5,7 @@ let profiles=new Map();
 function cleanLink(value){
  try{const u=new URL(value);if(u.protocol!=='https:'||u.username||u.password)return null;
  for(const key of [...u.searchParams.keys()])if(!['variant','sku','pid'].includes(key.toLowerCase()))u.searchParams.delete(key);
- u.hash='';return u.href;}catch{return null;}
+ if(!(/(?:^|\.)fragrancenet\.com$/.test(u.hostname)&&/^#\d+$/.test(u.hash)))u.hash='';return u.href;}catch{return null;}
 }
 function configure(data){
  const next=new Map();
@@ -17,7 +17,7 @@ function sellerLinks(record,offers,now=Date.now()){
  const rows=new Map();
  for(const o of offers||[]){const url=cleanLink(o.url);if(!url||o.reviewed!==true||o.matching!==true||o.currency!=='USD')continue;const host=new URL(url).hostname.replace(/^www\./,'');const old=rows.get(host);if(!old||o.checked>=old.checked)rows.set(host,{...o,url,current:pricing.eligible(o,now)});}
  const source=cleanLink(record.sourceUrl);
- if(source){const host=new URL(source).hostname.replace(/^www\./,'');const names={'perfumebox.com':'Perfume Box','olfactoryfactoryllc.com':'Olfactory Factory LLC','terramaterperfumes.com':'Terra Mater Perfumes'};if(names[host]&&!rows.has(host))rows.set(host,{seller:names[host],url:source,price:null,current:false,stock:null,checked:null});}
+ if(source){const host=new URL(source).hostname.replace(/^www\./,'');const names={'perfumebox.com':'Perfume Box','olfactoryfactoryllc.com':'Olfactory Factory LLC','terramaterperfumes.com':'Terra Mater Perfumes','fragflex.com':'FragFlex','fragrancenet.com':'FragranceNet','jomashop.com':'Jomashop'};if(names[host]&&!rows.has(host))rows.set(host,{seller:names[host],url:source,price:null,current:false,stock:null,checked:null});}
  return [...rows.values()].sort((a,b)=>Number(b.current)-Number(a.current)||(a.current&&b.current?a.price-b.price:a.seller.localeCompare(b.seller)));
 }
 const api={configure,profile,sellerLinks,cleanLink};if(typeof module!=='undefined')module.exports=api;else root.FragranceDetails=api;

@@ -1,0 +1,79 @@
+{
+  "checked": "2026-10-22",
+  "method": "Rendered public product pages; standard bottle, stated size/concentration, USD stock and sale price visually checked. These observations expire after seven days unless rechecked.",
+  "products": [
+    {
+      "brand": "Lattafa",
+      "name": "Asad Bourbon",
+      "concentration": "Eau de Parfum",
+      "sizeMl": 100,
+      "quantity": "100 mL",
+      "sourceUrl": "https://www.jomashop.com/lattafat-mens-asad-bourbon-3-4-oz-fragrances-6290362340362.html",
+      "offer": {
+        "seller": "Jomashop",
+        "price": 27.95,
+        "currency": "USD",
+        "url": "https://www.jomashop.com/lattafat-mens-asad-bourbon-3-4-oz-fragrances-6290362340362.html",
+        "kind": "discount",
+        "checked": "2026-10-22",
+        "stock": true,
+        "reviewed": true,
+        "matching": true
+      }
+    },
+    {
+      "brand": "Dior",
+      "name": "Sauvage",
+      "concentration": "Eau de Parfum",
+      "sizeMl": 100,
+      "quantity": "100 mL",
+      "sourceUrl": "https://www.jomashop.com/christian-dior-fragrances-svgmes34-3-4oz.html",
+      "offer": {
+        "seller": "Jomashop",
+        "price": 149.95,
+        "currency": "USD",
+        "url": "https://www.jomashop.com/christian-dior-fragrances-svgmes34-3-4oz.html",
+        "kind": "discount",
+        "checked": "2026-10-22",
+        "stock": true,
+        "reviewed": true,
+        "matching": true
+      },
+      "notes": {
+        "top": [
+          "Calabrian bergamot",
+          "Sichuan pepper"
+        ],
+        "heart": [
+          "Lavender",
+          "Nutmeg",
+          "Star anise"
+        ],
+        "base": [
+          "Ambroxan",
+          "Papua New Guinea vanilla"
+        ]
+      }
+    },
+    {
+      "brand": "Creed",
+      "name": "Aventus",
+      "concentration": "Eau de Parfum",
+      "sizeMl": 100,
+      "quantity": "100 mL",
+      "sourceUrl": "https://www.jomashop.com/creed-fragrances-cavmes33b-3-3oz.html",
+      "offer": {
+        "seller": "Jomashop",
+        "price": 329.99,
+        "priceNote": "Advertised price with public coupon code EXTRA50.",
+        "currency": "USD",
+        "url": "https://www.jomashop.com/creed-fragrances-cavmes33b-3-3oz.html",
+        "kind": "discount",
+        "checked": "2026-10-22",
+        "stock": true,
+        "reviewed": true,
+        "matching": true
+      }
+    }
+  ]
+}

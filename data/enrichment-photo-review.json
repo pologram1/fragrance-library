@@ -1,0 +1,486 @@
+{
+  "date": "2026-10-22",
+  "candidates": [
+    {
+      "number": 1,
+      "id": "studio-enriched-cd792cbea00c4779e5b1a10e",
+      "url": "https://cdn.shopify.com/s/files/1/0215/6845/4756/files/afnan9amdive2022-man.jpg?v=1775837543",
+      "sha256": "ccbd2f7700ad641ca8c65c8313b3e5dfc2f855ef61de2b7aab52b6f893c67443",
+      "verdict": "approved",
+      "reason": "Visually reviewed whole bottle, label, size/concentration, proportions and plain presentation."
+    },
+    {
+      "number": 2,
+      "id": "studio-enriched-8048e91f7a6e41fc79c0874e",
+      "url": "https://cdn.shopify.com/s/files/1/0215/6845/4756/files/Afnan-9PM-Elixir_20_2B_20Box.jpg?v=1775837546",
+      "sha256": "4a0e7d7e344bf1f54e533b5da0c0a37e46d08dc52edd0b1a34405b4c6dfbc5f6",
+      "verdict": "held",
+      "reason": "Placeholder, composition, label or concentration/identity not sufficiently confirmed."
+    },
+    {
+      "number": 3,
+      "id": "studio-enriched-5513b080050d82f4756b6eb1",
+      "url": "https://cdn.shopify.com/s/files/1/0215/6845/4756/files/9PM-REBEL_AFNAN_20_2B_20Box_53947968-d32e-45ac-b5af-1561ac3d2174.jpg?v=1775837550",
+      "sha256": "bd1c412471d365b52cedb88716496f1ffb74eb6a0300f90c6be750342f7e6304",
+      "verdict": "approved",
+      "reason": "Visually reviewed whole bottle, label, size/concentration, proportions and plain presentation."
+    },
+    {
+      "number": 4,
+      "id": "studio-enriched-47d441687a46df1b540f76e8",
+      "url": "https://cdn.shopify.com/s/files/1/0215/6845/4756/files/afnanabstractportrait-man.jpg?v=1775837551",
+      "sha256": "3cdfb08ab65fa33b15bbb23eb6cfe886e3833114b72822e3e09713e8429bee02",
+      "verdict": "approved",
+      "reason": "Visually reviewed whole bottle, label, size/concentration, proportions and plain presentation."
+    },
+    {
+      "number": 5,
+      "id": "studio-enriched-4ed4dd50fba38070826712da",
+      "url": "https://cdn.shopify.com/s/files/1/0215/6845/4756/files/afnanhistoricsahara-man.jpg?v=1775837555",
+      "sha256": "ada3937139cd957c43323f78a94aba8a8a978a6339cb1a19798d2c85fa30abda",
+      "verdict": "approved",
+      "reason": "Visually reviewed whole bottle, label, size/concentration, proportions and plain presentation."
+    },
+    {
+      "number": 6,
+      "id": "studio-enriched-00b9ec2ff1ca6f2b1079b7f8",
+      "url": "https://cdn.shopify.com/s/files/1/0215/6845/4756/files/afnaniiihishighnessgreen-man.jpg?v=1775837557",
+      "sha256": "559760b8dbbdb717872ef6901b14c441289e0f1e04b5b16c0af19e468cd72da2",
+      "verdict": "approved",
+      "reason": "Visually reviewed whole bottle, label, size/concentration, proportions and plain presentation."
+    },
+    {
+      "number": 7,
+      "id": "studio-enriched-c9125c76fa3d93d189c7517c",
+      "url": "https://cdn.shopify.com/s/files/1/0215/6845/4756/files/afnankiaanaangel-woman.jpg?v=1775837560",
+      "sha256": "105960a4324e5ebe513718b2f167f381358f98dfdce456c6d3cdd0f6a987371b",
+      "verdict": "approved",
+      "reason": "Visually reviewed whole bottle, label, size/concentration, proportions and plain presentation."
+    },
+    {
+      "number": 8,
+      "id": "studio-enriched-69d45b71a84aae53b07ff47d",
+      "url": "https://cdn.shopify.com/s/files/1/0215/6845/4756/files/afnankiaanacrush-woman_77afdf21-c2ae-423e-9143-1dbf4bb28aed.jpg?v=1775837561",
+      "sha256": "530eec2bb3b2f28da063129d438c855b646d4ec1f8c90bfe117b338e21905637",
+      "verdict": "held",
+      "reason": "Placeholder, composition, label or concentration/identity not sufficiently confirmed."
+    },
+    {
+      "number": 9,
+      "id": "studio-enriched-330fd1e1c7ccff0738868927",
+      "url": "https://cdn.shopify.com/s/files/1/0215/6845/4756/files/AfnanKiaanaVibes_2000w01.jpg?v=1790201485",
+      "sha256": "c3de0ec4f1c12107f43a8246c7c25f1d79eaf007ebe254914d3d29e293d7833d",
+      "verdict": "approved",
+      "reason": "Visually reviewed whole bottle, label, size/concentration, proportions and plain presentation."
+    },
+    {
+      "number": 10,
+      "id": "studio-enriched-e5a511c89917efe89d14ed6d",
+      "url": "https://cdn.shopify.com/s/files/1/0215/6845/4756/files/afnanforevergold_2000w01_71e6450e-91f7-447b-be74-0cffdc960d20.jpg?v=1775837563",
+      "sha256": "e520b5c38088f7bbbc54fd1efac79ae58a063437a816e7c10d2c201996b5a60e",
+      "verdict": "held",
+      "reason": "Placeholder, composition, label or concentration/identity not sufficiently confirmed."
+    },
+    {
+      "number": 11,
+      "id": "studio-enriched-49971b6a9e3cd10a676cff65",
+      "url": "https://cdn.shopify.com/s/files/1/0215/6845/4756/files/afnansouvenirbloomingbliss-woman.jpg?v=1775837582",
+      "sha256": "368f0037b29b0621b846bb3e1feae5443d25bded1467ab7c15c2bdf84d588a01",
+      "verdict": "held",
+      "reason": "Placeholder, composition, label or concentration/identity not sufficiently confirmed."
+    },
+    {
+      "number": 12,
+      "id": "studio-enriched-fe8427067095e61062777c86",
+      "url": "https://cdn.shopify.com/s/files/1/0215/6845/4756/files/afnansouvenirfloralbouquet-woman.jpg?v=1775837582",
+      "sha256": "5f9831b41db820ab0d000a7005a280f1d8b18e3a6e0cedb0dba3ad7f23c32e79",
+      "verdict": "held",
+      "reason": "Placeholder, composition, label or concentration/identity not sufficiently confirmed."
+    },
+    {
+      "number": 13,
+      "id": "studio-enriched-8c1d77c56ee2b35b3ac0b79b",
+      "url": "https://cdn.shopify.com/s/files/1/0215/6845/4756/files/AfnanStardust_2000w01.jpg?v=1791998496",
+      "sha256": "2bb5dd55e29314946ce3f098f59bee38145005bbfe35f9a1208e76ec2114a77e",
+      "verdict": "approved",
+      "reason": "Visually reviewed whole bottle, label, size/concentration, proportions and plain presentation."
+    },
+    {
+      "number": 14,
+      "id": "studio-enriched-203b9bed9e0fe17fe3e330ed",
+      "url": "https://cdn.shopify.com/s/files/1/0221/4038/7400/files/Screenshot2025-10-17111510.png?v=1760714216",
+      "sha256": "cc9e1e9d9805fee697f8522f66a0d42ca0de149795f986fd1cf0ebb371979f06",
+      "verdict": "held",
+      "reason": "Placeholder, composition, label or concentration/identity not sufficiently confirmed."
+    },
+    {
+      "number": 15,
+      "id": "studio-enriched-7d2dfb027610a8381fce7534",
+      "url": "https://cdn.shopify.com/s/files/1/0221/4038/7400/files/Screenshot2025-10-16173741_2a5728b2-b2a6-4569-84ac-38c135fe2cf2.png?v=1760718279",
+      "sha256": "f2cf1093b46ebcd261bb2cf251fab51c117642fdee2ecfd35684b683dd7ab258",
+      "verdict": "approved",
+      "reason": "Visually reviewed whole bottle, label, size/concentration, proportions and plain presentation."
+    },
+    {
+      "number": 16,
+      "id": "studio-enriched-18a0cbdc2535c6d75996c638",
+      "url": "https://cdn.shopify.com/s/files/1/0215/6845/4756/files/afnanviihishighnesswhite-man.jpg?v=1775837607",
+      "sha256": "b6f0036479eeaf4c728b5c1c202b53321a50705c14ae6218d48aab4ad44903ab",
+      "verdict": "approved",
+      "reason": "Visually reviewed whole bottle, label, size/concentration, proportions and plain presentation."
+    },
+    {
+      "number": 17,
+      "id": "studio-enriched-d5be93bf860d37fc04b9e80d",
+      "url": "https://cdn.shopify.com/s/files/1/0215/6845/4756/files/afnanzimayawujood-man.jpg?v=1775837643",
+      "sha256": "14d6750c1224e8f8a624f30c44f73d03466e5f1ea26c35463ab994ded7230ec4",
+      "verdict": "held",
+      "reason": "Placeholder, composition, label or concentration/identity not sufficiently confirmed."
+    },
+    {
+      "number": 18,
+      "id": "studio-enriched-4d026c581bc1122abf5c4e46",
+      "url": "https://cdn.shopify.com/s/files/1/0215/6845/4756/files/afnanzimayaafairytale-woman.jpg?v=1775837610",
+      "sha256": "e14f97f62c6f0e6a82d48c40e8e5a46fa3b7ea006c1d9793c9d270b2b55cde1e",
+      "verdict": "held",
+      "reason": "Placeholder, composition, label or concentration/identity not sufficiently confirmed."
+    },
+    {
+      "number": 19,
+      "id": "studio-enriched-84a85f0476652113e0a5ab6e",
+      "url": "https://cdn.shopify.com/s/files/1/0215/6845/4756/files/afnanzimayaalarose-woman.jpg?v=1775837611",
+      "sha256": "2a7e3add645bf87d43e14e40bf0a49fb6a2d2b427f6273bc9cb3155be0f3d77c",
+      "verdict": "held",
+      "reason": "Placeholder, composition, label or concentration/identity not sufficiently confirmed."
+    },
+    {
+      "number": 20,
+      "id": "studio-enriched-350eb8b17f1af5d1caebad94",
+      "url": "https://cdn.shopify.com/s/files/1/0215/6845/4756/files/afnanalembraturabsolu_2000w01.jpg?v=1780080838",
+      "sha256": "25dceae193b5e0a7672427456ca3ce010c5cbf936697af3c2d37a761844d7c22",
+      "verdict": "approved",
+      "reason": "Visually reviewed whole bottle, label, size/concentration, proportions and plain presentation."
+    },
+    {
+      "number": 21,
+      "id": "studio-enriched-f5c80b15b1f955ab0199df53",
+      "url": "https://cdn.shopify.com/s/files/1/0215/6845/4756/files/afnanzimayaabadi_2000w01_01805789-a5ee-41ad-a74c-78e48ad64560.jpg?v=1775837609",
+      "sha256": "d0893275d38bdf66ddcaac7bc1db3d1b26b0ba6f614c9796ff9e0495c861fad9",
+      "verdict": "approved",
+      "reason": "Visually reviewed whole bottle, label, size/concentration, proportions and plain presentation."
+    },
+    {
+      "number": 22,
+      "id": "studio-enriched-0f62b8acd8fe3745cc36c874",
+      "url": "https://cdn.shopify.com/s/files/1/0215/6845/4756/files/afnanzimayaabadisaga_2000w01_79633e70-7cb2-4d72-8342-b173a6f75243.jpg?v=1775837609",
+      "sha256": "71771b513bdca3fda7fa3c8f6c702dce6deae7ec0a7c8785cb5fe47535f2e3ca",
+      "verdict": "approved",
+      "reason": "Visually reviewed whole bottle, label, size/concentration, proportions and plain presentation."
+    },
+    {
+      "number": 23,
+      "id": "studio-enriched-8ed951aada6e2cf820ec904f",
+      "url": "https://cdn.shopify.com/s/files/1/0215/6845/4756/files/afnanzimayaalbararicoral_2000w01_a055118a-b966-4508-af7a-cbc1996900e7.jpg?v=1775837612",
+      "sha256": "5a64f6f206615115f78a3f7e9f96b51db9d7594cbaafaf889f8f63e5c3e13e58",
+      "verdict": "approved",
+      "reason": "Visually reviewed whole bottle, label, size/concentration, proportions and plain presentation."
+    },
+    {
+      "number": 24,
+      "id": "studio-enriched-44528fb4e1111b9f8094bc8d",
+      "url": "https://cdn.shopify.com/s/files/1/0215/6845/4756/files/AfnanAlbarariShore_2000w01_89ab5775-9b6c-41f3-abbb-0a1ba3da02a7.jpg?v=1775837614",
+      "sha256": "2073581599fe3b286a6cf6752c10f80623c5c769160b67700b801f9d9c6fc742",
+      "verdict": "approved",
+      "reason": "Visually reviewed whole bottle, label, size/concentration, proportions and plain presentation."
+    },
+    {
+      "number": 25,
+      "id": "studio-enriched-42615f2a6b8f95a0246b55fa",
+      "url": "https://cdn.shopify.com/s/files/1/0215/6845/4756/files/afnanzimayaalkaser-man.jpg?v=1775837616",
+      "sha256": "3cee2329bd2a5c6656a97ba0632fff4b53aabde2cde1fec08dc5b00875e13ae7",
+      "verdict": "approved",
+      "reason": "Visually reviewed whole bottle, label, size/concentration, proportions and plain presentation."
+    },
+    {
+      "number": 26,
+      "id": "studio-enriched-e66b96949c0bdd282634d14c",
+      "url": "https://cdn.shopify.com/s/files/1/0215/6845/4756/files/AfnanZimayaAwatifBlack_2000w01.jpg?v=1775837618",
+      "sha256": "0ce345a9065d8065e6fb0bc3c1776583148ace43d7c8ff293476bab68c311cc9",
+      "verdict": "approved",
+      "reason": "Visually reviewed whole bottle, label, size/concentration, proportions and plain presentation."
+    },
+    {
+      "number": 27,
+      "id": "studio-enriched-487cbdc00012fd6f8758fcef",
+      "url": "https://cdn.shopify.com/s/files/1/0215/6845/4756/files/Imagecoming_comesoon_24284b02-d7a4-4174-894e-e56cde2c607b.png?v=1780947880",
+      "sha256": "4e625c71a3ac618188a3f5eb8ab7cc7044471b5709d8d19bad84243dab4b1a79",
+      "verdict": "held",
+      "reason": "Placeholder, composition, label or concentration/identity not sufficiently confirmed."
+    },
+    {
+      "number": 28,
+      "id": "studio-enriched-074c65b23a04fe958303f122",
+      "url": "https://cdn.shopify.com/s/files/1/0215/6845/4756/files/afnandaimaneclipse_2000w01.jpg?v=1780080841",
+      "sha256": "538868e3c782f428a394ca2cd13c97bf04f5307dc4e2b5fca4c358927d81a30c",
+      "verdict": "approved",
+      "reason": "Visually reviewed whole bottle, label, size/concentration, proportions and plain presentation."
+    },
+    {
+      "number": 29,
+      "id": "studio-enriched-42857704ef095c3822dea918",
+      "url": "https://cdn.shopify.com/s/files/1/0215/6845/4756/files/Imagecoming_comesoon_827c0f84-4160-4193-b315-f962b27fd445.png?v=1780947881",
+      "sha256": "4e625c71a3ac618188a3f5eb8ab7cc7044471b5709d8d19bad84243dab4b1a79",
+      "verdict": "held",
+      "reason": "Placeholder, composition, label or concentration/identity not sufficiently confirmed."
+    },
+    {
+      "number": 30,
+      "id": "studio-enriched-cc3eec6571a7ca9007ae9282",
+      "url": "https://cdn.shopify.com/s/files/1/0215/6845/4756/files/AfnanZimayaFatimaVelvetLove_2000w01.jpg?v=1776703215",
+      "sha256": "7ae7cd47f42855350c892a497f3935cec0ce3e8be01df6258b560ea5bce239c4",
+      "verdict": "approved",
+      "reason": "Visually reviewed whole bottle, label, size/concentration, proportions and plain presentation."
+    },
+    {
+      "number": 31,
+      "id": "studio-enriched-4ac1e819b857c46f95822918",
+      "url": "https://cdn.shopify.com/s/files/1/0215/6845/4756/files/afnanzimayaghayath-man.jpg?v=1775837624",
+      "sha256": "e02b78545b6c52daf495cc5672a0aac8db4c5488d9ccaa539d9f1f2684b5c603",
+      "verdict": "held",
+      "reason": "Placeholder, composition, label or concentration/identity not sufficiently confirmed."
+    },
+    {
+      "number": 32,
+      "id": "studio-enriched-eb550715d7a030315eb2750e",
+      "url": "https://cdn.shopify.com/s/files/1/0215/6845/4756/files/afnanzimayaghyoom-man.jpg?v=1775837626",
+      "sha256": "13198857212380ef0456ff0121a830f77de45d749e3660a33052931e18520161",
+      "verdict": "approved",
+      "reason": "Visually reviewed whole bottle, label, size/concentration, proportions and plain presentation."
+    },
+    {
+      "number": 33,
+      "id": "studio-enriched-7d639065be479ec88caa1580",
+      "url": "https://cdn.shopify.com/s/files/1/0215/6845/4756/files/Imagecoming_comesoon_206ea8d3-f586-47d5-bbdf-d4989c675b49.png?v=1782318015",
+      "sha256": "4e625c71a3ac618188a3f5eb8ab7cc7044471b5709d8d19bad84243dab4b1a79",
+      "verdict": "held",
+      "reason": "Placeholder, composition, label or concentration/identity not sufficiently confirmed."
+    },
+    {
+      "number": 34,
+      "id": "studio-enriched-e7e803b1fc54a66a6513d4f3",
+      "url": "https://cdn.shopify.com/s/files/1/0215/6845/4756/files/afnanzimayailhamaloud-man.jpg?v=1775837627",
+      "sha256": "b06ca1f3fc1e8c4a1b7a06617ed04a574208559c3350ae93c04da09cdb905fb4",
+      "verdict": "approved",
+      "reason": "Visually reviewed whole bottle, label, size/concentration, proportions and plain presentation."
+    },
+    {
+      "number": 35,
+      "id": "studio-enriched-2cc7c6176f769f5b456bd5dd",
+      "url": "https://cdn.shopify.com/s/files/1/0215/6845/4756/files/Imagecoming_comesoon_7e7aaa30-7f91-4b28-a621-6d44c3b5a291.png?v=1791384555",
+      "sha256": "4e625c71a3ac618188a3f5eb8ab7cc7044471b5709d8d19bad84243dab4b1a79",
+      "verdict": "held",
+      "reason": "Placeholder, composition, label or concentration/identity not sufficiently confirmed."
+    },
+    {
+      "number": 36,
+      "id": "studio-enriched-05213d1b7ed8270f96a15e40",
+      "url": "https://cdn.shopify.com/s/files/1/0215/6845/4756/files/afnanmazaajinfused_2000w01_bcdfc69c-46d6-4738-ab4a-9b01419c46eb.jpg?v=1775837630",
+      "sha256": "b8ecff9820c37cf13e1ff92f774797c4cac75c380663a05f4524908f791d055e",
+      "verdict": "approved",
+      "reason": "Visually reviewed whole bottle, label, size/concentration, proportions and plain presentation."
+    },
+    {
+      "number": 37,
+      "id": "studio-enriched-082238bf499c4d6d9fbdd705",
+      "url": "https://cdn.shopify.com/s/files/1/0215/6845/4756/files/Imagecoming_comesoon_ca5919e1-9ad7-4a82-9561-09031bc26643.png?v=1782318017",
+      "sha256": "4e625c71a3ac618188a3f5eb8ab7cc7044471b5709d8d19bad84243dab4b1a79",
+      "verdict": "held",
+      "reason": "Placeholder, composition, label or concentration/identity not sufficiently confirmed."
+    },
+    {
+      "number": 38,
+      "id": "studio-enriched-38764c75ee42f4474bcac715",
+      "url": "https://cdn.shopify.com/s/files/1/0215/6845/4756/files/afnanzimayasharafdivine_2000w01_28c8ea52-3f1a-427f-8bdd-7091a19afd0d.jpg?v=1775837557",
+      "sha256": "c546291dc515ac6b572cc99fde6f260d9d81152bdf894afd5de6f3d8b8681d7d",
+      "verdict": "held",
+      "reason": "Placeholder, composition, label or concentration/identity not sufficiently confirmed."
+    },
+    {
+      "number": 39,
+      "id": "studio-enriched-da54670c5a3d9fedba9d8dca",
+      "url": "https://cdn.shopify.com/s/files/1/0221/4038/7400/files/s-l1200_e12b0038-8da4-43e3-8fd3-65380c17ca94.png?v=1760726075",
+      "sha256": "0c3878aa1fd6c5b8708aa8c22c161903d85b6b7611e22432918443c14ad0fd97",
+      "verdict": "held",
+      "reason": "Placeholder, composition, label or concentration/identity not sufficiently confirmed."
+    },
+    {
+      "number": 40,
+      "id": "studio-enriched-4ce6f7698dc4795ac4fcb32b",
+      "url": "https://cdn.shopify.com/s/files/1/0215/6845/4756/files/afnanzimayasharaftheclub-man.jpg?v=1775837635",
+      "sha256": "56147d5f3cbcefdcf0935724fecc95f000bab6d45c8c9abc626bc060cfe7bd92",
+      "verdict": "held",
+      "reason": "Placeholder, composition, label or concentration/identity not sufficiently confirmed."
+    },
+    {
+      "number": 41,
+      "id": "studio-enriched-f87c6ef7ea9e9891c7d93efe",
+      "url": "https://cdn.shopify.com/s/files/1/0215/6845/4756/files/afnanzimayasiadanova_2000w01_22b8d311-1cb8-4678-a166-b129877ec25e.jpg?v=1775837636",
+      "sha256": "52e9517b00d2ab03a8f69b038f06f9ba641cd51708c37809ef6fdc2c0118bf47",
+      "verdict": "approved",
+      "reason": "Visually reviewed whole bottle, label, size/concentration, proportions and plain presentation."
+    },
+    {
+      "number": 42,
+      "id": "studio-enriched-c38287f31769da715865f3ed",
+      "url": "https://cdn.shopify.com/s/files/1/0215/6845/4756/files/afnanzimayasiadaregal_2000w01_a26f84ef-6f5e-42d9-af89-d28fec98b07d.jpg?v=1775837637",
+      "sha256": "bb73a636f460ad7d32d5a2a31fd59f554468e59874fbeb324a29cf20ddcd2438",
+      "verdict": "approved",
+      "reason": "Visually reviewed whole bottle, label, size/concentration, proportions and plain presentation."
+    },
+    {
+      "number": 43,
+      "id": "studio-enriched-7f3bc3494367396e93a48d58",
+      "url": "https://cdn.shopify.com/s/files/1/0215/6845/4756/files/afnanzimayatarafblack-man.jpg?v=1775837639",
+      "sha256": "34230e146307d10993bcf46689706eadfe20342df3d691bf6b3d8036893a603f",
+      "verdict": "approved",
+      "reason": "Visually reviewed whole bottle, label, size/concentration, proportions and plain presentation."
+    },
+    {
+      "number": 44,
+      "id": "studio-enriched-09a8019a9afcf85f6c2572bd",
+      "url": "https://cdn.shopify.com/s/files/1/0221/4038/7400/files/Screenshot_2025-10-17_144622.png?v=1760726911",
+      "sha256": "07dee42322efff83cf85165a73edb3084531325fdd948f9d0afb87442eea1068",
+      "verdict": "approved",
+      "reason": "Visually reviewed whole bottle, label, size/concentration, proportions and plain presentation."
+    },
+    {
+      "number": 45,
+      "id": "studio-enriched-65dd2c89428a67a3de85c083",
+      "url": "https://cdn.shopify.com/s/files/1/0221/4038/7400/files/Screenshot2025-10-17150520.png?v=1760728107",
+      "sha256": "7b0835ed113c6ed3ed62b7fe541d895fdb3a6359afef61533e13f2ee67251e2b",
+      "verdict": "approved",
+      "reason": "Visually reviewed whole bottle, label, size/concentration, proportions and plain presentation."
+    },
+    {
+      "number": 46,
+      "id": "studio-enriched-c5c432a178b70f8d0c76de0c",
+      "url": "https://cdn.shopify.com/s/files/1/0215/6845/4756/files/afnantiramisusmores_2000w01.jpg?v=1780080853",
+      "sha256": "a2740f272869cc9f62cafb08de4746270fd7a798e37e406c0a93c0df813340db",
+      "verdict": "approved",
+      "reason": "Visually reviewed whole bottle, label, size/concentration, proportions and plain presentation."
+    },
+    {
+      "number": 47,
+      "id": "studio-enriched-3b5708b57e32bf31b5489326",
+      "url": "https://cdn.shopify.com/s/files/1/0215/6845/4756/files/afnanzukhrufpeachplease_2000w01.jpg?v=1780080855",
+      "sha256": "ae05e5768a4b3750958866fbdcd1f594f286dfea83b7a0f2bcb0061549180e08",
+      "verdict": "approved",
+      "reason": "Visually reviewed whole bottle, label, size/concentration, proportions and plain presentation."
+    },
+    {
+      "number": 48,
+      "id": "studio-enriched-5074e7450fd20446d9f31af8",
+      "url": "https://cdn.shopify.com/s/files/1/0582/2955/5259/files/escentials_AMG41095_1_900x_f0bee82d-9cc4-489b-b69f-80391755e8fd.webp?v=1752326431",
+      "sha256": "4b1170133ab68eec4dfb4beac4638d19d2f9216412e7d9e64d5ed16f4f2b765b",
+      "verdict": "held",
+      "reason": "Placeholder, composition, label or concentration/identity not sufficiently confirmed."
+    },
+    {
+      "number": 49,
+      "id": "studio-enriched-2e677b74c22cd7c4e16ff1a0",
+      "url": "https://cdn.shopify.com/s/files/1/0215/6845/4756/files/amouageexistence_2000w01.jpg?v=1780081012",
+      "sha256": "8f66821265fdd5f882accc7f3c709ca178ece38e7caac771849d668147f18cff",
+      "verdict": "held",
+      "reason": "Placeholder, composition, label or concentration/identity not sufficiently confirmed."
+    },
+    {
+      "number": 50,
+      "id": "studio-enriched-d54faeaa4193260852b677ac",
+      "url": "https://cdn.shopify.com/s/files/1/0582/2955/5259/files/Olfactory-34_1.jpg?v=1752321835",
+      "sha256": "6af8d946ecee6aef075321a9d677ddcad4dc261687b9ce99643510aef6ed522a",
+      "verdict": "held",
+      "reason": "Placeholder, composition, label or concentration/identity not sufficiently confirmed."
+    },
+    {
+      "number": 51,
+      "id": "studio-enriched-73efa1eabc09b5841b9c8da8",
+      "url": "https://cdn.shopify.com/s/files/1/0215/6845/4756/files/amouageguidance46-woman.jpg?v=1775837985",
+      "sha256": "2249aa99ac4c71f8d3551feb6967078d3b4a8b9780017098decda0434c060b1d",
+      "verdict": "held",
+      "reason": "Placeholder, composition, label or concentration/identity not sufficiently confirmed."
+    },
+    {
+      "number": 52,
+      "id": "studio-enriched-ddcfc2193d0ce97deb09d899",
+      "url": "https://cdn.shopify.com/s/files/1/0582/2955/5259/files/amouage_outlands_essence_de_parfum_100_ml_1.webp?v=1752325926",
+      "sha256": "95cfa596c5388d8ff399a001a7adb47fa7e07204b2f45afb144c8e302a2a96c2",
+      "verdict": "held",
+      "reason": "Placeholder, composition, label or concentration/identity not sufficiently confirmed."
+    },
+    {
+      "number": 53,
+      "id": "studio-enriched-a7a58f70662d2ebb1b90461d",
+      "url": "https://cdn.shopify.com/s/files/1/0582/2955/5259/files/141_1800x1800_1024x1024_494e65aa-8740-4192-8843-11f570413ab3.webp?v=1752325313",
+      "sha256": "f7d254febda0cf9b6a537d58f8d5fadb5ddced9d4bbe48ba5548202c207caec8",
+      "verdict": "held",
+      "reason": "Placeholder, composition, label or concentration/identity not sufficiently confirmed."
+    },
+    {
+      "number": 54,
+      "id": "studio-enriched-b3d9f835277b81219aeac19a",
+      "url": "https://cdn.shopify.com/s/files/1/0582/2955/5259/files/159217208724_1.jpg?v=1752325894",
+      "sha256": "86ad10f97727a3d4eced84bba11d1223261b7ebc9b09c0eb69f1e89ecf60c311",
+      "verdict": "held",
+      "reason": "Placeholder, composition, label or concentration/identity not sufficiently confirmed."
+    },
+    {
+      "number": 55,
+      "id": "studio-enriched-dddeddec3387bdc00093e360",
+      "url": "https://cdn.shopify.com/s/files/1/0215/6845/4756/files/amouagereasonsessence-man_4169df5a-c5f7-403a-bb47-b24fb39f259e.jpg?v=1775838038",
+      "sha256": "83496993bbeba804aa22d95bd1dd9e55c7d8ed0b7c56138cc37b787f76ae55cb",
+      "verdict": "held",
+      "reason": "Placeholder, composition, label or concentration/identity not sufficiently confirmed."
+    },
+    {
+      "number": 56,
+      "id": "studio-enriched-54d8b597520297a884afd96b",
+      "url": "https://cdn.shopify.com/s/files/1/0215/6845/4756/files/Imagecoming_comesoon_5cbfa404-1714-4ad4-930d-07e5ef324f1a.png?v=1780947890",
+      "sha256": "4e625c71a3ac618188a3f5eb8ab7cc7044471b5709d8d19bad84243dab4b1a79",
+      "verdict": "held",
+      "reason": "Placeholder, composition, label or concentration/identity not sufficiently confirmed."
+    },
+    {
+      "number": 57,
+      "id": "studio-enriched-ede2bc4d3d714eb18ada6927",
+      "url": "https://cdn.shopify.com/s/files/1/0582/2955/5259/files/Olfactory-40_1.jpg?v=1752321622",
+      "sha256": "2a5e19b2b3dfe681d6b6d97b8998e9bafc9f044ee2f65a35e6f1bc1f8310219c",
+      "verdict": "held",
+      "reason": "Placeholder, composition, label or concentration/identity not sufficiently confirmed."
+    },
+    {
+      "number": 58,
+      "id": "studio-enriched-780fdf02d46ff6b523d397eb",
+      "url": "https://cdn.shopify.com/s/files/1/0582/2955/5259/files/Olfactory-41_1.jpg?v=1752321767",
+      "sha256": "55e78f2b1ff6a39cb2adbd4731d5f16911a859f2554c8748187f301da6ed5987",
+      "verdict": "held",
+      "reason": "Placeholder, composition, label or concentration/identity not sufficiently confirmed."
+    },
+    {
+      "number": 59,
+      "id": "studio-enriched-56b3ade935a93cb7f2af3c57",
+      "url": "https://cdn.shopify.com/s/files/1/0215/6845/4756/files/armafbeauacute-man_52fe77dc-1953-481d-859e-c1eb55ab5a0c.jpg?v=1775838305",
+      "sha256": "e7b767e7e0d1ab98675ed0f4029f773f6dd3af68485bbe994ff766ad2dcb124c",
+      "verdict": "approved",
+      "reason": "Visually reviewed whole bottle, label, size/concentration, proportions and plain presentation."
+    },
+    {
+      "number": 60,
+      "id": "studio-enriched-431209f97f8f0e6cde2fcdb6",
+      "url": "https://cdn.shopify.com/s/files/1/0215/6845/4756/files/armafblacksaffron-man.jpg?v=1775838307",
+      "sha256": "4f10ae393c2019f4c73e8534698d22fe3ea5846e3566a1c95346911f285c176f",
+      "verdict": "approved",
+      "reason": "Visually reviewed whole bottle, label, size/concentration, proportions and plain presentation."
+    }
+  ],
+  "approved": 31
+}
