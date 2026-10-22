@@ -1,0 +1,270 @@
+{
+  "date": "2026-10-22",
+  "candidates": [
+    {
+      "number": 1,
+      "id": "studio-enriched-5074e7450fd20446d9f31af8",
+      "url": "https://cdn.shopify.com/s/files/1/0582/2955/5259/files/escentials_AMG41095_1_900x_f0bee82d-9cc4-489b-b69f-80391755e8fd.webp?v=1752326431",
+      "sha256": "43cd0831fe48e67db2088161218e6089d1cd8cc69ddf08917681ff874c6e63dc",
+      "verdict": "held",
+      "reason": "Placeholder, composition, label or concentration/identity not sufficiently confirmed."
+    },
+    {
+      "number": 2,
+      "id": "studio-enriched-2e677b74c22cd7c4e16ff1a0",
+      "url": "https://cdn.shopify.com/s/files/1/0215/6845/4756/files/amouageexistence_2000w01.jpg?v=1780081012",
+      "sha256": "8f66821265fdd5f882accc7f3c709ca178ece38e7caac771849d668147f18cff",
+      "verdict": "held",
+      "reason": "Placeholder, composition, label or concentration/identity not sufficiently confirmed."
+    },
+    {
+      "number": 3,
+      "id": "studio-enriched-d54faeaa4193260852b677ac",
+      "url": "https://cdn.shopify.com/s/files/1/0582/2955/5259/files/Olfactory-34_1.jpg?v=1752321835",
+      "sha256": "9e5b5d87a976fb86d37e2d70f8bdeb7caef9f6b107d38f7edb2da08a6cb0d784",
+      "verdict": "held",
+      "reason": "Placeholder, composition, label or concentration/identity not sufficiently confirmed."
+    },
+    {
+      "number": 4,
+      "id": "studio-enriched-49d197b0b00860ec50d5e12c",
+      "url": "https://cdn.shopify.com/s/files/1/0215/6845/4756/files/armafnichebucephalisxisecondpic-man_9fcc55f3-3ba3-40e9-be46-458695fb6a9d.jpg?v=1775838314",
+      "sha256": "deef12d525f2119241d6e9e4e829f80fcc0cd20214afe768a4057eb970e5eb56",
+      "verdict": "approved",
+      "reason": "Visually reviewed whole bottle, label, size/concentration, proportions and plain presentation."
+    },
+    {
+      "number": 5,
+      "id": "studio-enriched-d139e6e41a3512337980a369",
+      "url": "https://cdn.shopify.com/s/files/1/0215/6845/4756/files/armafcaballopourhomme-man.jpg?v=1775838315",
+      "sha256": "ba54fa3dfeceb937ce6f3aaacef9a2edc756dc25edc8c972cb53ea26587ec721",
+      "verdict": "approved",
+      "reason": "Visually reviewed whole bottle, label, size/concentration, proportions and plain presentation."
+    },
+    {
+      "number": 6,
+      "id": "studio-enriched-a834abda3f12c8b0fd4cd116",
+      "url": "https://cdn.shopify.com/s/files/1/0215/6845/4756/files/armafcandeespecial-woman.jpg?v=1775838423",
+      "sha256": "c36d873d953e15a55312873d60e39ebdbeae7f8fa4a71cbfc1f06beea3005f37",
+      "verdict": "approved",
+      "reason": "Visually reviewed whole bottle, label, size/concentration, proportions and plain presentation."
+    },
+    {
+      "number": 7,
+      "id": "studio-enriched-4c53a6a2023af31d9aebc5ae",
+      "url": "https://cdn.shopify.com/s/files/1/0215/6845/4756/files/creedacquaoriginalecitrusbigarade-man.jpg?v=1775840375",
+      "sha256": "9d9776b82ee578d62c5795da5961dadeea73f213af49898c1602514e5ac2b806",
+      "verdict": "approved",
+      "reason": "Visually reviewed whole bottle, label, size/concentration, proportions and plain presentation."
+    },
+    {
+      "number": 8,
+      "id": "studio-enriched-9a7fa477e2c5042662d3260a",
+      "url": "https://cdn.shopify.com/s/files/1/0215/6845/4756/files/creedacquaoriginalegreenneroli-man.jpg?v=1775840376",
+      "sha256": "51944b02ca4e14aed22273a8199feeca7cee2f20beca7c06c00d6eb906177d92",
+      "verdict": "approved",
+      "reason": "Visually reviewed whole bottle, label, size/concentration, proportions and plain presentation."
+    },
+    {
+      "number": 9,
+      "id": "studio-enriched-2cc6538f0e366ea6bb4a5e52",
+      "url": "https://cdn.shopify.com/s/files/1/0215/6845/4756/files/creedacquaoriginalezestemandarine-man.jpg?v=1775840379",
+      "sha256": "527befb4cf501b63e253f2333283d1979a1949d94733c68831076d96520ed7a3",
+      "verdict": "approved",
+      "reason": "Visually reviewed whole bottle, label, size/concentration, proportions and plain presentation."
+    },
+    {
+      "number": 10,
+      "id": "studio-enriched-2c8669975626df38185d5bba",
+      "url": "https://cdn.shopify.com/s/files/1/0215/6845/4756/files/christiandioraddict-woman.jpg?v=1775840773",
+      "sha256": "383692b42c61812b0c5d9795db79b4e69f77dd017f06ac2987544ae3ec70584b",
+      "verdict": "approved",
+      "reason": "Visually reviewed whole bottle, label, size/concentration, proportions and plain presentation."
+    },
+    {
+      "number": 11,
+      "id": "studio-enriched-fe1037fa31cdc7cf26ab9d1d",
+      "url": "https://cdn.shopify.com/s/files/1/0215/6845/4756/files/DiorAddictPeachyGlow.jpg?v=1777542357",
+      "sha256": "4c927419bb7322ccfcddc6cf5aae5b7cae85b9680c80ee2f90e4cea12ec22361",
+      "verdict": "held",
+      "reason": "Placeholder, composition, label or concentration/identity not sufficiently confirmed."
+    },
+    {
+      "number": 12,
+      "id": "studio-enriched-7b011b435903717f8d211f94",
+      "url": "https://cdn.shopify.com/s/files/1/0215/6845/4756/files/DiorAddictPurpleGlow.jpg?v=1777542357",
+      "sha256": "a309df5d46331586f3832718b08a44ef0c26b17f638557e7bdccbf0343c1b7a0",
+      "verdict": "held",
+      "reason": "Placeholder, composition, label or concentration/identity not sufficiently confirmed."
+    },
+    {
+      "number": 13,
+      "id": "studio-enriched-ca3a72d99d62c811e140b0c0",
+      "url": "https://cdn.shopify.com/s/files/1/0215/6845/4756/files/acquadigio-woman_19dcce83-fdd3-4608-ab1b-1b4ebfb24c58.jpg?v=1775837420",
+      "sha256": "681582a783458d41c894b612b5028c143e710ad8659a527f1718f5b9b8898294",
+      "verdict": "approved",
+      "reason": "Visually reviewed whole bottle, label, size/concentration, proportions and plain presentation."
+    },
+    {
+      "number": 14,
+      "id": "studio-enriched-c273f042b97aa0acfafe523a",
+      "url": "https://cdn.shopify.com/s/files/1/0215/6845/4756/files/giorgioarmaniacquadigioprofondparfumedition2024-man.jpg?v=1775842373",
+      "sha256": "9469d0c8bdcd7d40a9bf37124119eb84ea4e619cab27cba592354dbee5edb295",
+      "verdict": "approved",
+      "reason": "Visually reviewed whole bottle, label, size/concentration, proportions and plain presentation."
+    },
+    {
+      "number": 15,
+      "id": "studio-enriched-e32e418fe3e4218fbde1555b",
+      "url": "https://cdn.shopify.com/s/files/1/0221/4038/7400/files/Screenshot_2025-02-28_125133.png?v=1740765218",
+      "sha256": "7e25ee05fa815eb64ed884975266cf97966f4b7f3461c95bf6274ef34fad67c2",
+      "verdict": "approved",
+      "reason": "Visually reviewed whole bottle, label, size/concentration, proportions and plain presentation."
+    },
+    {
+      "number": 16,
+      "id": "studio-enriched-2aab92fcec8f346f8366fca1",
+      "url": "https://cdn.shopify.com/s/files/1/0215/6845/4756/files/jeanpaulgaultierclassiquepride2023edition-woman.jpg?v=1775843651",
+      "sha256": "456289d38df8f9c8b1b395dfca5364a7ab140f40063a422eda4dcd65571bd37a",
+      "verdict": "held",
+      "reason": "Placeholder, composition, label or concentration/identity not sufficiently confirmed."
+    },
+    {
+      "number": 17,
+      "id": "studio-enriched-fd0c559a061d9be77fe3415b",
+      "url": "https://cdn.shopify.com/s/files/1/0215/6845/4756/files/jeanpaulgaultierclassiquepride2024edition-woman.jpg?v=1775843651",
+      "sha256": "cb3cce8e7af0cbf588bfe8f18b73feb17530156370c6de2762ba8bcc502c0f64",
+      "verdict": "held",
+      "reason": "Placeholder, composition, label or concentration/identity not sufficiently confirmed."
+    },
+    {
+      "number": 18,
+      "id": "studio-enriched-3c1e1e73bc2ce3acf58e1e4a",
+      "url": "https://cdn.shopify.com/s/files/1/0215/6845/4756/files/Imagecoming_comesoon_c65e9fa9-72a4-4035-a67e-33e803425f79.png?v=1780948165",
+      "sha256": "4e625c71a3ac618188a3f5eb8ab7cc7044471b5709d8d19bad84243dab4b1a79",
+      "verdict": "held",
+      "reason": "Placeholder, composition, label or concentration/identity not sufficiently confirmed."
+    },
+    {
+      "number": 19,
+      "id": "studio-enriched-6e757eff8866dd58f2bc38b5",
+      "url": "https://cdn.shopify.com/s/files/1/0215/6845/4756/files/lattafaafaqgold-man.jpg?v=1775844038",
+      "sha256": "66111760187836b19f8bfd89951956a82dd8aeca1bbb8c3327c33ecb6ed55944",
+      "verdict": "approved",
+      "reason": "Visually reviewed whole bottle, label, size/concentration, proportions and plain presentation."
+    },
+    {
+      "number": 20,
+      "id": "studio-enriched-298e9eba8e9a76a3b94d9367",
+      "url": "https://cdn.shopify.com/s/files/1/0215/6845/4756/files/lattafaaffection-man.jpg?v=1775844039",
+      "sha256": "27a5a7fc686e5ebb4dad7f1de2de64509edd7b683b9b77bff187c075ad641027",
+      "verdict": "approved",
+      "reason": "Visually reviewed whole bottle, label, size/concentration, proportions and plain presentation."
+    },
+    {
+      "number": 21,
+      "id": "studio-enriched-e110189b5854b32c4ee6e2b6",
+      "url": "https://cdn.shopify.com/s/files/1/0215/6845/4756/files/LattafaAlAmeed-man_84664e88-448a-4002-a70f-66fa985a58b9.jpg?v=1775844042",
+      "sha256": "fb8d1666415cba7d7f929e75af7117f778059544ea41b5e9d09e94f82593043e",
+      "verdict": "approved",
+      "reason": "Visually reviewed whole bottle, label, size/concentration, proportions and plain presentation."
+    },
+    {
+      "number": 22,
+      "id": "studio-enriched-a1aaa2b9bff7e296566f2d81",
+      "url": "https://cdn.shopify.com/s/files/1/0215/6845/4756/files/montaleamberspices-woman_00819a2e-0a40-4677-a416-e82d439902d2.jpg?v=1775844526",
+      "sha256": "2f5faa8fe7246ee12a37816ba658330ff729151f22c84b27b1ce659fe803580e",
+      "verdict": "approved",
+      "reason": "Visually reviewed whole bottle, label, size/concentration, proportions and plain presentation."
+    },
+    {
+      "number": 23,
+      "id": "studio-enriched-f46155f1cbd303d19ab01301",
+      "url": "https://cdn.shopify.com/s/files/1/0215/6845/4756/files/MontaleAmberMusk100mlEDP-man_9bd7b123-a967-4a2e-91c3-74e9d6846f5d.jpg?v=1775844525",
+      "sha256": "b92b52154438dc905a7ee0618da586b87d7a067a43af29e8dd435460b87bb745",
+      "verdict": "approved",
+      "reason": "Visually reviewed whole bottle, label, size/concentration, proportions and plain presentation."
+    },
+    {
+      "number": 24,
+      "id": "studio-enriched-4c55b3a71508a2ddd1fad087",
+      "url": "https://cdn.shopify.com/s/files/1/0215/6845/4756/files/montaleaoudambre-woman.jpg?v=1775844527",
+      "sha256": "72eabe74a4399c29b2a1aed18dce218b19c41a032b8e0382754f8ca95be03481",
+      "verdict": "approved",
+      "reason": "Visually reviewed whole bottle, label, size/concentration, proportions and plain presentation."
+    },
+    {
+      "number": 25,
+      "id": "studio-enriched-12cdcccc22f778c41cd4fbda",
+      "url": "https://cdn.shopify.com/s/files/1/0582/2955/5259/files/05-27-8_1_febe91a6-464e-4593-9fd6-f6b2175fd43e.jpg?v=1780130392",
+      "sha256": "d7e2826ec474b69eb1d26b06aaf3672cd6406b62fc9c5d786c873b07f403a18d",
+      "verdict": "held",
+      "reason": "Placeholder, composition, label or concentration/identity not sufficiently confirmed."
+    },
+    {
+      "number": 26,
+      "id": "studio-enriched-4ec3a4e178804fadfbb42fe5",
+      "url": "https://cdn.shopify.com/s/files/1/0582/2955/5259/files/05-27-9.jpg?v=1780131049",
+      "sha256": "5185fb663843c8fd08387134c096e909e75725586c16b0f8ad1cc85bb3b93ea5",
+      "verdict": "held",
+      "reason": "Placeholder, composition, label or concentration/identity not sufficiently confirmed."
+    },
+    {
+      "number": 27,
+      "id": "studio-enriched-8fe9f9f164f0c980444ad579",
+      "url": "https://cdn.shopify.com/s/files/1/0221/4038/7400/files/perfume-blend-afgano-edp-80ml_15e4e0c5-f40b-4813-8f2f-372ecd63efdd.jpg?v=1700864117",
+      "sha256": "17ff476474cb76555d3f07bfbc332dcc99183f881170b7963065ad37329a8ced",
+      "verdict": "approved",
+      "reason": "Visually reviewed whole bottle, label, size/concentration, proportions and plain presentation."
+    },
+    {
+      "number": 28,
+      "id": "studio-enriched-43ffeeb665169651781f3773",
+      "url": "https://cdn.shopify.com/s/files/1/0215/6845/4756/files/pariscorneramorist-man.jpg?v=1775844922",
+      "sha256": "e22ffcf14be3a11a669d82de65eb698bc493dddc988851bd2950f02fc605ce35",
+      "verdict": "approved",
+      "reason": "Visually reviewed whole bottle, label, size/concentration, proportions and plain presentation."
+    },
+    {
+      "number": 29,
+      "id": "studio-enriched-d9b0cc83784f1dc5cea4ec4b",
+      "url": "https://cdn.shopify.com/s/files/1/0215/6845/4756/files/pariscornerboozycherrypendora-man.jpg?v=1775844925",
+      "sha256": "c72bd84ce73e24a589df2f5cc2da0ec691d923f8839249f3ebd6bacc401772f2",
+      "verdict": "approved",
+      "reason": "Visually reviewed whole bottle, label, size/concentration, proportions and plain presentation."
+    },
+    {
+      "number": 30,
+      "id": "studio-enriched-ad47e1c30fb1e9a356146248",
+      "url": "https://cdn.shopify.com/s/files/1/0215/6845/4756/files/xerjoffcoro_2000w01_041d67fe-03e2-4631-8638-a33e0b4b9dd5.jpg?v=1775845915",
+      "sha256": "457ba6d4d8ec2e24ecd58239ebfae01a5ebf10c2d9ab506f24c9bbd299d8c7ef",
+      "verdict": "held",
+      "reason": "Placeholder, composition, label or concentration/identity not sufficiently confirmed."
+    },
+    {
+      "number": 31,
+      "id": "studio-enriched-84ef0ac816e918cc59fb92c6",
+      "url": "https://cdn.shopify.com/s/files/1/0582/2955/5259/files/F05-8.jpg?v=1779294019",
+      "sha256": "c34880ec4f70b3e602b3b0f652b4b601dc716c7f38dea17158720cb1c96c5c49",
+      "verdict": "held",
+      "reason": "Placeholder, composition, label or concentration/identity not sufficiently confirmed."
+    },
+    {
+      "number": 32,
+      "id": "studio-enriched-4d14d8e2293b0c73cd602f35",
+      "url": "https://cdn.shopify.com/s/files/1/0215/6845/4756/files/xerjofflevardelsole-man.jpg?v=1775845932",
+      "sha256": "e4ddb61940eaa84860a983e0b3a8f0248dcc981bde869898816d4a841fe22204",
+      "verdict": "held",
+      "reason": "Placeholder, composition, label or concentration/identity not sufficiently confirmed."
+    },
+    {
+      "number": 33,
+      "id": "studio-enriched-9c96dc9350fdc89cb5189a37",
+      "url": "https://cdn.shopify.com/s/files/1/0582/2955/5259/files/F02-38.jpg?v=1785571076",
+      "sha256": "b610c74a17da1b26ab9a8bb6cb5af768877d3131505eaa60a941b12441bda2b8",
+      "verdict": "held",
+      "reason": "Placeholder, composition, label or concentration/identity not sufficiently confirmed."
+    }
+  ],
+  "approved": 19
+}

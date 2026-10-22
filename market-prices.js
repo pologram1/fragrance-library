@@ -2,7 +2,7 @@
 'use strict';
 let entries=new Map();
 const normalize=s=>String(s||'').normalize('NFKD').replace(/[\u0300-\u036f]/g,'').toLowerCase().replace(/[^a-z0-9]+/g,' ').trim();
-function key(f){return [normalize(f.brand),normalize(f.name),normalize(f.concentration),Number(f.sizeMl??f.size),f.type||'standard'].join('|');}
+function key(f){const rawBrand=normalize(f.brand),brand=rawBrand==='christian dior'?'dior':rawBrand;let name=normalize(f.name).replace(/\b(\d+)\s+(am|pm)\b/g,'$1$2');if(name.startsWith(brand+' '))name=name.slice(brand.length+1);if(rawBrand!==brand&&name.startsWith(rawBrand+' '))name=name.slice(rawBrand.length+1);return [brand,name,normalize(f.concentration),Number(f.sizeMl??f.size),f.type||'standard'].join('|');}
 function configure(data){
  const next=new Map();
  for(const row of data?.products||[]){

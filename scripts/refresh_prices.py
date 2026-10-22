@@ -13,6 +13,9 @@ def size(text):
  return {0.17:5,0.25:7.5,0.33:10,0.5:15,0.67:20,1:30,1.0:30,1.3:40,1.35:40,1.6:50,1.7:50,2:60,2.0:60,2.5:75,2.7:80,3:90,3.0:90,3.3:100,3.4:100,4:120,4.0:120,4.2:125,5:150,5.0:150,6.7:200,6.8:200}.get(float(m[1])) if m else None
 
 def fetch_source(host,records):
+ cache=ROOT.parent/'retailer-cache'/(('www.' if host=='olfactoryfactoryllc.com' else '')+host+'.json')
+ if cache.exists() and time.time()-cache.stat().st_mtime<3600:
+  return {p['handle']:p for p in json.loads(cache.read_text())}
  wanted={urllib.parse.urlparse(f['sourceUrl']).path.split('/products/')[-1].strip('/').split('/')[0] for f in records}
  found={};seen=set()
  for page in range(1,101):
