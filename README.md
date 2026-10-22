@@ -4,7 +4,7 @@ A Polo Studios project by Miguel A. De Jesus. Working product name.
 
 ## Current expansion
 
-The home page now provides a collection workspace with market-value history, discovery shelves and a wishlist preview. Retailer enrichment adds 6,040 variants and 1,092 sourced note profiles; the photo manifest now has 724 approved images. See `docs/retailer-enrichment.md` for source coverage, matching rules and refresh limitations.
+The home page now provides a collection workspace with market-value history, discovery shelves and a wishlist preview. Retailer enrichment adds 6,040 variants and 1,092 sourced note profiles; the photo manifest now has 726 approved images. See `docs/retailer-enrichment.md` for source coverage, matching rules and refresh limitations.
 
 ## Run the first version
 

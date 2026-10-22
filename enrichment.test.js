@@ -7,7 +7,7 @@ test('published supplemental prices and notes point to existing exact bottle rec
  const prices=read('retailer-prices').products;assert(prices.length>6000);
  for(const p of prices){assert(byId.has(p.catalogId));assert.equal(Market.key(p),Market.key(byId.get(p.catalogId)));for(const o of p.offers){assert.equal(o.currency,'USD');assert(o.price>0);assert.equal(typeof o.stock,'boolean');assert.equal(o.matching,true);assert(['perfumebox.com','olfactoryfactoryllc.com','fragflex.com','jomashop.com','fragrancenet.com'].includes(new URL(o.url).hostname.replace(/^www\./,'')));}}
  for(const profile of read('retailer-profiles').profiles){assert(profile.catalogIds.every(id=>byId.has(id)));assert(profile.sources.length);assert(Object.values(profile.notes).flat().every(n=>typeof n==='string'&&n.length<65));}
- for(const name of ['enrichment-photo-review','enrichment-photo-review-diverse'])for(const r of read(name).candidates){if(r.verdict==='approved'){assert(byId.has(r.id));assert(Photos.approved(byId.get(r.id),photos));assert.equal(photos.photos[r.id].review.sourceSha256,r.sha256);}else assert(!photos.photos[r.id]||photos.photos[r.id].review.sourceSha256!==r.sha256);}
+ for(const name of ['enrichment-photo-review','enrichment-photo-review-diverse','enrichment-reference-photo-review'])for(const r of read(name).candidates){if(r.verdict==='approved'){assert(byId.has(r.id));assert(Photos.approved(byId.get(r.id),photos));assert.equal(photos.photos[r.id].review.sourceSha256,r.sha256);}else assert(!photos.photos[r.id]||photos.photos[r.id].review.sourceSha256!==r.sha256);}
 });
 test('one exact bottle averages eligible sellers and retains numeric FragranceNet size selectors',()=>{
  const products=read('retailer-prices').products;Market.configure({products});

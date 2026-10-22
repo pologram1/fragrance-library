@@ -1,0 +1,22 @@
+{
+  "date": "2026-10-22",
+  "candidates": [
+    {
+      "number": 1,
+      "id": "studio-enriched-18d70c76b99c6bc69588f5f1",
+      "url": "https://cdn2.jomashop.com/media/catalog/product/cache/b3e31d40bbb1abcc90b26106659d5d3f/c/r/creed-aventus-creed-edp-spray-33-oz-100-ml-m-3508441001114.jpg?width=800&height=800",
+      "sha256": "ca21936e47b5545ad54ff041e81905d9121897d33ca7f121fcc1d138ece6f26e",
+      "verdict": "approved",
+      "reason": "Visually reviewed whole bottle, label, size/concentration, proportions and plain presentation."
+    },
+    {
+      "number": 2,
+      "id": "studio-enriched-b5b44f492c5a930e7e836af6",
+      "url": "https://cdn.fragrancenet.com/images/photos/900x900/308500.jpg",
+      "sha256": "5e8261c3d215284bb7050d35907c7bf5b01c528ee44e0f315068aec714d94366",
+      "verdict": "approved",
+      "reason": "Visually reviewed whole bottle, label, size/concentration, proportions and plain presentation."
+    }
+  ],
+  "approved": 2
+}

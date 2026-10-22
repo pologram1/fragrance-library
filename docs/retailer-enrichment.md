@@ -10,7 +10,7 @@ FragranceNet numeric SKU fragments are retained in shopping links so the selecte
 
 GitHub's existing daily price workflow now refreshes the supported public retailer catalogs, notes and FragranceNet listings. A failed source keeps its original observation date. Cached product responses older than six hours cannot be stamped as fresh. The import preserves existing supplemental IDs and uses a bounded 6,000-variant storefront budget plus explicitly checked product observations. No paid API is used.
 
-Fifty new photos were visually approved from 93 candidates; 43 were held for placeholders, box-only pictures, capacity/concentration discrepancies or insufficient identity confirmation. The approved manifest now contains 724 photos. Original supplier images remain unmodified and remotely hosted. Review decisions and hashes are in `data/enrichment-photo-review.json` and `data/enrichment-photo-review-diverse.json`. Technical screening never substitutes for visual approval.
+Fifty-two new photos were visually approved from 95 candidates; 43 were held for placeholders, box-only pictures, capacity/concentration discrepancies or insufficient identity confirmation. The approved manifest now contains 726 photos. Original supplier images remain unmodified and remotely hosted. Review decisions and hashes are in `data/enrichment-photo-review.json` `data/enrichment-photo-review-diverse.json` and `data/enrichment-reference-photo-review.json`. Technical screening never substitutes for visual approval.
 
 ## Home page
 
