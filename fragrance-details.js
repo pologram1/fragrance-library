@@ -15,10 +15,14 @@ function configure(data){
 function profile(record){const p=profiles.get(record.catalogId||record.id);return p&&(!record.concentration||record.concentration===p.concentration)?p:null;}
 function sellerLinks(record,offers,now=Date.now()){
  const rows=new Map();
- for(const o of offers||[]){const url=cleanLink(o.url);if(!url||o.reviewed!==true||o.matching!==true||o.currency!=='USD')continue;const host=new URL(url).hostname.replace(/^www\./,'');const old=rows.get(host);if(!old||o.checked>=old.checked)rows.set(host,{...o,url,current:pricing.eligible(o,now)});}
+ for(const o of pricing.latest(offers,now)){const url=cleanLink(o.url);if(!url)continue;const host=new URL(url).hostname.replace(/^www\./,'');rows.set(host,{...o,url,current:pricing.eligible(o,now)});}
  const source=cleanLink(record.sourceUrl);
  if(source){const host=new URL(source).hostname.replace(/^www\./,'');const names={'perfumebox.com':'Perfume Box','olfactoryfactoryllc.com':'Olfactory Factory LLC','terramaterperfumes.com':'Terra Mater Perfumes','fragflex.com':'FragFlex','fragrancenet.com':'FragranceNet','jomashop.com':'Jomashop'};if(names[host]&&!rows.has(host))rows.set(host,{seller:names[host],url:source,price:null,current:false,stock:null,checked:null});}
  return [...rows.values()].sort((a,b)=>Number(b.current)-Number(a.current)||(a.current&&b.current?a.price-b.price:a.seller.localeCompare(b.seller)));
 }
-const api={configure,profile,sellerLinks,cleanLink};if(typeof module!=='undefined')module.exports=api;else root.FragranceDetails=api;
+function priceEvidence(record,offers,now=Date.now()){
+ const included=pricing.sources(offers,now),quote=pricing.value(offers,now),dates=included.map(o=>o.checked).sort();
+ return {...quote,highest:included.length?Math.max(...included.map(o=>o.price)):null,perMl:quote.price===null||!record.sizeMl?null:quote.price/record.sizeMl,oldest:dates[0]||null,newest:dates.at(-1)||null};
+}
+const api={configure,profile,sellerLinks,cleanLink,priceEvidence};if(typeof module!=='undefined')module.exports=api;else root.FragranceDetails=api;
 })(typeof globalThis!=='undefined'?globalThis:this);

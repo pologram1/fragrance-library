@@ -13,7 +13,7 @@ function metrics(f,now=Date.now()){
  const market=price===null||baseline===null?null:(price-baseline)*ratio*q;
  const consumed=baseline===null?null:baseline*(1-ratio)*q;
  const net=market===null?null:market-consumed;
- return {price,ratio,remainingMl:remaining(f)*q,usedMl:(f.size-remaining(f))*q,
+ return {price,ratio,baselinePrice:baseline,baselineValue:baseline===null?null:baseline*q,firstTracked:history[0]?.date||null,remainingMl:remaining(f)*q,usedMl:(f.size-remaining(f))*q,
  remainingValue:left,fullValue:price===null?null:price*q,marketChange:market,usageValue:consumed,netChange:net,
  purchaseCost:f.paid===null?null:f.paid*q,purchaseChange:left===null||f.paid===null?null:left-f.paid*q,
  purchasePercent:left===null||!f.paid?null:(left/(f.paid*q)-1)*100};
@@ -32,12 +32,16 @@ function capture(f,now=Date.now()){
 function totals(items,now=Date.now()){
  const owned=items.filter(f=>f.status==='owned');
  const out={bottles:0,remainingMl:0,usedMl:0,remainingValue:0,pricedBottles:0,purchaseCost:0,paidBottles:0,
- purchaseChange:0,comparableCost:0,comparableBottles:0,marketChange:0,usageValue:0,netChange:0,trackedBottles:0};
+ purchaseChange:0,comparableCost:0,comparableBottles:0,marketChange:0,usageValue:0,netChange:0,trackedBottles:0,usageBottles:0,volumeMl:0,fullValue:0,trackedBaselineValue:0};
  for(const f of owned){const m=metrics(f,now);out.bottles+=f.quantity;out.remainingMl+=m.remainingMl;out.usedMl+=m.usedMl;
- if(m.remainingValue!==null){out.remainingValue+=m.remainingValue;out.pricedBottles+=f.quantity;}
+ out.volumeMl+=f.size*f.quantity;
+ if(m.remainingValue!==null){out.remainingValue+=m.remainingValue;out.fullValue+=m.fullValue;out.pricedBottles+=f.quantity;}
  if(m.purchaseCost!==null){out.purchaseCost+=m.purchaseCost;out.paidBottles+=f.quantity;}
  if(m.purchaseChange!==null){out.purchaseChange+=m.purchaseChange;out.comparableCost+=m.purchaseCost;out.comparableBottles+=f.quantity;}
- if(m.netChange!==null){out.marketChange+=m.marketChange;out.usageValue+=m.usageValue;out.netChange+=m.netChange;out.trackedBottles+=f.quantity;}}
+ if(m.usageValue!==null){out.usageValue+=m.usageValue;out.usageBottles+=f.quantity;}
+ if(m.netChange!==null){out.marketChange+=m.marketChange;out.netChange+=m.netChange;out.trackedBaselineValue+=m.baselineValue;out.trackedBottles+=f.quantity;}}
+ out.netPercent=out.trackedBaselineValue?out.netChange/out.trackedBaselineValue*100:null;
+ out.fillPercent=out.volumeMl?out.remainingMl/out.volumeMl*100:null;
  out.purchasePercent=out.comparableCost?out.purchaseChange/out.comparableCost*100:null;return out;
 }
 const api={remaining,validate,metrics,capture,totals};if(typeof module!=='undefined'&&module.exports)module.exports=api;else root.Portfolio=api;
