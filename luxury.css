@@ -42,7 +42,7 @@ dialog{border-radius:3px;box-shadow:0 25px 80px #0005}dialog::backdrop{backgroun
  .global-search input{padding-left:14px;font-size:16px}
  .global-search .search-submit{right:94px}
  .global-search .advanced-toggle{width:87px;font-size:10px}
- .scent-editorial{display:flex;flex-direction:column;align-items:stretch;min-height:0;height:auto;background:#f1e9db}
+ .scent-editorial{display:flex;flex-direction:column;align-items:stretch;min-height:0;height:auto;background:#f1e9db;width:calc(100% + 32px);left:auto;margin-left:-16px;margin-right:-16px}
  .scent-editorial-copy{position:relative;order:0;flex:none;max-width:none;margin:0;padding:28px 22px 25px;pointer-events:auto}
  .editorial-eyebrow{font-size:9px;letter-spacing:.22em;margin:0 0 16px}
  .scent-editorial h1{font-size:clamp(34px,9.6vw,42px);line-height:1.02;letter-spacing:-.04em;max-width:none;width:100%;margin:0 0 16px}
