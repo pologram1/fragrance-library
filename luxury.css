@@ -20,3 +20,52 @@ dialog{border-radius:3px;box-shadow:0 25px 80px #0005}dialog::backdrop{backgroun
 @media(max-width:360px){.brand .gallery-wordmark{font-size:15px}.header-account button{font-size:.6rem;padding:6px}.scent-editorial h1{font-size:2.9rem}.editorial-description{font-size:1.1rem}.menu-categories .category-copy>span{font-size:1.8rem}.home-pick-image{height:180px}}
 @media(prefers-reduced-motion:no-preference){.scent-editorial-copy{animation:gallery-arrive .65s ease-out}.home-pick,.menu-categories a{transition:transform .2s,border-color .2s}@keyframes gallery-arrive{from{opacity:.3;transform:translateY(9px)}to{opacity:1;transform:none}}}
 @media(prefers-reduced-motion:reduce){.home-pick img,.category-photo img,.editorial-actions span,.pick-explore{transition:none}.home-pick:hover img{transform:none}}
+
+/* The artwork and product form one display; copy has its own layout space. */
+.gallery-visual{position:absolute;inset:0;z-index:0;isolation:isolate;overflow:hidden}
+.gallery-visual .gallery-hero-art{z-index:0}
+.scent-editorial:after{display:none}
+.gallery-visual:after{content:'';position:absolute;inset:0;z-index:1;pointer-events:none;background:linear-gradient(90deg,#f5eee399,#f5eee34d 30%,transparent 60%)}
+.gallery-visual .gallery-feature{z-index:2;mix-blend-mode:multiply;background:none}
+.gallery-feature img{filter:none;mix-blend-mode:normal}
+.gallery-visual .gallery-feature-caption{z-index:3}
+:root[data-theme=dark] .gallery-visual:after{background:linear-gradient(90deg,#181311eb,#18131194 38%,transparent 74%)}
+:root[data-theme=dark] .gallery-visual .gallery-feature{background:none;mix-blend-mode:multiply}
+@media(max-width:650px){
+ header .top{grid-template-columns:minmax(0,1fr) auto;padding:16px 0 13px;gap:13px 7px}
+ .brand.project-brand-link{text-align:left;min-width:0;white-space:normal}
+ .brand .gallery-wordmark{font-size:15px;line-height:1.1;letter-spacing:.5px;max-width:210px}
+ .gallery-byline{font-size:11px;margin-top:5px}
+ .header-account .theme-toggle{transform:scale(.7);margin:0 -12px}
+ .header-account #account-button{font-size:11px;padding:7px;min-height:44px}
+ .global-search{padding-right:92px!important}
+ .global-search input{padding-left:14px;font-size:16px}
+ .global-search .search-submit{right:94px}
+ .global-search .advanced-toggle{width:87px;font-size:10px}
+ .scent-editorial{display:flex;flex-direction:column;align-items:stretch;min-height:0;height:auto;background:#f1e9db}
+ .scent-editorial-copy{position:relative;order:0;flex:none;max-width:none;margin:0;padding:28px 22px 25px;pointer-events:auto}
+ .editorial-eyebrow{font-size:9px;letter-spacing:.22em;margin:0 0 16px}
+ .scent-editorial h1{font-size:clamp(34px,9.6vw,42px);line-height:1.02;letter-spacing:-.04em;max-width:none;width:100%;margin:0 0 16px}
+ .editorial-description{font-size:18px;line-height:1.35;max-width:34ch;margin:0 0 20px}
+ .editorial-actions a{font-size:18px;min-height:46px;padding:10px 20px}
+ .editorial-footnote{font-size:7px;letter-spacing:.1em;gap:10px;margin:20px 0 0;flex-wrap:wrap}
+ .gallery-visual{position:relative;inset:auto;order:1;width:100%;height:260px;flex:none;border-top:1px solid #d7c8b3;background:#e9dfcf}
+ .gallery-visual .gallery-hero-art{inset:0;width:100%;height:100%;object-position:70% 64%;filter:none}
+ .gallery-visual:after{background:linear-gradient(180deg,#f1e9db33,transparent 50%)}
+ .gallery-visual .gallery-feature{left:50%;right:auto;top:3px;bottom:auto;transform:translateX(-50%);width:190px;max-width:60%;height:205px;align-items:center}
+ .gallery-feature img{height:100%;width:100%;object-fit:contain}
+ .gallery-visual .gallery-feature-caption{left:0;right:0;bottom:12px;width:100%;font-size:18px;line-height:1.15;color:#3c2b20}
+ .gallery-feature-caption small{font-size:8px;letter-spacing:.16em;margin-bottom:5px}
+ :root[data-theme=dark] .scent-editorial{background:#211a15}
+ :root[data-theme=dark] .gallery-visual:after{background:linear-gradient(180deg,#211a152b,transparent 30%)}
+ :root[data-theme=dark] .gallery-visual .gallery-feature-caption{color:#3c2b20}
+ .menu-categories{gap:10px;margin-top:16px}
+ .menu-categories a{min-height:120px;padding:19px 22px}
+ .menu-categories .category-copy>span{font-size:29px}
+ .menu-categories .category-copy>small{font-size:8px;margin-top:8px}
+ .menu-categories .category-copy>b{margin-top:7px}
+ .category-photo{width:32%;right:12px}
+ .home-section-heading h2{font-size:30px}
+ .app-nav.wrap{padding-top:6px;padding-bottom:calc(6px + env(safe-area-inset-bottom))}
+ .app-nav a{font-size:10px;min-height:44px}
+}
