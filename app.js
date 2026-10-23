@@ -111,11 +111,13 @@ function renderCatalog(){
 }
 function bottleArt(){return '<div class="photo-placeholder"><span class="placeholder-mark" aria-hidden="true">FL</span><span>Photo coming soon</span></div>';}
 function render(){
+ document.body.dataset.view=view;
+ $('#scent-editorial').hidden=view!=='menu';$('#scent-shelf-title').hidden=view!=='menu';
  $('#library-view').hidden=view==='fragrance';$('#fragrance-detail').hidden=view!=='fragrance';if(view==='fragrance'){syncAdvancedControls();document.querySelectorAll('.app-nav a').forEach(a=>a.removeAttribute('aria-current'));renderFragrancePage();return;}
  const menu=view==='menu',dashboard=view==='owned',discover=view==='discover';
  $('#page-title').textContent=menu?'Discover your next signature.':discover?'Discover fragrances':view==='wishlist'?'Your wishlist':'My collection';
  $('#page-description').textContent=menu?'Explore scent stories, compare bottles, and find something worth making yours.':discover?'Find your next fragrance. Explore its notes, story and market price.':view==='wishlist'?'Keep an eye on the bottles you want next.':'Your bottles, current market value and remaining fragrance.';
- $('.intro').classList.toggle('compact',!menu);$('#add').hidden=menu||discover;$('#add').textContent=view==='wishlist'?'Add to wishlist':'Add to collection';$('#menu-feature').hidden=!menu;
+ $('.intro').classList.toggle('compact',!menu);$('#add').hidden=menu||discover;$('#add').textContent=view==='wishlist'?'Add to wishlist':'Add to collection';
  document.querySelectorAll('.app-nav a').forEach(a=>{if(a.hash==='#'+view)a.setAttribute('aria-current','page');else a.removeAttribute('aria-current');});
  $('#section-title').textContent=menu?'Featured fragrances':discover?'Discover fragrances':view==='wishlist'?'Your wishlist':'My collection';
  $('#section-label').textContent=discover?'Fragrance catalog':menu?'Featured fragrances':'Your personal library';
