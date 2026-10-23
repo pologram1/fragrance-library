@@ -7,8 +7,8 @@ function cleanLink(value){
  for(const key of [...u.searchParams.keys()])if(!['variant','sku','pid'].includes(key.toLowerCase()))u.searchParams.delete(key);
  if(!(/(?:^|\.)fragrancenet\.com$/.test(u.hostname)&&/^#\d+$/.test(u.hash)))u.hash='';return u.href;}catch{return null;}
 }
-function configure(data){
- const next=new Map();
+function configure(data,{append=false}={}){
+ const next=append?new Map(profiles):new Map();
  for(const p of data?.profiles||[]){if(!p||!Array.isArray(p.catalogIds)||typeof p.name!=='string'||typeof p.concentration!=='string'||!Array.isArray(p.sources)||!p.sources.some(s=>cleanLink(s.url)))continue;for(const id of p.catalogIds)if(typeof id==='string')next.set(id,p);}
  profiles=next;
 }

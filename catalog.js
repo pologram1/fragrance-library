@@ -4,7 +4,25 @@
  const words=s=>normalize(s).replace(/&/g,' and ').replace(/[^a-z0-9]+/g,' ').trim().replace(/\s+/g,' ');
  const brands={'christian dior':'Dior','christian dior dior':'Dior','dior':'Dior','lattafa':'Lattafa','lataffa':'Lattafa','lattafa perfumes':'Lattafa','maison francis kurkdjian':'Maison Francis Kurkdjian','francis kurkdjian':'Maison Francis Kurkdjian','mfk':'Maison Francis Kurkdjian','ysl':'Yves Saint Laurent','yves saint laurent':'Yves Saint Laurent','dolce and gabbana':'Dolce & Gabbana','jean paul gaultier':'Jean Paul Gaultier','bond no 9':'Bond No. 9','bond no9':'Bond No. 9','bond 9':'Bond No. 9','bdk':'BDK Parfums','bdk parfums':'BDK Parfums','by kilian':'Kilian','kilian':'Kilian','ds and durga':'D.S. & Durga','ds durga':'D.S. & Durga','d s and durga':'D.S. & Durga'};
  function brand(record){if(typeof record==='object'&&record.displayBrand)return record.displayBrand;const value=typeof record==='string'?record:record.brand;if(!String(value||'').trim())return '';return brands[words(value)]||String(value||'').trim().split(/\s+/).map(w=>w===w.toLowerCase()||w===w.toUpperCase()&&w.length>3?w[0].toUpperCase()+w.slice(1).toLowerCase():w).join(' ');}
+ Object.assign(brands,{'ateliers des ors':'Atelier des Ors','atelier des ors':'Atelier des Ors','memo':'Memo Paris','memo paris':'Memo Paris','frederic malle':'Frédéric Malle','editions de parfums frederic malle':'Frédéric Malle','initio parfums prives':'Initio','roja parfums':'Roja','les liquides imaginaires':'Liquides Imaginaires','ex nihilo paris':'Ex Nihilo','thierry mugler':'Mugler'});
  function brandKey(record){return words(brand(record));}
+ function cleanName(record){
+  let value=String(record.name||'').replace(/\\+["']/g,'').replace(/[“”]/g,'"').replace(/\s+/g,' ').trim();
+  const suffix=/\s+by\s+(.+)$/i.exec(value);if(suffix&&brandKey(suffix[1])===brandKey(record))value=value.slice(0,suffix.index).trim();
+  return value;
+ }
+ function listingConflicts(record,url=record.sourceUrl){
+  let parsed;try{parsed=new URL(url);}catch{return [];}
+  // Shopify product pages can serve several sizes; their path is not variant evidence.
+  if(parsed.searchParams.has('variant'))return [];
+  const path=decodeURIComponent(parsed.pathname).toLowerCase(),issues=[];
+  const concentration=/(?:^|[-_/])(eau-de-parfum|eau-de-toilette|eau-de-cologne|extrait-de-parfum|edp|edt|edc)(?:[-_/]|$)/.exec(path)?.[1];
+  const expected={'eau-de-parfum':'Eau de Parfum',edp:'Eau de Parfum','eau-de-toilette':'Eau de Toilette',edt:'Eau de Toilette','eau-de-cologne':'Eau de Cologne',edc:'Eau de Cologne','extrait-de-parfum':'Extrait de Parfum'}[concentration];
+  if(expected&&record.concentration&&expected!==record.concentration)issues.push('concentration');
+  const capacity=/(?:^|[-_/])(\d+(?:[.]\d+)?)-?ml(?:[-_/]|$)/.exec(path)?.[1];
+  if(capacity&&Number(record.sizeMl??record.size)>0&&Math.abs(Number(capacity)-Number(record.sizeMl??record.size))>.1)issues.push('size');
+  return issues;
+ }
  const categoryDefinitions=[
   {id:'all',label:'All fragrances',description:'Explore every house in the library.'},
   {id:'niche',label:'niche perfumes',description:'Discover perfume houses and distinctive scent collections.',brands:['Creed','Amouage','Maison Francis Kurkdjian','Parfums de Marly','Xerjoff','Nishane','Initio','Initio Parfums Prives','Byredo','Diptyque','Le Labo','BDK Parfums','Montale','Mancera','Giardini Di Toscana','Tiziana Terenzi','Orto Parisi','Nasomatto','Serge Lutens','Frederic Malle','Editions de Parfums Frederic Malle','Imaginary Authors','D.S. & Durga','Maison Crivelli','Roja','Roja Parfums','Clive Christian','Goldfield & Banks','Essential Parfums','Liquides Imaginaires','Les Liquides Imaginaires','Atelier Des Ors','Ateliers Des Ors','Fragrance Du Bois','Acqua di Parma','Memo','Memo Paris','Histoires de Parfums','Kerosene','Electimuss','Boadicea The Victorious','Widian','Sospiro','Zoologist','Vilhelm Parfumerie','Kilian','Maison Mataha','M. Micallef','M.Micallef','The House Of Oud','The Merchant Of Venice','Lorenzo Pazzaglia','Ormonde Jayne','Stephane Humbert Lucas','Ex Nihilo','Ex Nihilo Paris']},
@@ -27,13 +45,13 @@
  function bottleType(f){if(f.type)return f.type;let path='';try{path=new URL(f.sourceUrl||'').pathname;}catch{}return /\btester\b/.test(words(f.name+' '+path))?'tester':'standard';}
  function identity(f){
   if(!f.concentration||!Number.isFinite(f.sizeMl)||f.sizeMl<=0)return 'unconfirmed|'+f.id;
-  let name=words(f.name).replace(/\b(\d+)\s+(am|pm)\b/g,'$1$2');const prefixes=[words(f.brand),brandKey(f)];for(const prefix of prefixes)if(name.startsWith(prefix+' ')){name=name.slice(prefix.length+1);break;}
+  let name=words(cleanName(f)).replace(/\b(\d+)\s+(am|pm)\b/g,'$1$2');const prefixes=[words(f.brand),brandKey(f)];for(const prefix of prefixes)if(name.startsWith(prefix+' ')){name=name.slice(prefix.length+1);break;}
   return [brandKey(f),name,words(f.concentration),f.sizeMl,bottleType(f),audience(f)].join('|');
  }
  function prepare(records,{imageAvailable=()=>false}={}){
   const groups=new Map(),aliases=new Map(),labels=new Map();
   for(const record of records){const key=brandKey(record),label=brand(record),previous=labels.get(key);if(!previous||label.localeCompare(previous)<0)labels.set(key,label);}
-  for(const record of records){const row={...record,displayBrand:labels.get(brandKey(record)),audience:audience(record),type:bottleType(record)},key=identity(row);if(!groups.has(key))groups.set(key,[]);if(!groups.get(key).some(f=>f.id===row.id))groups.get(key).push(row);}
+  for(const record of records){const row={...record,name:cleanName(record),displayBrand:labels.get(brandKey(record)),audience:audience(record),type:bottleType(record)},key=identity(row);if(!groups.has(key))groups.set(key,[]);if(!groups.get(key).some(f=>f.id===row.id))groups.get(key).push(row);}
   const result=[];
   for(const members of groups.values()){
    members.sort((a,b)=>Number(imageAvailable(b))-Number(imageAvailable(a))||a.id.localeCompare(b.id));const first=members[0],row={...first,sourceIds:members.map(f=>f.id),sourceRecords:members};
@@ -59,10 +77,11 @@
   const match=fuzzy=>candidates.map(f=>{const index=indexed(f);let score=0;for(const term of terms){let best=Infinity;for(const token of index.tokens){if(token===term)best=Math.min(best,0);else if(token.startsWith(term))best=Math.min(best,1);else if(token.includes(term))best=Math.min(best,2);else if(fuzzy&&term.length>=4&&!/\d/.test(term)){const limit=term.length>=7?2:1,d=distance(term,token,limit);if(d<=limit)best=Math.min(best,4+d);}}if(best===Infinity)return null;score+=best;}return {record:f,score:score+index.nameLength*.01};}).filter(Boolean).sort((a,b)=>a.score-b.score||a.record.name.localeCompare(b.record.name));
   const exact=match(false),fuzzy=exact.length===0&&terms.length>0;return {items:(fuzzy?match(true):exact).map(r=>r.record),fuzzy};
  }
- function filter(records,{query='',brand='',category:categoryFilter='all',concentration='',ownership='',inCollection=()=>false,inWishlist=()=>false,minPrice='',maxPrice='',getPrice=()=>null,imagesOnly=false,imageAvailable=f=>Boolean(f.image)}={}){
+ function filter(records,{query='',brand='',category:categoryFilter='all',concentration='',sizeMl='',ownership='',inCollection=()=>false,inWishlist=()=>false,minPrice='',maxPrice='',getPrice=()=>null,imagesOnly=false,imageAvailable=f=>Boolean(f.image)}={}){
   const lower=minPrice!==''&&Number.isFinite(Number(minPrice))?Number(minPrice):null,upper=maxPrice!==''&&Number.isFinite(Number(maxPrice))?Number(maxPrice):null;
   return search(records,query).items.filter(f=>{
    if(categoryFilter!=='all'&&category(f)!==categoryFilter)return false;
+   if(sizeMl!==''&&Number(f.sizeMl??f.size)!==Number(sizeMl))return false;
    if(brand&&brandKey(f)!==brandKey(brand)||concentration&&f.concentration!==concentration||imagesOnly&&!imageAvailable(f))return false;
    if(ownership==='owned'&&!inCollection(f)||ownership==='not-owned'&&inCollection(f)||ownership==='wishlist'&&!inWishlist(f))return false;
    if(lower!==null||upper!==null){const price=getPrice(f);if(!Number.isFinite(price)||lower!==null&&price<lower||upper!==null&&price>upper)return false;}
@@ -73,6 +92,6 @@
   const pages=Math.max(1,Math.ceil(records.length/size)),current=Math.min(pages,Math.max(1,index));
   return {items:records.slice((current-1)*size,current*size),current,pages,total:records.length};
  }
- const api={normalize,filter,page,brand,brandKey,audience,bottleType,identity,prepare,search,categoryDefinitions,category,categoryBrands};
+ const api={normalize,filter,page,brand,brandKey,audience,bottleType,identity,prepare,search,categoryDefinitions,category,categoryBrands,cleanName,listingConflicts};
  if(typeof module!=='undefined'&&module.exports)module.exports=api;else root.Catalog=api;
 })(typeof globalThis!=='undefined'?globalThis:this);
