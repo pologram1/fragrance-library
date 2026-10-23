@@ -12,7 +12,7 @@ function configure(data){
  for(const p of data?.profiles||[]){if(!p||!Array.isArray(p.catalogIds)||typeof p.name!=='string'||typeof p.concentration!=='string'||!Array.isArray(p.sources)||!p.sources.some(s=>cleanLink(s.url)))continue;for(const id of p.catalogIds)if(typeof id==='string')next.set(id,p);}
  profiles=next;
 }
-function profile(record){const p=profiles.get(record.catalogId||record.id);return p&&(!record.concentration||record.concentration===p.concentration)?p:null;}
+function profile(record){for(const id of [record.catalogId||record.id,...(record.sourceIds||[])]){const p=profiles.get(id);if(p&&(!record.concentration||record.concentration===p.concentration))return p;}return null;}
 function sellerLinks(record,offers,now=Date.now()){
  const rows=new Map();
  for(const o of pricing.latest(offers,now)){const url=cleanLink(o.url);if(!url)continue;const host=new URL(url).hostname.replace(/^www\./,'');rows.set(host,{...o,url,current:pricing.eligible(o,now)});}
