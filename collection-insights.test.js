@@ -34,6 +34,13 @@ test('price ranges and freshness use each included seller once',()=>{
  assert.equal(evidence.price,80);assert.equal(evidence.lowest,60);assert.equal(evidence.highest,100);assert.equal(evidence.count,2);assert.equal(evidence.perMl,1.6);
  assert.equal(evidence.oldest,'2026-10-21');assert.equal(evidence.newest,'2026-10-23');
 });
+test('size links require the same retailer product, concentration and bottle type',()=>{
+ const record={id:'one',brand:'Creed',name:'Aventus',concentration:'Eau de Parfum',sizeMl:100,sourceUrl:'https://www.shop.example/products/aventus-man?variant=1'};
+ const small={...record,id:'two',sizeMl:50,sourceUrl:'https://shop.example/products/aventus-man?variant=2'};
+ const other={...record,id:'three',sizeMl:75,sourceUrl:'https://shop.example/products/aventus-woman?variant=3'};
+ assert.deepEqual(Details.bottleVariants(record,[record,small,other,{...small,concentration:'Parfum'},{...small,type:'tester'}]).map(p=>p.id),['two','one']);
+ assert.deepEqual(Details.bottleVariants({...record,sourceUrl:undefined},[record]),[]);
+});
 test('the breakdown escapes private names and keeps unknown values distinct from zero',()=>{
  const esc=s=>String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
  const content=Home.insights([{...bottle,name:'<script>alert(1)</script>',offers:[],priceHistory:[]}],n=>'$'+n.toFixed(2),esc,now);

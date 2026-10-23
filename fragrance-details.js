@@ -24,5 +24,12 @@ function priceEvidence(record,offers,now=Date.now()){
  const included=pricing.sources(offers,now),quote=pricing.value(offers,now),dates=included.map(o=>o.checked).sort();
  return {...quote,highest:included.length?Math.max(...included.map(o=>o.price)):null,perMl:quote.price===null||!record.sizeMl?null:quote.price/record.sizeMl,oldest:dates[0]||null,newest:dates.at(-1)||null};
 }
-const api={configure,profile,sellerLinks,cleanLink,priceEvidence};if(typeof module!=='undefined')module.exports=api;else root.FragranceDetails=api;
+function bottleVariants(record,catalog){
+ const source=value=>{const link=cleanLink(value);if(!link)return null;const u=new URL(link);return u.hostname.replace(/^www\./,'')+u.pathname.replace(/\/$/,'');};
+ const product=source(record.sourceUrl),same=s=>String(s||'').trim().toLowerCase(),sizes=new Map();
+ if(!product)return [];
+ for(const item of catalog){if(source(item.sourceUrl)!==product||same(item.brand)!==same(record.brand)||same(item.name)!==same(record.name)||item.concentration!==record.concentration||(item.type||'standard')!==(record.type||'standard')||!Number.isFinite(item.sizeMl)||item.sizeMl<=0)continue;if(!sizes.has(item.sizeMl)||item.id===record.id)sizes.set(item.sizeMl,item);}
+ return [...sizes.values()].sort((a,b)=>a.sizeMl-b.sizeMl);
+}
+const api={configure,profile,sellerLinks,cleanLink,priceEvidence,bottleVariants};if(typeof module!=='undefined')module.exports=api;else root.FragranceDetails=api;
 })(typeof globalThis!=='undefined'?globalThis:this);
