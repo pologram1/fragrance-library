@@ -15,7 +15,7 @@
   let parsed;try{parsed=new URL(url);}catch{return [];}
   // Shopify product pages can serve several sizes; their path is not variant evidence.
   if(parsed.searchParams.has('variant'))return [];
-  const path=decodeURIComponent(parsed.pathname).toLowerCase(),issues=[];
+  let path;try{path=decodeURIComponent(parsed.pathname).toLowerCase();}catch{return [];}const issues=[];
   const concentration=/(?:^|[-_/])(eau-de-parfum|eau-de-toilette|eau-de-cologne|extrait-de-parfum|edp|edt|edc)(?:[-_/]|$)/.exec(path)?.[1];
   const expected={'eau-de-parfum':'Eau de Parfum',edp:'Eau de Parfum','eau-de-toilette':'Eau de Toilette',edt:'Eau de Toilette','eau-de-cologne':'Eau de Cologne',edc:'Eau de Cologne','extrait-de-parfum':'Extrait de Parfum'}[concentration];
   if(expected&&record.concentration&&expected!==record.concentration)issues.push('concentration');
@@ -60,7 +60,7 @@
   return {records:result,aliases,merged:records.length-result.length};
  }
  const cached=new WeakMap();
- function indexed(f){if(cached.has(f))return cached.get(f);const text=words([brand(f),f.brand,f.name,audience(f),bottleType(f),f.barcode||'',...(f.sourceRecords||[]).map(r=>r.barcode||'')].join(' ')).replace(/\b(\d+)\s+(am|pm)\b/g,'$1$2'),tokens=[...new Set(text.split(' '))];let name=words(f.name);for(const prefix of [words(f.brand),brandKey(f)])if(name.startsWith(prefix+' ')){name=name.slice(prefix.length+1);break;}const item={text,tokens,nameLength:name.split(' ').length};cached.set(f,item);return item;}
+ function indexed(f){if(cached.has(f))return cached.get(f);const text=words([brand(f),f.brand,f.name,audience(f),bottleType(f),f.barcode||'',...(f.barcodes||[]),...(f.sourceRecords||[]).map(r=>r.barcode||'')].join(' ')).replace(/\b(\d+)\s+(am|pm)\b/g,'$1$2'),tokens=[...new Set(text.split(' '))];let name=words(f.name);for(const prefix of [words(f.brand),brandKey(f)])if(name.startsWith(prefix+' ')){name=name.slice(prefix.length+1);break;}const item={text,tokens,nameLength:name.split(' ').length};cached.set(f,item);return item;}
  function distance(a,b,max){
   if(Math.abs(a.length-b.length)>max)return max+1;
   let previous=Array.from({length:b.length+1},(_,i)=>i),before;

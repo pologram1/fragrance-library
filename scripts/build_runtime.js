@@ -12,7 +12,7 @@ function build(root=path.resolve(__dirname,'..')){
  const write=(file,data)=>fs.writeFileSync(path.join(target,file+'.json'),JSON.stringify(data));
  const fields=['id','brand','name','displayBrand','concentration','sizeMl','quantity','sourceUrl','barcode','audience','type','sourceIds'];
  const photos={};for(const f of rows){const p=Photos.approved(f,manifest);if(p){photos[f.id]=Object.fromEntries(['status','url','width','height','sourceUrl','credit','license','checks','composition','sourceKind'].filter(k=>p[k]!==undefined).map(k=>[k,p[k]]));photos[f.id].review=Object.fromEntries(['reviewedBy','sourceSha256','policyVersion','identityConfirmed','productIdentity','editorialCompositionConfirmed'].filter(k=>p.review[k]!==undefined).map(k=>[k,p.review[k]]));}}
- const fragrances=prepared.records.map(f=>Object.fromEntries(fields.filter(k=>f[k]!==undefined).map(k=>[k,f[k]])));
+ const fragrances=prepared.records.map(f=>{const row=Object.fromEntries(fields.filter(k=>f[k]!==undefined).map(k=>[k,f[k]]));const barcodes=[...new Set(f.sourceRecords.map(r=>r.barcode).filter(code=>code&&code!==f.barcode))];if(barcodes.length)row.barcodes=barcodes;if(f.sizeMl)delete row.quantity;return row;});
  fragrances.sort((a,b)=>Number(Boolean(photos[b.id]))-Number(Boolean(photos[a.id]))||a.brand.localeCompare(b.brand)||a.name.localeCompare(b.name));
  write('browse',{version:1,metadata:{...base.metadata,merged:prepared.merged},records:Runtime.packCatalog(fragrances),photos});
  write('prices',Runtime.packPrices(prepared.records.map(f=>[f.id,Pricing.latest(Market.offers(f))])));

@@ -66,7 +66,7 @@ function referencePhoto(record){
  return `<figure class="product-photo approved-photo"><button type="button" class="photo-preview" data-photo="${esc(record.catalogId||record.id)}" aria-label="View ${esc(record.brand+' '+record.name)} photo"><img src="${esc(photo.url)}" alt="${esc(record.brand+' '+record.name)} · product image" loading="lazy" decoding="async" width="300" height="400" data-approved-photo="true"><span class="photo-zoom-hint" aria-hidden="true">View photo ↗</span></button><figcaption>${attribution}</figcaption></figure>`;
 }
 let advancedOpen=false;
-function syncAdvancedControls(){document.querySelectorAll('[data-open-advanced]').forEach(button=>button.setAttribute('aria-expanded',String(view==='discover'&&advancedOpen)));}
+function syncAdvancedControls(){const count=Number(Boolean(catalogBrand))+['catalog-concentration','catalog-size','catalog-ownership','catalog-min-price','catalog-max-price'].filter(id=>$('#'+id).value!=='').length;document.querySelectorAll('[data-open-advanced]').forEach(button=>{button.setAttribute('aria-expanded',String(view==='discover'&&advancedOpen));button.textContent='Advanced search'+(count?' · '+count:'');});}
 function toggleAdvanced(open){advancedOpen=open;if(view!=='discover'){location.hash='discover'+($('#global-query').value.trim()?'?q='+encodeURIComponent($('#global-query').value.trim()):'');navigate();}else render();if(open)$('#catalog-filters').scrollIntoView({behavior:'auto',block:'nearest'});}
 document.querySelectorAll('[data-open-advanced]').forEach(button=>button.onclick=()=>{closeSuggestions();toggleAdvanced(!(view==='discover'&&advancedOpen));});
 $('#close-advanced').onclick=()=>{toggleAdvanced(false);$('#advanced-search').focus();};
@@ -111,7 +111,7 @@ function renderCatalog(){
 }
 function bottleArt(){return '<div class="photo-placeholder"><span class="placeholder-mark" aria-hidden="true">FL</span><span>Photo coming soon</span></div>';}
 function render(){
- $('#library-view').hidden=view==='fragrance';$('#fragrance-detail').hidden=view!=='fragrance';if(view==='fragrance'){document.querySelectorAll('.app-nav a').forEach(a=>a.removeAttribute('aria-current'));renderFragrancePage();return;}
+ $('#library-view').hidden=view==='fragrance';$('#fragrance-detail').hidden=view!=='fragrance';if(view==='fragrance'){syncAdvancedControls();document.querySelectorAll('.app-nav a').forEach(a=>a.removeAttribute('aria-current'));renderFragrancePage();return;}
  const menu=view==='menu',dashboard=view==='owned',discover=view==='discover';
  $('#page-title').textContent=menu?'Discover your next signature.':discover?'Discover fragrances':view==='wishlist'?'Your wishlist':'My collection';
  $('#page-description').textContent=menu?'Explore scent stories, compare bottles, and find something worth making yours.':discover?'Find your next fragrance. Explore its notes, story and market price.':view==='wishlist'?'Keep an eye on the bottles you want next.':'Your bottles, current market value and remaining fragrance.';

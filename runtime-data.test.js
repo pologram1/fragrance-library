@@ -7,6 +7,8 @@ test('compact catalog retains all IDs, photos and exact current seller averages'
  const manifest=read('photos'),original=read('catalog').fragrances.concat(manifest.additionalRecords,read('retailer-catalog').fragrances);
  assert.equal(catalog.length,report.records);assert.equal(new Set(catalog.flatMap(f=>f.sourceIds)).size,new Set(original.map(f=>f.id)).size);
  const prepared=Catalog.prepare(original.map(f=>{const i=manifest.photos[f.id]?.review?.productIdentity;return i?{...f,concentration:f.concentration||i.concentration,sizeMl:f.sizeMl||i.sizeMl}:f;}),{imageAvailable:f=>Boolean(Photos.approved(f,manifest))});
+ const compactById=new Map(catalog.map(f=>[f.id,f]));
+ for(const row of prepared.records){const compact=compactById.get(row.id);for(const source of row.sourceRecords)if(source.barcode)assert([compact.barcode,...(compact.barcodes||[])].includes(source.barcode));}
  Market.configureCatalog(prepared.records);Market.configure({products:[...read('prices').products,...read('retailer-prices').products]});
  const quotes=new Map(prepared.records.map(f=>[f.id,Pricing.value(Market.offers(f))]));
  Market.configureCatalog(catalog);Market.configureIndexed(packed);
