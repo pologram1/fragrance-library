@@ -1,7 +1,7 @@
 (function(root){
 'use strict';
 const pricing=typeof module!=='undefined'?require('./pricing.js'):root.Pricing;
-let profiles=new Map();
+let profiles=new Map(),adminProfiles=new Map();
 function cleanLink(value){
  try{const u=new URL(value);if(u.protocol!=='https:'||u.username||u.password)return null;
  for(const key of [...u.searchParams.keys()])if(!['variant','sku','pid'].includes(key.toLowerCase()))u.searchParams.delete(key);
@@ -12,7 +12,8 @@ function configure(data,{append=false}={}){
  for(const p of data?.profiles||[]){if(!p||!Array.isArray(p.catalogIds)||typeof p.name!=='string'||typeof p.concentration!=='string'||!Array.isArray(p.sources)||!p.sources.some(s=>cleanLink(s.url)))continue;for(const id of p.catalogIds)if(typeof id==='string')next.set(id,p);}
  profiles=next;
 }
-function profile(record){for(const id of [record.catalogId||record.id,...(record.sourceIds||[])]){const p=profiles.get(id);if(p&&(!record.concentration||record.concentration===p.concentration))return p;}return null;}
+function configureAdmin(rows){adminProfiles=new Map(rows.filter(r=>r.status==='published'&&r.payload?.profile).map(r=>[r.id,r.payload.profile]));}
+function profile(record){for(const id of [record.catalogId||record.id,...(record.sourceIds||[])]){const p=adminProfiles.get(id)||profiles.get(id);if(p&&(!record.concentration||record.concentration===p.concentration))return p;}return null;}
 function sellerLinks(record,offers,now=Date.now()){
  const rows=new Map();
  for(const o of pricing.latest(offers,now)){const url=cleanLink(o.url);if(!url)continue;const host=new URL(url).hostname.replace(/^www\./,'');rows.set(host,{...o,url,current:pricing.eligible(o,now)});}
@@ -31,5 +32,5 @@ function bottleVariants(record,catalog){
  for(const item of catalog){if(source(item.sourceUrl)!==product||same(item.brand)!==same(record.brand)||same(item.name)!==same(record.name)||item.concentration!==record.concentration||(item.type||'standard')!==(record.type||'standard')||!Number.isFinite(item.sizeMl)||item.sizeMl<=0)continue;if(!sizes.has(item.sizeMl)||item.id===record.id)sizes.set(item.sizeMl,item);}
  return [...sizes.values()].sort((a,b)=>a.sizeMl-b.sizeMl);
 }
-const api={configure,profile,sellerLinks,cleanLink,priceEvidence,bottleVariants};if(typeof module!=='undefined')module.exports=api;else root.FragranceDetails=api;
+const api={configure,configureAdmin,profile,sellerLinks,cleanLink,priceEvidence,bottleVariants};if(typeof module!=='undefined')module.exports=api;else root.FragranceDetails=api;
 })(typeof globalThis!=='undefined'?globalThis:this);

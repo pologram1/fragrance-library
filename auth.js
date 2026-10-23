@@ -44,6 +44,8 @@
   clearTimeout(readRetryTimer);readRetryTimer=null;
   const next=session?.user||null;
   const ticket=++epoch;store?.invalidate();store=null;user=next;
+  const adminLink=$('#admin-link');if(adminLink)adminLink.hidden=true;
+  if(user&&client)void client.rpc('library_admin',{p_action:'context',p_input:{}}).then(({data,error})=>{if(ticket===epoch&&adminLink)adminLink.hidden=Boolean(error)||!data;}).catch(()=>{});
   $('#editor').close();$('#prices').close();
   if(!user){readAttempts=0;phase='guest';callbacks.onCollection(guest());notify();return;}
   phase='loading';callbacks.onCollection([]);notify();

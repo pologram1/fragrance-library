@@ -26,10 +26,15 @@ async function loadCatalog(){
   const response=await fetch('data/runtime/browse.json',{cache:'no-cache'});if(!response.ok)throw Error('Compact catalog unavailable');const data=await response.json();
   if(data.version!==1||!Array.isArray(data.records))throw Error('Invalid compact catalog');
   catalog=RuntimeData.unpackCatalog(data.records);photoManifest={photos:data.photos,additionalRecords:[]};catalogMetadata=data.metadata;
+  await loadAdminCatalog();
   catalogAliases=new Map();for(const record of catalog)for(const alias of record.sourceIds)catalogAliases.set(alias,record);
   MarketPrices.configureCatalog(catalog);runtimeCatalog=true;catalogState='ready';render();if($('#fragrance-picker').open)renderPicker();
   await loadRuntimePrices();
  }catch{return loadLegacyCatalog();}
+}
+async function loadAdminCatalog(){
+ try{const updates=await CatalogUpdates.load(window.FRAGRANCE_CONFIG);catalog=CatalogUpdates.merge(catalog,photoManifest,updates);MarketPrices.configureAdmin(updates);FragranceDetails.configureAdmin(updates);}
+ catch{console.warn('Catalog edits could not load. Showing the source catalog.');}
 }
 async function loadRuntimePrices(){
  priceState='loading';

@@ -30,7 +30,7 @@
   {id:'arabic',label:'Arabic perfumes',description:'Explore Arabic perfume houses and their fragrances.',brands:['Lattafa','Maison Alhambra','Afnan','Armaf','Al Haramain','Rasasi','Ajmal','Swiss Arabian','Paris Corner','Fragrance World','French Avenue','Khadlaj','Ahmed Al Maghribi','Arabiyat Prestige','Al Wataniah','Grandeur','Emper','Al Rehab','Ard Al Zaafaran','Orientica','Zimaya','Dumont','Maison Asrar','Riiffs','Riffs','Pendora Scents','Arabian Oud','Arabian Eagle','Rihanah','Hamidi','Borouj','FOMO','Bharara','Al Absar','Gulf Orchid','Aromatix']}
  ];
  const categoryMap=new Map(categoryDefinitions.flatMap(c=>(c.brands||[]).map(b=>[brandKey(b),c.id])));
- function category(record){return categoryMap.get(brandKey(record))||'other';}
+ function category(record){return ['niche','designer','arabic'].includes(record.category)?record.category:categoryMap.get(brandKey(record))||'other';}
  function categoryBrands(records,selected='all'){
   const counts=new Map();for(const row of records){if(selected!=='all'&&category(row)!==selected)continue;const key=brandKey(row),entry=counts.get(key)||{name:brand(row),count:0};entry.count++;counts.set(key,entry);}return [...counts.values()].sort((a,b)=>a.name.localeCompare(b.name));
  }
