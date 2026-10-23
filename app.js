@@ -164,7 +164,7 @@ function syncRemaining(source='number'){
  $('#remaining-output').textContent=size>0?fill.amount+' / '+size+' mL · '+fill.percent+'%':'Set the bottle size first';
  document.querySelectorAll('[data-fill]').forEach(button=>{button.disabled=!(size>0);button.setAttribute('aria-pressed',String(size>0&&Math.abs(fill.amount-size*Number(button.dataset.fill)/100)<.051));});
  const old=fragrances.find(f=>f.id===active),matches=old&&['brand','name','concentration','size','type'].every(k=>String(old[k])===form.elements[k].value),price=matches?Pricing.value(MarketPrices.apply(old).offers).price:null;
- $('#remaining-estimate').textContent=price===null?'Remaining value follows the current market estimate.':money(price*fill.amount/size*Number(form.elements.quantity.value||1))+' remaining market value · '+money(price*(1-fill.amount/size)*Number(form.elements.quantity.value||1))+' of liquid used at today’s price.';
+ $('#remaining-estimate').textContent=price===null?'Remaining value follows the current market estimate.':money(price*(fill.amount/size)*Number(form.elements.quantity.value||1))+' remaining market value · '+money(price*(1-fill.amount/size)*Number(form.elements.quantity.value||1))+' of liquid used at today’s price.';
 }
 $('#remaining-slider').oninput=()=>syncRemaining('slider');
 for(const field of ['remainingMl','size','brand','name','concentration','type','quantity'])$('#fragrance-form').elements[field].addEventListener('input',()=>syncRemaining());
