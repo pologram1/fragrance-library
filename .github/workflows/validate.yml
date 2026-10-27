@@ -1,0 +1,22 @@
+name: Validate fragrance library
+on: [push, pull_request]
+permissions:
+  contents: read
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Validate browser domain and account rules
+        run: node --test ./*.test.js
+      - name: Validate offline seller matching and ingestion rules
+        run: |
+          python3 scripts/refresh_prices.test.py
+          python3 scripts/enrich_catalog.test.py
+          python3 scripts/import_seller_feed.test.py

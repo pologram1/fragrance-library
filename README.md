@@ -1,66 +1,78 @@
 # Fragrance Library
 
-A Polo Studios project by Miguel A. De Jesus. Working product name.
+**A live beta for discovering fragrances, building a collection, and estimating its replacement value.**  
+A Polo Studios project by **Miguel A. De Jesus**.
 
-## Current expansion
+[Open the app](https://pologram1.github.io/fragrance-library/) · [Portfolio](https://pologram1.github.io/POLO-TECH/projects.html#fragrance) · [Report an issue](https://github.com/pologram1/fragrance-library/issues)
 
-The home page now provides a collection workspace with market-value history, discovery shelves and a wishlist preview. Retailer enrichment adds 6,040 variants and 1,092 sourced note profiles; the photo manifest now has 726 approved images. See `docs/retailer-enrichment.md` for source coverage, matching rules and refresh limitations.
+[![Validation](https://github.com/pologram1/fragrance-library/actions/workflows/validate.yml/badge.svg)](https://github.com/pologram1/fragrance-library/actions/workflows/validate.yml)
 
-## Run the first version
+![Fragrance Library home page](docs/images/preview.jpg)
 
-Open `index.html` in a browser, or serve this directory with `python3 -m http.server 8000` and visit http://localhost:8000. No build step or dependencies are required. Use the same browser and origin to retain saved collections.
+## What it does
 
-## Accounts
+Fragrance Library connects fragrance discovery with collection tracking. Visitors can search a shared catalog, save bottles to a collection or wishlist, record remaining volume, and see estimates based on matching seller offers.
 
-Supabase is connected with username/password registration, private per-user collections and cross-device saving. Guest mode remains available. Sign-in waits for the account collection to load; device bottles merge automatically once per account without replacing existing entries. Saves, reconnects and load-on-open happen automatically. Email recovery and Google sign-in are not enabled. See `docs/accounts.md`.
+- Browse **niche perfumes**, **designer perfumes**, and **Arabic perfumes**, with brand filters and optional advanced search.
+- Explore fragrance notes and sourced profiles, with direct seller links.
+- Add exact bottle variants directly to the selected collection or wishlist.
+- Track remaining mL, quantity-adjusted replacement value, observed market movement, and consumption value.
+- Use browser storage as a guest or username/password accounts backed by Supabase for private cross-device saving.
+- Switch between light and dark themes.
 
-## Implemented
+## How valuation works
 
-- Collectr-inspired navigation: overview, collection, discover, and wishlist, with bookmarkable hash routes.
-- Dashboard market movement, consumption value, remaining mL, quantity-based pricing coverage and top fragrances ranked by remaining market value.
-- Searchable Open Beauty Facts catalog: 561 product records, 515 photo URLs, 309 distinct brand labels. Records are barcode-specific and can include multiple sizes of one scent.
-- Discover filters by brand, concentration, collection/wishlist status and market price, supports barcode searches, and displays 24 records per page.
-- Add fragrance opens catalog search first. Known bottle variants save directly to the selected collection/wishlist in one click. Each capacity is a separate entry with its reviewed photo; incomplete records use the secondary manual-entry flow. Duplicates in the same list are prevented.
-- A separate shared price database links checked seller offers automatically to exact bottle identities, concentrations, sizes and bottle types. Daily refresh through GitHub Actions requires no paid API. See `docs/market-prices.md`.
-- JSON data for the website plus a SQLite database and reproducible importer. See `docs/catalog.md` and `data/LICENSE.md`.
-- Bookmarkable fragrance profiles with sourced notes/stories and direct seller shopping links without affiliate tracking. See `docs/fragrance-discovery.md`.
-- Sort collection by name, brand, or total replacement value.
+An offer must match the bottle identity, concentration, size, and bottle type. Eligible offers are in-stock USD listings from reviewed sellers, checked within the configured freshness window. Each seller hostname contributes once; the arithmetic average gives the reference bottle price.
 
-- Add, edit, and remove fragrance variants: brand, name, concentration, bottle size, standard/tester, quantity, owned/wishlist.
-- Search and filter the collection.
-- View linked seller prices and direct store listings; pricing updates through the shared database.
-- Calculate per-bottle replacement price and quantity-adjusted collection totals.
-- Automatic browser storage for guests and private account saving with durable offline drafts, retry and input validation.
+Remaining value scales that price by quantity and remaining volume. Missing prices stay unknown, and partial coverage is shown rather than treating unknown bottles as free. These are **replacement-cost estimates**, not resale appraisals or guaranteed purchase quotes. Tax and shipping are excluded. See [pricing rules](docs/market-prices.md) and [value tracking](docs/value-tracking.md).
 
-## Market pricing rules
+## Architecture
 
-Eligible offers match the exact bottle variant, are in stock, USD, from a user-reviewed seller, and checked within 7 days. This freshness window is an initial product decision and can be adjusted. One eligible offer per seller hostname is used; the latest checked entry wins.
+| Layer | Files | Responsibility |
+| --- | --- | --- |
+| Interface | `index.html`, `app.js`, `home.js`, `theme.js`, CSS files | Discovery, collection views, profiles, and presentation. |
+| Domain rules | `pricing.js`, `market-prices.js`, `portfolio.js`, `catalog.js` | Exact bottle matching, eligible offers, search, and valuation. |
+| Accounts | `auth.js`, `username-auth.js`, `cloud-store.js`, `backend/` | Supabase authentication, account isolation, validated saves, and SQL setup. |
+| Data | `data/`, `runtime-data.js`, `scripts/build_runtime.js` | Shared source records and compact browser runtime data. |
+| Ingestion | `scripts/` | Reproducible catalog, photo, seller, and note processing. |
+| Automation | `.github/workflows/` | Validation, scheduled data refresh, and Pages publication. |
 
-Market price is the arithmetic average of all eligible reviewed seller offers, including official retail. Each seller domain contributes once. If official retail is the only available source type, the result is labeled official retail. Lowest available price includes all eligible offers. Missing prices are unknown, not zero; totals show coverage and are labeled partial when needed. Tax and shipping are excluded. This is replacement cost, not resale value.
+The browser reads public catalog/price data and saves private collection changes through Supabase. Guest data remains on the device. Source ingestion and review are separate from private user collections.
 
-Candidate sellers: FragranceNet, Beauty House, Jomashop, and FragFlex. Exact domains, reputation, regional eligibility, and integration methods require review. Additional reputable sellers may be included. Official brand retail is a fallback for fragrances without reliable discount offers.
+## Run locally
 
-## Important limitations
+```sh
+git clone https://github.com/pologram1/fragrance-library.git
+cd fragrance-library
+node scripts/build_runtime.js
+python3 -m http.server 8000
+```
 
-Seller prices are checked snapshots, not instant purchase quotes. Coverage is incomplete; unavailable, mismatched or stale offers are excluded. Prices do not include shipping or tax and are proportional replacement estimates, not used-bottle resale values. Collections save to the current browser in guest mode or privately to an account when signed in.
+Open `http://localhost:8000`. Use Node.js 22 for tests and runtime-data generation. The frontend has no package installation step. The account features depend on the configured Supabase project; see [accounts](docs/accounts.md) before deploying a separate instance. Keep privileged keys out of frontend configuration.
 
 ## Validation
 
-Run `node --test '*.test.js'` and `python scripts/refresh_prices.test.py`. Coverage includes account isolation/save ordering, exact price matching, freshness, source eligibility, direct-add destinations and duplicates, remaining mL valuation, theme switching and photo approval. The live search → wishlist → move-to-collection → reload flow is visually checked after deployment.
+```sh
+node --test ./*.test.js
+python3 scripts/refresh_prices.test.py
+python3 scripts/enrich_catalog.test.py
+python3 scripts/import_seller_feed.test.py
+```
 
-## Next milestones
+Tests exercise account isolation/save ordering, exact seller matching, freshness, category search, direct-add destinations, duplicates, remaining-volume valuation, runtime data, themes, and photo approval. GitHub Actions runs these checks on pushes and pull requests. Photo-processing tests have additional dependencies listed in `scripts/photo_requirements.txt`.
 
-Expand checked seller coverage and exact variant photos; add approved affiliate links and account recovery.
+## Contribution
 
+**Miguel A. De Jesus — Polo Studios:** application concept, collection and discovery workflows, interface iteration, valuation requirements, and product development. The repository includes frontend implementation, backend setup, data pipelines, and automated checks. Public catalog data, retailer material, and product imagery are attributed separately; see [data licensing](data/LICENSE.md) and the source/review documentation.
 
-## Photo quality
+## Status and limitations
 
-Only explicitly reviewed photos appear on cards. Community photo URLs are source candidates; unreviewed images are replaced with a clear placeholder. The approved Afnan 9 PM Night Out reference is the first studio-curated product image. See `docs/photo-standard.md`. Run `node photo-standards.test.js` to check the approval gate.
+**Live beta · Active development.** Seller data is checked snapshots, not a continuous live price feed. Coverage is incomplete, and scheduled refreshes may skip unavailable sources. Photo publication requires identity/quality review. Direct shopping links currently do not earn affiliate revenue. Google sign-in and email recovery are not enabled. Recognition of bottle usage is not automatic: remaining volume is recorded by the user.
 
-## Photo ingestion workflow
+## Further reading and next steps
 
-`photo_pipeline.py` assesses batches against your reference, produces review reports, and publishes only visually approved, identity-matched original files. It records review notes and source hashes; any source change requires reassessment. See `docs/photo-review-workflow.md`. The numerical checks flag issues; Codex still visually reviews every approved photo.
+[Catalog](docs/catalog.md) · [Accounts](docs/accounts.md) · [Retailer enrichment](docs/retailer-enrichment.md) · [Photo standards](docs/photo-standard.md) · [Discovery profiles](docs/fragrance-discovery.md) · [Automation](docs/automation.md)
 
-## Applied photo review
+Next steps: expand reliable exact-variant coverage, improve reviewed imagery, and add an account-recovery flow before broader use. Affiliate integrations remain a future product decision.
 
-The catalog now has 674 approved images: 28 existing local originals plus 635 visually reviewed supplier-hosted photos and 11 official Terra Mater editorial photos. All have distinct reviewed SHA-256 hashes. Terra Mater adds 11 fragrances across 12 size entries; the 50 mL San Juan Spritz photo remains held due to a 100 mL label. A batch of 720 supplier candidates was inspected; 85 were held for visual or identity/variant concerns. Source links and review metadata are preserved in `data/photos.json` and `data/supplier-photo-review.json`. Miguel confirmed image reuse approval on 2026-10-14. See `docs/supplier-images.md` for publication and remote-image behavior.
+[Contact Miguel](mailto:themiguel10101@gmail.com) · [Polo Studios](https://pologram1.github.io/POLO-TECH/)
