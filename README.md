@@ -54,6 +54,7 @@ Open `http://localhost:8000`. Use Node.js 22 for tests and runtime-data generati
 
 ```sh
 node --test ./*.test.js
+python3 -m pip install -r scripts/photo_requirements.txt
 python3 scripts/refresh_prices.test.py
 python3 scripts/enrich_catalog.test.py
 python3 scripts/import_seller_feed.test.py

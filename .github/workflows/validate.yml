@@ -17,6 +17,7 @@ jobs:
         run: node --test ./*.test.js
       - name: Validate offline seller matching and ingestion rules
         run: |
+          python3 -m pip install -r scripts/photo_requirements.txt
           python3 scripts/refresh_prices.test.py
           python3 scripts/enrich_catalog.test.py
           python3 scripts/import_seller_feed.test.py
