@@ -1,4 +1,19 @@
 /* Scoped cover replaces the old image/bottle composition at every breakpoint. */
+/* Keep the selected artwork intact; phones get controls below it rather than
+   cropping out the title or any of the three bottles. */
+.scent-editorial.puerto-rico-cover{display:block;position:relative;left:auto;width:100%;min-height:0;margin:24px 0 0;border:1px solid var(--line);background:var(--panel);overflow:hidden;isolation:isolate}
+.puerto-rico-cover:after{display:none!important}
+.puerto-rico-cover .puerto-rico-cover-art{display:block;width:100%;height:auto;aspect-ratio:1672/941;object-fit:contain}
+.puerto-rico-cover .scent-editorial-copy{position:absolute;left:36px;bottom:32px;width:auto;max-width:440px;padding:0;margin:0;pointer-events:auto;z-index:2;animation:none}
+.puerto-rico-cover .editorial-description{font:400 .9rem/1.65 Manrope,system-ui,sans-serif;color:#fff5e5;margin:0 0 17px;max-width:40ch;text-shadow:0 1px 8px #000}
+.puerto-rico-cover .editorial-actions{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.puerto-rico-cover .editorial-actions a,.puerto-rico-cover .editorial-actions button{font:600 .8rem/1.4 Manrope,system-ui,sans-serif;padding:14px 18px;min-height:46px;border:1px solid #ead9b9;border-radius:2px;margin:0;white-space:normal}
+.puerto-rico-cover .editorial-actions a{background:#f1ddba;color:#302016;gap:22px}
+.puerto-rico-cover .editorial-actions button{background:#21140fc9;color:#fff5e5;backdrop-filter:blur(8px)}
+.puerto-rico-cover .editorial-actions a:hover{background:#ffedcf}
+.puerto-rico-cover .editorial-actions button:hover{background:#422a1f}
+@media(max-width:900px){.puerto-rico-cover .scent-editorial-copy{position:relative;left:auto;bottom:auto;max-width:none;padding:22px 24px;background:var(--panel)}.puerto-rico-cover .editorial-description{color:var(--muted);text-shadow:none;max-width:none}.puerto-rico-cover .editorial-description br{display:none}.puerto-rico-cover .editorial-actions a{background:var(--accent);border-color:var(--accent);color:var(--on-accent)}.puerto-rico-cover .editorial-actions button{background:transparent;border-color:var(--line);color:var(--text)}.puerto-rico-cover .editorial-actions button:hover{background:var(--input)}}
+@media(max-width:550px){.scent-editorial.puerto-rico-cover{margin-top:16px}.puerto-rico-cover .scent-editorial-copy{padding:20px}.puerto-rico-cover .editorial-description{font-size:.85rem}.puerto-rico-cover .editorial-actions{gap:9px}.puerto-rico-cover .editorial-actions a,.puerto-rico-cover .editorial-actions button{padding:12px 14px;font-size:.75rem}}
 .atelier-cover .scent-editorial-copy{pointer-events:auto;margin:0}
 header .brand.project-brand-link{min-width:0;white-space:normal}
 header .brand .gallery-wordmark{overflow-wrap:normal}

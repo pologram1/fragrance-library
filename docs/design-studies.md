@@ -1,6 +1,6 @@
 # Home page polish and design studies
 
-The production cover uses a code-drawn architectural mark instead of an isolated product photo. It has no hero image download or dependency on available market prices. The three alternatives at `templates.html` are responsive design studies; selecting one changes only the preview, never an account preference or collection.
+The production cover uses the selected Old San Juan artwork with City Rhythm Puerto Rico and Anarchy 100X35 as larger bottles, and Maiora Isla del Caribe as the smaller center bottle. The optimized WebP is preloaded and independent of market-price availability. On smaller screens, controls move below the complete artwork to preserve the title and bottle group. The three alternatives at `templates.html` are responsive design studies; selecting one changes only the preview, never an account preference or collection.
 
 - **Atelier Noir:** charcoal, warm ivory, restrained brass, and a gallery arch.
 - **Deco Vert:** forest green, champagne, stepped geometry, and an architectural frame.
