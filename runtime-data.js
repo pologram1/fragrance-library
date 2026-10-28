@@ -11,5 +11,21 @@
  }
  function unpackPrices(data){return new Map(Object.entries(data.products).map(([id,rows])=>[id,rows.map(o=>({seller:data.sellers[o[0]],price:o[1],url:o[2],kind:o[3]?'retail':'discount',checked:o[4],stock:Boolean(o[5]),priceNote:o[6],currency:'USD',reviewed:true,matching:true}))]));}
  function remaining(size,amount){const capacity=Number(size);if(!Number.isFinite(capacity)||capacity<=0)return {amount:0,percent:0};const value=amount===''?capacity:Number(amount);const ml=Math.round(Math.max(0,Math.min(capacity,Number.isFinite(value)?value:capacity))*10)/10;return {amount:ml,percent:Math.round(ml/capacity*100)};}
- const api={bucket,packCatalog,unpackCatalog,packPrices,unpackPrices,remaining};if(typeof module!=='undefined')module.exports=api;else root.RuntimeData=api;
+ // Shared on-demand profile queue: duplicate bucket requests share a promise;
+ // failed buckets can retry on the next visit without reloading the app.
+ function createProfileLoader(load,{concurrency=4}={}){
+  const states=new Map(),queue=[];let active=0;
+  function drain(){
+   while(active<concurrency&&queue.length){
+    const {key,state,resolve}=queue.shift();active++;
+    Promise.resolve().then(()=>load(key)).then(()=>{state.status='ready';},()=>{state.status='error';}).finally(()=>{active--;resolve();drain();});
+   }
+  }
+  function request(key){
+   const previous=states.get(key);if(previous&&previous.status!=='error')return previous;
+   const state={status:'loading'};state.promise=new Promise(resolve=>queue.push({key,state,resolve}));states.set(key,state);drain();return state;
+  }
+  return {request,get:key=>states.get(key)};
+ }
+ const api={createProfileLoader,bucket,packCatalog,unpackCatalog,packPrices,unpackPrices,remaining};if(typeof module!=='undefined')module.exports=api;else root.RuntimeData=api;
 })(typeof globalThis!=='undefined'?globalThis:this);

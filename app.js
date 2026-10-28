@@ -19,7 +19,14 @@ let catalogAliases=new Map();const resolveCatalog=id=>catalogAliases.get(id)||ca
 let catalogQuotes=new Map();
 let catalog=[],catalogState='loading',catalogPage=1,catalogMetadata=null,photoManifest={photos:{},additionalRecords:[]};
 let priceState='loading',runtimeCatalog=false;
-const profileLoads=new Map();
+const profileLoads=RuntimeData.createProfileLoader(async bucket=>{
+ const controller=new AbortController(),timeout=setTimeout(()=>controller.abort(),12000);
+ try{
+  const response=await fetch('data/runtime/profiles/'+bucket+'.json',{signal:controller.signal});
+  if(!response.ok)throw Error('Profile unavailable');
+  FragranceDetails.configure(await response.json(),{append:true});
+ }finally{clearTimeout(timeout);}
+});
 async function loadCatalog(){
  catalogState='loading';render();
  try{
@@ -44,12 +51,12 @@ async function loadRuntimePrices(){
  const before=JSON.stringify(fragrances);fragrances.forEach(capturePrice);if(before!==JSON.stringify(fragrances)&&CollectionAccount.canEdit())save();
  render();if($('#fragrance-picker').open)renderPicker();
 }
-function loadDetailProfile(record){
+function loadDetailProfile(record,{retry=false}={}){
  if(!runtimeCatalog)return false;
  const buckets=[...new Set((record.sourceIds||[record.id]).map(RuntimeData.bucket))];
- for(const bucket of buckets)if(!profileLoads.has(bucket)){
-  const state={status:'loading'};profileLoads.set(bucket,state);
-  state.promise=fetch('data/runtime/profiles/'+bucket+'.json').then(response=>{if(!response.ok)throw Error('Profile unavailable');return response.json();}).then(data=>{FragranceDetails.configure(data,{append:true});state.status='ready';}).catch(()=>{state.status='error';}).finally(()=>{if(view==='fragrance'&&resolveCatalog(detailId)?.id===record.id)render();});
+ for(const bucket of buckets){
+  const previous=profileLoads.get(bucket),state=previous?.status==='error'&&!retry?previous:profileLoads.request(bucket);
+  if(state!==previous)state.promise.then(()=>{if(view==='fragrance'&&resolveCatalog(detailId)?.id===record.id)render();});
  }
  return buckets.some(bucket=>profileLoads.get(bucket).status==='loading');
 }
@@ -106,10 +113,10 @@ function renderCatalog(){
  renderCategoryBrowser();
  $('#catalog-info').innerHTML=catalogState==='ready'?`<span>${catalog.length.toLocaleString()} bottle variants to explore · Market prices in USD</span><details class="catalog-credits"><summary>Catalog sources</summary><small>Product data includes <a href="https://world.openbeautyfacts.org" target="_blank" rel="noopener noreferrer">Open Beauty Facts</a> under <a href="https://opendatacommons.org/licenses/odbl/1.0/" target="_blank" rel="noopener noreferrer">ODbL 1.0</a>, plus studio-reviewed retailer and brand records. Photo credits appear with each image.</small></details>`:'<p>Loading the fragrance catalog…</p>';
  if(catalogState!=='ready'){$('#collection').innerHTML=catalogState==='error'?'<div class="empty"><h2>The catalog could not load.</h2><p>Your collection is still available. Try loading the catalog again.</p><button id="retry-catalog">Retry</button></div>':'<div class="empty"><p>Loading product records…</p></div>';if(catalogState==='error'){$('#catalog-info').innerHTML='<p>Catalog unavailable. Reload or retry.</p>';$('#retry-catalog').onclick=loadCatalog;}return;}
- const prices=new Map([...catalogQuotes].map(([id,quote])=>[id,quote.price]));
+ const priceOf=f=>catalogQuotes.get(f.id)?.price;
  const owned=new Set(fragrances.filter(f=>f.status==='owned').map(f=>MarketPrices.key(f))),wished=new Set(fragrances.filter(f=>f.status==='wishlist').map(f=>MarketPrices.key(f)));
- const matches=Catalog.filter(catalog,{query:$('#search').value,category:catalogCategory,brand:catalogBrand,concentration:$('#catalog-concentration').value,sizeMl:$('#catalog-size').value,ownership:$('#catalog-ownership').value,inCollection:f=>owned.has(MarketPrices.key(f)),inWishlist:f=>wished.has(MarketPrices.key(f)),minPrice:$('#catalog-min-price').value,maxPrice:$('#catalog-max-price').value,getPrice:f=>prices.get(f.id)});const mode=$('#sort').value;
- matches.sort((a,b)=>mode==='value'?(prices.get(b.id)??-1)-(prices.get(a.id)??-1):mode==='price-asc'?(prices.get(a.id)??Infinity)-(prices.get(b.id)??Infinity):mode==='brand'?a.brand.localeCompare(b.brand)||a.name.localeCompare(b.name):Number(Boolean(PhotoStandards.approved(b,photoManifest)))-Number(Boolean(PhotoStandards.approved(a,photoManifest)))||($('#search').value.trim()?0:a.name.localeCompare(b.name)));
+ const matches=Catalog.filter(catalog,{query:$('#search').value,category:catalogCategory,brand:catalogBrand,concentration:$('#catalog-concentration').value,sizeMl:$('#catalog-size').value,ownership:$('#catalog-ownership').value,inCollection:f=>owned.has(MarketPrices.key(f)),inWishlist:f=>wished.has(MarketPrices.key(f)),minPrice:$('#catalog-min-price').value,maxPrice:$('#catalog-max-price').value,getPrice:priceOf});const mode=$('#sort').value;
+ matches.sort((a,b)=>mode==='value'?(priceOf(b)??-1)-(priceOf(a)??-1):mode==='price-asc'?(priceOf(a)??Infinity)-(priceOf(b)??Infinity):mode==='brand'?a.brand.localeCompare(b.brand)||a.name.localeCompare(b.name):Number(Boolean(PhotoStandards.approved(b,photoManifest)))-Number(Boolean(PhotoStandards.approved(a,photoManifest)))||($('#search').value.trim()?0:a.name.localeCompare(b.name)));
  const page=Catalog.page(matches,catalogPage);catalogPage=page.current;
  $('#page-count').textContent=`Page ${page.current} of ${page.pages} · ${page.total.toLocaleString()} matches`;$('#previous-page').disabled=page.current===1;$('#next-page').disabled=page.current===page.pages;
  $('#collection').innerHTML=page.items.length?page.items.map(f=>`<article class="card catalog-card">${referencePhoto(f)}<span class="brand-name">${esc(Catalog.brand(f))}</span><h3>${esc(f.name)}</h3>${(view==='discover'||f.catalogId)?`<a class="detail-link" href="#fragrance/${esc(f.catalogId||f.id)}">Explore fragrance →</a>`:''}<p class="meta">${esc(f.concentration||'Concentration needs confirmation')}${f.sizeMl?' · '+esc(String(f.sizeMl))+' mL':f.quantity?' · '+esc(f.quantity):''}<br>${catalogPriceLabel(f)}${f.audience?' · '+esc(f.audience==='women'?"Women's version":f.audience==='men'?"Men’s version":'Unisex'):''}</p>${f.sourceUrl?`<a class="source-link" href="${esc(safeURL(f.sourceUrl)||'https://world.openbeautyfacts.org')}" target="_blank" rel="noopener noreferrer">Product record ↗</a>`:''}</article>`).join(''):'<div class="empty"><h2>No catalog matches.</h2><p>Try another fragrance or brand. You can add a missing bottle from My collection.</p><a class="detail-link" href="#owned">Go to My collection →</a></div>';
@@ -288,7 +295,7 @@ window.FragBotLibrary=Object.freeze({
  async prepareProfiles(ids){
   if(!runtimeCatalog||catalogState!=='ready')return;
   const records=ids?ids.map(resolveCatalog).filter(Boolean):catalog;
-  records.forEach(loadDetailProfile);
+  records.forEach(record=>loadDetailProfile(record,{retry:true}));
   const buckets=[...new Set(records.flatMap(f=>(f.sourceIds||[f.id]).map(RuntimeData.bucket)))];
   await Promise.all(buckets.map(bucket=>profileLoads.get(bucket)?.promise).filter(Boolean));
  }

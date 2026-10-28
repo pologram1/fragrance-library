@@ -11,12 +11,35 @@
   if(/\b(hello|find|recommend|compare|notes|what|where|story|fresh|sweet|budget|under|work|hot)\b/.test(norm(text)))return 'en';return previous;
  }
  function canonical(text){return norm(text).replace(/\bque notas tiene\b/g,'notes of').replace(/\ba que huele\b/g,'notes of').replace(/\bcuanto cuesta\b/g,'price of').replace(/\b(?:cual es )?(?:su |la )?historia(?: de)?\b/g,'story of').replace(/\bdonde (?:lo )?(?:puedo )?comprar\b/g,'where to buy').replace(/\b(?:que )?notas (?:tiene|son)\b/g,'notes').replace(/\b(?:de este|de esta|este|esta|sus|su)\b/g,'this').replace(/\bbuscame\b/g,'find').replace(/\bcompara(?:r)?\b/g,'compare');}
+ function recommendation(text,request,context){
+  const t=norm(text);
+  return !request.compare&&(request.intent==='recommend'||/\b(recommend|suggest|recomienda|recomiendame|quiero|busco|something|algo)\b/.test(t)||context.preferences&&/^\s*(?:\$?\d+(?:\.\d+)?|fresh|sweet|woody|fresco|dulce|amaderado|hasta.*|under.*)\s*$/.test(t));
+ }
+ function preferences(text,request,context,es){
+  const t=norm(text);
+   const pref={...context.preferences};
+   if(request.maxPrice!==null)pref.budget=request.maxPrice;
+   else if(context.preferences&&/^\s*\$?\d+(?:\.\d+)?\s*$/.test(t))pref.budget=Number(t.replace('$',''));
+   if(request.category)pref.category=request.category;
+   if(/\b(fresh|fresco|calor|hot|summer|verano|trabajo|work|office|oficina)\b/.test(t))pref.style='fresh';
+   if(/\b(sweet|dulce)\b/.test(t))pref.style='sweet';if(/\b(woody|amaderado)\b/.test(t))pref.style='woody';
+   if(/\b(night|noche|winter|invierno|warm|calido)\b/.test(t)&&!pref.style)pref.style='warm';
+   if(request.requestedNotes.length)pref.notes=request.requestedNotes;
+   if(/\b(work|office|trabajo|oficina)\b/.test(t))pref.occasion=es?'trabajo':'work';
+   if(/\b(calor|hot|puerto rico|summer|verano)\b/.test(t))pref.climate=es?'clima cálido':'warm weather';
+  return pref;
+ }
  function prepare(text,data,context={}){
   const lang=language(text,context.language||'en'),question=canonical(text);
   const next={...context,language:lang,ids:context.ids||[]};
   if(data.pageId&&data.pageId!==context.pageId){next.ids=[data.pageId];next.pageId=data.pageId;delete next.preferences;}
   const request=Core.parse(question),similar=/\b(similar|similares|parecido|parecidos|parecida|parecidas|like this)\b/.test(norm(text));
-  return {lang,question,context:next,request,similar,loadAll:similar||request.intent==='recommend'&&(request.requestedNotes.length>0||request.noteTerms.length>0)||/\b(recommend|recomienda|quiero|busco|trabajo|calor|work|hot)\b/.test(norm(text)),load:Core.needsProfiles(question)||similar||/\b(notas|historia)\b/.test(norm(text))};
+  const isRecommendation=recommendation(text,request,next),pref=preferences(text,request,next,lang==='es');
+  // Clarifications need no profiles. Numeric/style follow-ups load notes only
+  // once both the budget and scent direction are available.
+  const ready=isRecommendation&&pref.budget!==undefined&&Boolean(pref.style||pref.notes?.length);
+  const reference=similar&&next.ids.length>0;
+  return {lang,question,context:next,request,similar,loadAll:Boolean(reference||ready),load:isRecommendation?ready:similar?Boolean(reference):Core.needsProfiles(question)||/\b(notas|historia)\b/.test(norm(text))};
  }
  function notes(row){return [...new Set(Object.values(row.profile?.notes||{}).flat().filter(n=>typeof n==='string'))];}
  function answer(text,data,context={}){
@@ -32,18 +55,8 @@
    const ranked=records.filter(row=>!(row.brand===seed.brand&&row.name===seed.name)).map(row=>({row,shared:notes(row).filter(n=>keys.has(norm(n)))})).filter(item=>item.shared.length).sort((a,b)=>b.shared.length-a.shared.length).slice(0,4);
    return say('These share listed notes with '+seed.brand+' '+seed.name+'. Shared notes do not mean they smell identical.','Estos comparten notas publicadas con '+seed.brand+' '+seed.name+'. Eso no significa que huelan igual.',{cards:ranked.map(item=>item.row),reasons:Object.fromEntries(ranked.map(item=>[item.row.id,(es?'Notas compartidas: ':'Shared notes: ')+item.shared.join(', ')])),suggestions:[]});
   }
-  const recommendation=!p.request.compare&&(p.request.intent==='recommend'||/\b(recommend|suggest|recomienda|recomiendame|quiero|busco|something|algo)\b/.test(t)||ctx.preferences&&/^\s*(?:\$?\d+(?:\.\d+)?|fresh|sweet|woody|fresco|dulce|amaderado|hasta.*|under.*)\s*$/.test(t));
-  if(recommendation){
-   const pref={...ctx.preferences};
-   if(p.request.maxPrice!==null)pref.budget=p.request.maxPrice;
-   else if(ctx.preferences&&/^\s*\$?\d+(?:\.\d+)?\s*$/.test(t))pref.budget=Number(t.replace('$',''));
-   if(p.request.category)pref.category=p.request.category;
-   if(/\b(fresh|fresco|calor|hot|summer|verano|trabajo|work|office|oficina)\b/.test(t))pref.style='fresh';
-   if(/\b(sweet|dulce)\b/.test(t))pref.style='sweet';if(/\b(woody|amaderado)\b/.test(t))pref.style='woody';
-   if(/\b(night|noche|winter|invierno|warm|calido)\b/.test(t)&&!pref.style)pref.style='warm';
-   if(p.request.requestedNotes.length)pref.notes=p.request.requestedNotes;
-   if(/\b(work|office|trabajo|oficina)\b/.test(t))pref.occasion=es?'trabajo':'work';
-   if(/\b(calor|hot|puerto rico|summer|verano)\b/.test(t))pref.climate=es?'clima cálido':'warm weather';
+  if(recommendation(text,p.request,ctx)){
+   const pref=preferences(text,p.request,ctx,es);
    ctx.preferences=pref;
    if(pref.budget===undefined)return say('What is your budget per bottle in USD? I’ll keep your scent preferences for the next answer.','¿Cuál es tu presupuesto por frasco en USD? Conservaré tus preferencias para la próxima respuesta.',{context:{preferences:pref},suggestions:['$50','$100','$150']});
    if(!pref.style&&!pref.notes?.length)return say('Do you prefer fresh, sweet, or woody scents?','¿Prefieres aromas frescos, dulces o amaderados?',{context:{preferences:pref},suggestions:es?['Fresco','Dulce','Amaderado']:['Fresh','Sweet','Woody']});

@@ -48,3 +48,17 @@ test('remaining-volume shortcuts clamp safely and retain fractional milliliters'
  assert.deepEqual(Runtime.remaining(50,100),{amount:50,percent:100});assert.deepEqual(Runtime.remaining(50,-4),{amount:0,percent:0});
  assert.deepEqual(Runtime.remaining(7.5,3.75),{amount:3.8,percent:51});assert.deepEqual(Runtime.remaining('',10),{amount:0,percent:0});
 });
+
+test('profile queue bounds concurrent requests, deduplicates and reuses successful buckets',async()=>{
+ let active=0,peak=0;const gates=new Map(),calls=[];
+ const loader=Runtime.createProfileLoader(key=>{calls.push(key);active++;peak=Math.max(peak,active);return new Promise(resolve=>gates.set(key,()=>{active--;resolve();}));},{concurrency:2});
+ const a=loader.request('a'),b=loader.request('b'),c=loader.request('c');
+ assert.equal(loader.request('a'),a);await new Promise(resolve=>setImmediate(resolve));assert.deepEqual(calls,['a','b']);
+ gates.get('a')();await a.promise;await new Promise(resolve=>setImmediate(resolve));assert.deepEqual(calls,['a','b','c']);
+ gates.get('b')();gates.get('c')();await Promise.all([b.promise,c.promise]);assert.equal(peak,2);assert.equal(loader.request('a'),a);assert.equal(a.status,'ready');
+});
+test('a failed profile bucket releases its queue slot and retries on demand',async()=>{
+ let attempts=0;const loader=Runtime.createProfileLoader(async key=>{if(key==='bad'&&attempts++===0)throw Error('offline');},{concurrency:1});
+ const bad=loader.request('bad'),good=loader.request('good');await Promise.all([bad.promise,good.promise]);assert.equal(bad.status,'error');assert.equal(good.status,'ready');
+ const retry=loader.request('bad');assert.notEqual(retry,bad);await retry.promise;assert.equal(retry.status,'ready');
+});

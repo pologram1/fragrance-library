@@ -37,3 +37,14 @@ Run `node --test ./*.test.js`. FragBot checks cover natural-language search, exa
 `fragbot-dialogue.js` adds automatic English/Spanish responses, language retention for short follow-ups, exact viewed-fragrance context, and a preference flow that asks for a USD budget and scent direction. Occasion and climate are explicitly treated as search preferences, not performance evidence. Recommendations explain actual matching listed notes and show available price-check dates. Similarity uses shared source-listed notes and excludes the reference fragrance, without claiming identical smell.
 
 Comparisons render a field-by-field table of the exact matched bottles. Original note names and source history remain in their source language; the bot labels original history rather than inventing a translation. Page context only contains a public fragrance ID. No private collection access or writes were added.
+
+### On-demand performance
+
+Budget and scent-direction clarification messages do not download note profiles.
+Once both preferences are available, follow-up messages load the required public
+profiles, including numeric-only budget replies. Bucket requests share one
+promise, use at most four concurrent downloads, and each fetch times out after
+12 seconds. Successful buckets stay in memory; a later chat request can retry a
+failed bucket. Detail-page rerenders do not automatically retry failures.
+Discover also reads the existing quote index directly rather than rebuilding a
+second price map for each search or page change.

@@ -22,3 +22,13 @@ test('Spanish comparison and unknown-name clarification remain grounded',()=>{
  const compare=Bot.answer('Compara One vs Two',data);assert.equal(compare.comparison,true);assert.match(compare.text,/frascos exactos/);
  const unknown=Bot.answer('Busca xyz-no-existe',data);assert.equal(unknown.cards.length,0);assert.equal(unknown.context.language,'es');
 });
+
+test('clarifications skip profiles; numeric and style follow-ups load them when ready',()=>{
+ const first=Bot.prepare('Busco algo fresco para trabajar en el calor de Puerto Rico',data);assert.equal(first.loadAll,false);assert.equal(first.load,false);
+ const reply=Bot.answer('Busco algo fresco para trabajar en el calor de Puerto Rico',data);
+ const next=Bot.prepare('$60',data,reply.context);assert.equal(next.loadAll,true);assert.equal(next.load,true);
+ const budget=Bot.answer('Recommend designer perfumes under $60',data);assert.equal(Bot.prepare('Recommend designer perfumes under $60',data).loadAll,false);
+ assert.equal(Bot.prepare('Fresh',data,budget.context).loadAll,true);
+ const similar=Bot.prepare('Similar to this',data);assert.equal(similar.loadAll,false);assert.equal(similar.load,false);
+ assert.equal(Bot.prepare('¿Qué notas tiene este?',{...data,pageId:'one'}).load,true);
+});
