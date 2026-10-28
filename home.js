@@ -14,6 +14,18 @@
   return points;
  }
  let range=30;
+ // Discovery should survive a stale price feed. Price eligibility is checked
+ // separately when rendering values; it must never hide an approved bottle.
+ function featured(catalog,photoManifest){
+  const approved=catalog.filter(f=>PhotoStandards.approved(f,photoManifest)&&MarketPrices.complete(f));
+  const wanted=['Sauvage','Aventus','Asad Bourbon','9 Pm','Khamrah','Baccarat Rouge 540','Bianco Latte','Yara','Eros'];
+  const chosen=[],seen=new Set();
+  const add=f=>{if(!f)return;const key=Catalog.brand(f).toLowerCase()+'|'+f.name.toLowerCase();if(!seen.has(key)){chosen.push(f);seen.add(key);}};
+  for(const title of wanted){const target=title.toLowerCase().replace(/\b(\d+)\s+(am|pm)\b/g,'$1$2');add(approved.find(f=>MarketPrices.key(f).split('|')[1]===target));if(chosen.length===6)break;}
+  for(const f of approved){if(chosen.length>=6)break;if(!chosen.some(c=>Catalog.brand(c)===Catalog.brand(f)))add(f);}
+  for(const f of approved){if(chosen.length>=6)break;add(f);}
+  return chosen;
+ }
  function render({items,catalog,photoManifest,money,esc}){
   const panel=document.getElementById('home-dashboard');if(!panel)return;
   const points=series(items.map(f=>MarketPrices.apply(f)),range),chart=document.getElementById('market-chart');
@@ -26,15 +38,10 @@
    chart.innerHTML=`<svg viewBox="0 0 760 210" role="img" aria-label="Market value from ${esc(points[0].date)} to ${esc(points.at(-1).date)}: ${money(values[0])} to ${money(values.at(-1))}"><defs><linearGradient id="chart-fill" x1="0" y1="0" x2="0" y2="1"><stop stop-color="currentColor" stop-opacity=".18"/><stop offset="1" stop-color="currentColor" stop-opacity="0"/></linearGradient></defs><path class="chart-grid" d="M18 35H742M18 105H742M18 176H742"/><path fill="url(#chart-fill)" d="${path} L742,187 L18,187 Z"/><path class="chart-line" d="${path}"/><circle cx="${coordinates.at(-1)[0]}" cy="${coordinates.at(-1)[1]}" r="4" fill="currentColor"/></svg><div class="chart-dates"><span>${points[0].date}</span><span>${points.at(-1).date}</span></div>`;
   }
   const approved=catalog.filter(f=>PhotoStandards.approved(f,photoManifest)&&MarketPrices.complete(f));
-  const wanted=['Sauvage','Aventus','Asad Bourbon','9 Pm','Khamrah','Baccarat Rouge 540','Bianco Latte','Yara','Eros'];
-  const chosen=[],identities=new Set();
-  for(const title of wanted){const target=title.toLowerCase().replace(/\b(\d+)\s+(am|pm)\b/g,'$1$2');const f=approved.find(f=>MarketPrices.key(f).split('|')[1]===target&&Pricing.value(MarketPrices.offers(f)).price!==null);if(f&&!identities.has(f.brand+'|'+f.name)){chosen.push(f);identities.add(f.brand+'|'+f.name);}}
-  for(const f of approved){if(chosen.length>=6)break;if(!chosen.some(c=>c.brand===f.brand)&&!identities.has(f.brand+'|'+f.name)&&Pricing.value(MarketPrices.offers(f)).price!==null){chosen.push(f);identities.add(f.brand+'|'+f.name);}}
+  const chosen=featured(catalog,photoManifest);
   const featuredBrands={niche:['Amouage','Creed','Xerjoff'],designer:['Chanel','Dior','Yves Saint Laurent'],arabic:['Lattafa','Afnan','Armaf']};
-  const hero=chosen.find(f=>f.name==='Aventus')||chosen[0],heroLink=document.getElementById('gallery-feature');
-  if(hero&&heroLink){const photo=PhotoStandards.approved(hero,photoManifest),caption=document.getElementById('gallery-feature-caption');heroLink.innerHTML='<img src="'+esc(photo.url)+'" alt="'+esc(Catalog.brand(hero)+' '+hero.name)+'" width="300" height="400" fetchpriority="high" decoding="async">';heroLink.href='#fragrance/'+hero.id;heroLink.setAttribute('aria-label','Explore '+Catalog.brand(hero)+' '+hero.name);if(caption){caption.textContent=Catalog.brand(hero)+' · '+hero.name;caption.href=heroLink.href;}}
   document.querySelectorAll('[data-category-photo]').forEach(slot=>{const category=slot.dataset.categoryPhoto,candidates=approved.filter(f=>Catalog.category(f)===category);const f=featuredBrands[category].map(brand=>candidates.find(f=>Catalog.brand(f).toLowerCase().includes(brand.toLowerCase()))).find(Boolean)||candidates[0];if(f){const photo=PhotoStandards.approved(f,photoManifest);slot.innerHTML='<img src="'+esc(photo.url)+'" alt="" loading="lazy" decoding="async" width="180" height="240">';}});
-  document.getElementById('home-picks').innerHTML=chosen.slice(0,4).map(f=>{const photo=PhotoStandards.approved(f,photoManifest),p=Pricing.value(MarketPrices.offers(f));return `<a class="home-pick" href="#fragrance/${esc(f.id)}"><div class="home-pick-image"><img src="${esc(photo.url)}" alt="${esc(f.brand+' '+f.name)}" loading="lazy" decoding="async" width="300" height="400"><span class="pick-explore" aria-hidden="true">Discover the fragrance ↗</span></div><div class="pick-caption"><div><small>${esc(Catalog.brand(f))}</small><strong>${esc(f.name)}</strong><span>${f.sizeMl} mL · ${esc(f.concentration)}</span></div><div class="pick-market"><small>Est. market value</small><span>${money(p.price)}</span></div></div></a>`;}).join('')||'<p class="hint">Loading the fragrance shelves…</p>';
+  document.getElementById('home-picks').innerHTML=chosen.slice(0,6).map(f=>{const photo=PhotoStandards.approved(f,photoManifest),p=Pricing.value(MarketPrices.offers(f));return `<a class="home-pick" href="#fragrance/${esc(f.id)}"><div class="home-pick-image"><img src="${esc(photo.url)}" alt="${esc(f.brand+' '+f.name)}" loading="lazy" decoding="async" width="300" height="400"><span class="pick-explore" aria-hidden="true">Discover the fragrance ↗</span></div><div class="pick-caption"><div><small>${esc(Catalog.brand(f))}</small><strong>${esc(f.name)}</strong><span>${f.sizeMl} mL · ${esc(f.concentration)}</span></div><div class="pick-market"><small>Est. market value</small><span>${p.price===null?'Price being checked':money(p.price)}</span></div></div></a>`;}).join('')||'<p class="hint">Reviewed fragrances will appear here as the library grows.</p>';
   const wishes=items.filter(f=>f.status==='wishlist').slice(0,3);
   document.getElementById('home-watchlist').innerHTML=wishes.length?wishes.map(f=>{const price=Pricing.value(MarketPrices.apply(f).offers).price;return `<a href="${f.catalogId?'#fragrance/'+esc(f.catalogId):'#wishlist'}" class="watch-row"><span><small>${esc(Catalog.brand(f))}</small><strong>${esc(f.name)}</strong></span><span>${price===null?'Price pending':money(price)}</span></a>`;}).join(''):'<p class="watch-empty">A place for your next discovery.<br>Save the bottles you want to try.</p><a class="home-link" href="#discover">Find a fragrance →</a>';
   document.getElementById('home-catalog-count').textContent=catalog.length?catalog.length.toLocaleString()+' bottle variants':'Your next discovery awaits';
@@ -49,5 +56,5 @@
   const breakdown=`<details class="value-breakdown"><summary>Understand your collection value <span>View bottle-by-bottle breakdown ↓</span></summary><div class="value-explainer"><p><strong>Market movement</strong> compares today’s average bottle price with the first tracked price, adjusted for the liquid left. <strong>Value used</strong> measures consumed liquid at that starting price. Their difference is the <strong>net change</strong>.</p><p>These are replacement-value estimates, not cash earnings or used-bottle resale quotes. Missing current prices are excluded from market and net totals; known usage remains visible.</p></div>${rows?`<div class="breakdown-scroll" tabindex="0" role="region" aria-label="Scrollable bottle value breakdown"><table><caption>Values in USD. Each row includes all bottles in that entry.</caption><thead><tr><th scope="col">Fragrance</th><th scope="col">Remaining</th><th scope="col">Current value</th><th scope="col">Market change</th><th scope="col">Value used</th><th scope="col">Net change</th></tr></thead><tbody>${rows}</tbody></table></div>`:'<p class="hint">Add a bottle to see its market changes and usage here.</p>'}</details>`;
   return {cards,breakdown};
  }
- const api={series,render,insights};if(typeof module!=='undefined'&&module.exports)module.exports=api;else root.HomeDashboard=api;
+ const api={series,render,insights,featured};if(typeof module!=='undefined'&&module.exports)module.exports=api;else root.HomeDashboard=api;
 })(typeof globalThis!=='undefined'?globalThis:this);
