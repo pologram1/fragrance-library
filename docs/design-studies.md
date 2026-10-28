@@ -17,3 +17,9 @@ The preview links lead to the real discovery and collection screens. A full them
 Approved photos and complete bottle identities determine shelf eligibility. Fresh-price eligibility remains in `Pricing.value`; a missing or expired quote shows “Price being checked.” It no longer removes an otherwise valid fragrance from the home page. Six distinct fragrance identities are shown, with one size per identity on this curated shelf. Discover retains the full bottle variants.
 
 Run `node --test ./*.test.js` for the automated domain/account checks, including stale-price discovery and the example's accounting identity.
+
+## Warm theme and fragrance spotlight
+
+`spotlight.css` extends the cover palette throughout the app: limestone and burgundy in light mode, terracotta and amber in dark mode. The existing theme preference remains in use.
+
+The home spotlight appears immediately below the cover. `fragrance-spotlight.js` uses the existing reviewed-photo selection and exact-bottle price eligibility. It supports previous/next buttons, direct selection, Left/Right and Home/End keys, and horizontal touch gestures. It never advances automatically or changes a collection. Hidden slides are inert and excluded from navigation; price gaps remain explicit. Selection survives normal rerenders by stable fragrance ID.
