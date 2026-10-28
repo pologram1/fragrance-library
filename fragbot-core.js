@@ -99,5 +99,5 @@
   const links=detail&&['price','sellers'].includes(request.intent)?(record.sellers||[]).slice(0,4).map(seller=>({label:seller.seller+(seller.current?' · '+money(seller.price):' · check listing'),href:seller.url})):[];
   return reply(message,{cards:found,links,sources,context:{ids:found.map(row=>row.id)},suggestions:detail?['What are its notes?','Tell me its story','Where can I buy it?']:[]});
  }
- const api={parse,find,recommend,needsProfiles,answer};if(typeof module!=='undefined'&&module.exports)module.exports=api;else root.FragBotCore=api;
+ const api={parse,find,recommend,needsProfiles,answer,FAQs};if(typeof module!=='undefined'&&module.exports)module.exports=api;else root.FragBotCore=api;
 })(typeof globalThis!=='undefined'?globalThis:this);

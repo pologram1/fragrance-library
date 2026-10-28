@@ -31,3 +31,9 @@ All price eligibility remains in the existing pricing engine, including seven-da
 ## Validation
 
 Run `node --test ./*.test.js`. FragBot checks cover natural-language search, exact variants, misspellings, source-grounded follow-ups, comparisons, note/budget matches, missing prices, catalog failures, unsupported prompts, and the public-only adapter/deployment wiring.
+
+## Conversational discovery
+
+`fragbot-dialogue.js` adds automatic English/Spanish responses, language retention for short follow-ups, exact viewed-fragrance context, and a preference flow that asks for a USD budget and scent direction. Occasion and climate are explicitly treated as search preferences, not performance evidence. Recommendations explain actual matching listed notes and show available price-check dates. Similarity uses shared source-listed notes and excludes the reference fragrance, without claiming identical smell.
+
+Comparisons render a field-by-field table of the exact matched bottles. Original note names and source history remain in their source language; the bot labels original history rather than inventing a translation. Page context only contains a public fragrance ID. No private collection access or writes were added.

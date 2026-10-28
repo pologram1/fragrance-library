@@ -281,7 +281,7 @@ $('#catalog-clear').onclick=()=>{for(const id of ['search','catalog-brand','cata
 // FragBot only receives public catalog data. Account credentials, saved bottles,
 // collection storage, and mutation functions are intentionally absent.
 window.FragBotLibrary=Object.freeze({
- snapshot:()=>({state:catalogState,priceState,records:catalog.map(f=>{
+ snapshot:()=>({state:catalogState,priceState,pageId:view==='fragrance'?resolveCatalog(detailId)?.id:null,records:catalog.map(f=>{
   const photo=PhotoStandards.approved(f,photoManifest),offers=MarketPrices.offers(f);
   return {id:f.id,brand:Catalog.brand(f),name:f.name,concentration:f.concentration,sizeMl:f.sizeMl,type:f.type,audience:f.audience,barcode:f.barcode,barcodes:f.barcodes,category:Catalog.category(f),photo:photo?{url:photo.url,credit:photo.credit,sourceUrl:photo.sourceUrl,license:photo.license}:null,quote:FragranceDetails.priceEvidence(f,offers),sellers:FragranceDetails.sellerLinks(f,offers),profile:FragranceDetails.profile(f)};
  })}),

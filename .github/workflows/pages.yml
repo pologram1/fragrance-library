@@ -32,7 +32,7 @@ jobs:
       - name: Prepare public website files
         run: |
           mkdir _site
-          cp fragbot.js fragbot-core.js fragbot.css home-cover.js home-cover.css spotlight.css fragrance-spotlight.js launch-polish.css value-demo.js templates.html templates.css templates.js assistant-widget.js admin.html admin.css admin.js catalog-updates.js luxury.css home.js home.css index.html styles.css theme.js app.js runtime-data.js fragrance-details.js market-prices.js pricing.js portfolio.js catalog.js config.js auth.js cloud-store.js google-signin.js username-auth.js photo-standards.js _site/
+          cp fragbot-dialogue.js fragbot.js fragbot-core.js fragbot.css home-cover.js home-cover.css spotlight.css fragrance-spotlight.js launch-polish.css value-demo.js templates.html templates.css templates.js assistant-widget.js admin.html admin.css admin.js catalog-updates.js luxury.css home.js home.css index.html styles.css theme.js app.js runtime-data.js fragrance-details.js market-prices.js pricing.js portfolio.js catalog.js config.js auth.js cloud-store.js google-signin.js username-auth.js photo-standards.js _site/
           cp -R assets data _site/
           touch _site/.nojekyll
       - uses: actions/upload-pages-artifact@v4
