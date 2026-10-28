@@ -41,6 +41,7 @@
   const chosen=featured(catalog,photoManifest);
   const featuredBrands={niche:['Amouage','Creed','Xerjoff'],designer:['Chanel','Dior','Yves Saint Laurent'],arabic:['Lattafa','Afnan','Armaf']};
   document.querySelectorAll('[data-category-photo]').forEach(slot=>{const category=slot.dataset.categoryPhoto,candidates=approved.filter(f=>Catalog.category(f)===category);const f=featuredBrands[category].map(brand=>candidates.find(f=>Catalog.brand(f).toLowerCase().includes(brand.toLowerCase()))).find(Boolean)||candidates[0];if(f){const photo=PhotoStandards.approved(f,photoManifest);slot.innerHTML='<img src="'+esc(photo.url)+'" alt="" loading="lazy" decoding="async" width="180" height="240">';}});
+  HomeCover.render(chosen,{photoManifest,money,esc});
   FragranceSpotlight.render(chosen,{photoManifest,money,esc});
   const wishes=items.filter(f=>f.status==='wishlist').slice(0,3);
   document.getElementById('home-watchlist').innerHTML=wishes.length?wishes.map(f=>{const price=Pricing.value(MarketPrices.apply(f).offers).price;return `<a href="${f.catalogId?'#fragrance/'+esc(f.catalogId):'#wishlist'}" class="watch-row"><span><small>${esc(Catalog.brand(f))}</small><strong>${esc(f.name)}</strong></span><span>${price===null?'Price pending':money(price)}</span></a>`;}).join(''):'<p class="watch-empty">A place for your next discovery.<br>Save the bottles you want to try.</p><a class="home-link" href="#discover">Find a fragrance →</a>';
