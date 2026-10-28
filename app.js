@@ -49,7 +49,7 @@ function loadDetailProfile(record){
  const buckets=[...new Set((record.sourceIds||[record.id]).map(RuntimeData.bucket))];
  for(const bucket of buckets)if(!profileLoads.has(bucket)){
   const state={status:'loading'};profileLoads.set(bucket,state);
-  fetch('data/runtime/profiles/'+bucket+'.json').then(response=>{if(!response.ok)throw Error('Profile unavailable');return response.json();}).then(data=>{FragranceDetails.configure(data,{append:true});state.status='ready';}).catch(()=>{state.status='error';}).finally(()=>{if(view==='fragrance'&&resolveCatalog(detailId)?.id===record.id)render();});
+  state.promise=fetch('data/runtime/profiles/'+bucket+'.json').then(response=>{if(!response.ok)throw Error('Profile unavailable');return response.json();}).then(data=>{FragranceDetails.configure(data,{append:true});state.status='ready';}).catch(()=>{state.status='error';}).finally(()=>{if(view==='fragrance'&&resolveCatalog(detailId)?.id===record.id)render();});
  }
  return buckets.some(bucket=>profileLoads.get(bucket).status==='loading');
 }
@@ -277,3 +277,19 @@ CollectionAccount.initialize({validate,getCollection:()=>fragrances,onCollection
 
 for(const id of ['catalog-concentration','catalog-size','catalog-ownership','catalog-min-price','catalog-max-price'])document.getElementById(id).addEventListener(id.includes('price')||id==='catalog-size'?'input':'change',()=>{catalogPage=1;render();});
 $('#catalog-clear').onclick=()=>{for(const id of ['search','catalog-brand','catalog-concentration','catalog-size','catalog-ownership','catalog-min-price','catalog-max-price'])document.getElementById(id).value='';catalogCategory='all';catalogBrand='';catalogPage=1;updateBrowseRoute();render();};
+
+// FragBot only receives public catalog data. Account credentials, saved bottles,
+// collection storage, and mutation functions are intentionally absent.
+window.FragBotLibrary=Object.freeze({
+ snapshot:()=>({state:catalogState,priceState,records:catalog.map(f=>{
+  const photo=PhotoStandards.approved(f,photoManifest),offers=MarketPrices.offers(f);
+  return {id:f.id,brand:Catalog.brand(f),name:f.name,concentration:f.concentration,sizeMl:f.sizeMl,type:f.type,audience:f.audience,barcode:f.barcode,barcodes:f.barcodes,category:Catalog.category(f),photo:photo?{url:photo.url,credit:photo.credit,sourceUrl:photo.sourceUrl,license:photo.license}:null,quote:FragranceDetails.priceEvidence(f,offers),sellers:FragranceDetails.sellerLinks(f,offers),profile:FragranceDetails.profile(f)};
+ })}),
+ async prepareProfiles(ids){
+  if(!runtimeCatalog||catalogState!=='ready')return;
+  const records=ids?ids.map(resolveCatalog).filter(Boolean):catalog;
+  records.forEach(loadDetailProfile);
+  const buckets=[...new Set(records.flatMap(f=>(f.sourceIds||[f.id]).map(RuntimeData.bucket)))];
+  await Promise.all(buckets.map(bucket=>profileLoads.get(bucket)?.promise).filter(Boolean));
+ }
+});
