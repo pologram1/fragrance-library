@@ -18,7 +18,7 @@
  // separately when rendering values; it must never hide an approved bottle.
  function featured(catalog,photoManifest){
   const approved=catalog.filter(f=>PhotoStandards.approved(f,photoManifest)&&MarketPrices.complete(f));
-  const wanted=['Sauvage','Aventus','Asad Bourbon','9 Pm','Khamrah','Baccarat Rouge 540','Bianco Latte','Yara','Eros'];
+  const wanted=['Sauvage','Aventus','Asad Bourbon','9 Pm','Baccarat Rouge 540','Le Male Le Parfum','Khamrah','Bianco Latte','Yara','Eros'];
   const chosen=[],seen=new Set();
   const add=f=>{if(!f)return;const key=Catalog.brand(f).toLowerCase()+'|'+f.name.toLowerCase();if(!seen.has(key)){chosen.push(f);seen.add(key);}};
   for(const title of wanted){const target=title.toLowerCase().replace(/\b(\d+)\s+(am|pm)\b/g,'$1$2');add(approved.find(f=>MarketPrices.key(f).split('|')[1]===target));if(chosen.length===6)break;}
