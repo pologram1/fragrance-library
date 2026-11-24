@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "reviewedAt": "2026-11-23T20:12:25.762771+00:00",
+  "reviewedAt": "2026-11-24T19:29:50.695138+00:00",
   "assessed": 515,
   "technicalRejections": 37,
   "visuallyReviewed": 38,
@@ -92,19 +92,20 @@
       "reviewNotes": "Visually inspected original candidate. Whole 9 AM Dive bottle with its matching box, clean white background, readable Afnan/name and 100 mL Eau de Parfum on the source packaging."
     },
     {
-      "id": "obf-8906066310355",
-      "sourceUrl": "https://world.openbeautyfacts.org/product/8906066310355",
-      "sourceImageUrl": "https://images.openbeautyfacts.org/images/products/890/606/631/0355/front_en.3.full.jpg",
       "sha256": "da6faa1d8cabb472938d504eff348bb33bcaf292c039fc50b9c673b515ce5510",
       "width": 1880,
       "height": 3021,
-      "focusRatioToReference": 0.8538,
       "cleanBorderFraction": 0.0042,
+      "focusRatioToReference": 0.8218,
       "hardFailures": [],
       "warnings": [
         "Background differs from the clean catalog reference; inspect composition"
       ],
-      "status": "pending_visual_review"
+      "id": "obf-8906066310355",
+      "sourceUrl": "https://world.openbeautyfacts.org/product/8906066310355",
+      "sourceImageUrl": "https://images.openbeautyfacts.org/images/products/890/606/631/0355/front_en.3.full.jpg",
+      "status": "pending_visual_review",
+      "screenedAt": "2026-11-24T19:29:43.754873+00:00"
     },
     {
       "sha256": "9eafde87de992bb12cadbd013f42050a99ac42259b6173604455ef0d1f13ecc1",
@@ -486,19 +487,20 @@
       "screenedAt": "2026-10-14T05:51:58.672954+00:00"
     },
     {
-      "id": "obf-96100585",
-      "sourceUrl": "https://world.openbeautyfacts.org/product/96100585",
-      "sourceImageUrl": "https://images.openbeautyfacts.org/images/products/000/009/610/0585/front_fr.3.full.jpg",
       "sha256": "6b9706baa9b1bbe9aedc2e43366631981b23c50595370fd318bae43c211c178d",
       "width": 1496,
       "height": 2824,
-      "focusRatioToReference": 0.5472,
-      "cleanBorderFraction": 0.0811,
+      "cleanBorderFraction": 0.081,
+      "focusRatioToReference": 0.5273,
       "hardFailures": [],
       "warnings": [
         "Background differs from the clean catalog reference; inspect composition"
       ],
-      "status": "pending_visual_review"
+      "id": "obf-96100585",
+      "sourceUrl": "https://world.openbeautyfacts.org/product/96100585",
+      "sourceImageUrl": "https://images.openbeautyfacts.org/images/products/000/009/610/0585/front_fr.3.full.jpg",
+      "status": "pending_visual_review",
+      "screenedAt": "2026-11-24T19:29:50.692832+00:00"
     },
     {
       "sha256": "7f14edc24b366f4a86a59e4c938de49b361847063570c338d5f9f7c480565936",
@@ -595,20 +597,21 @@
       "screenedAt": "2026-11-09T18:47:03.146304+00:00"
     },
     {
-      "id": "obf-96002629",
-      "sourceUrl": "https://world.openbeautyfacts.org/product/96002629",
-      "sourceImageUrl": "https://images.openbeautyfacts.org/images/products/000/009/600/2629/front_fr.3.full.jpg",
       "sha256": "411efc6e86392316fc728a7c2116b5e02558656f069ffcf5748bc54b47d91c93",
       "width": 2000,
       "height": 2000,
-      "focusRatioToReference": 0.028,
       "cleanBorderFraction": 0.0,
+      "focusRatioToReference": 0.028,
       "hardFailures": [],
       "warnings": [
         "Low edge detail relative to the reference; inspect focus and label",
         "Background differs from the clean catalog reference; inspect composition"
       ],
-      "status": "pending_visual_review"
+      "id": "obf-96002629",
+      "sourceUrl": "https://world.openbeautyfacts.org/product/96002629",
+      "sourceImageUrl": "https://images.openbeautyfacts.org/images/products/000/009/600/2629/front_fr.3.full.jpg",
+      "status": "pending_visual_review",
+      "screenedAt": "2026-11-24T19:29:49.797124+00:00"
     },
     {
       "sha256": "9360d15d1ba385ba8f8ff8acaf16d7d8f2d235e8da2685ae66a9003bd3a3dc70",
@@ -1225,20 +1228,21 @@
       "screenedAt": "2026-11-07T14:53:49.246167+00:00"
     },
     {
-      "id": "obf-9120112221122",
-      "sourceUrl": "https://world.openbeautyfacts.org/product/9120112221122",
-      "sourceImageUrl": "https://images.openbeautyfacts.org/images/products/912/011/222/1122/front_de.3.full.jpg",
       "sha256": "9ac06c079af754b706fca3aed045620966e2b08ede9fa78d15913bd0f0bd89f3",
       "width": 1723,
       "height": 3823,
-      "focusRatioToReference": 0.2515,
-      "cleanBorderFraction": 0.0094,
+      "cleanBorderFraction": 0.009,
+      "focusRatioToReference": 0.2366,
       "hardFailures": [],
       "warnings": [
         "Low edge detail relative to the reference; inspect focus and label",
         "Background differs from the clean catalog reference; inspect composition"
       ],
-      "status": "pending_visual_review"
+      "id": "obf-9120112221122",
+      "sourceUrl": "https://world.openbeautyfacts.org/product/9120112221122",
+      "sourceImageUrl": "https://images.openbeautyfacts.org/images/products/912/011/222/1122/front_de.3.full.jpg",
+      "status": "pending_visual_review",
+      "screenedAt": "2026-11-24T19:29:46.211640+00:00"
     },
     {
       "sha256": "9c558d34ba8c8bf2f85b07fb1d99b9a98ae0fe50edfeb940c3afffb5898cbe7a",
@@ -3638,20 +3642,21 @@
       "screenedAt": "2026-11-09T18:47:04.170706+00:00"
     },
     {
-      "id": "obf-8905253869058",
-      "sourceUrl": "https://world.openbeautyfacts.org/product/8905253869058",
-      "sourceImageUrl": "https://images.openbeautyfacts.org/images/products/890/525/386/9058/front_en.3.full.jpg",
       "sha256": "3e5936ad4161aa7c5000e9a370e69420c49e9f6b8dc0d8967b1aac9b20f806b2",
       "width": 3060,
       "height": 4080,
-      "focusRatioToReference": 0.014,
       "cleanBorderFraction": 0.0,
+      "focusRatioToReference": 0.0134,
       "hardFailures": [],
       "warnings": [
         "Low edge detail relative to the reference; inspect focus and label",
         "Background differs from the clean catalog reference; inspect composition"
       ],
-      "status": "pending_visual_review"
+      "id": "obf-8905253869058",
+      "sourceUrl": "https://world.openbeautyfacts.org/product/8905253869058",
+      "sourceImageUrl": "https://images.openbeautyfacts.org/images/products/890/525/386/9058/front_en.3.full.jpg",
+      "status": "pending_visual_review",
+      "screenedAt": "2026-11-24T19:29:39.311068+00:00"
     },
     {
       "sha256": "a7867b75c1d19a6289b1201b2e39be404ba5a84a8b1ee002988c20f806c8828d",
@@ -3749,20 +3754,21 @@
       "screenedAt": "2026-10-16T13:14:58.044119+00:00"
     },
     {
-      "id": "obf-8908001158480",
-      "sourceUrl": "https://world.openbeautyfacts.org/product/8908001158480",
-      "sourceImageUrl": "https://images.openbeautyfacts.org/images/products/890/800/115/8480/front_en.6.full.jpg",
       "sha256": "6d088511a0b98948bff80662416d4022580834c1a7b0b412fdbb31fcb1b0e9a6",
       "width": 1487,
       "height": 6503,
-      "focusRatioToReference": 0.1535,
       "cleanBorderFraction": 0.0092,
+      "focusRatioToReference": 0.1416,
       "hardFailures": [],
       "warnings": [
         "Low edge detail relative to the reference; inspect focus and label",
         "Background differs from the clean catalog reference; inspect composition"
       ],
-      "status": "pending_visual_review"
+      "id": "obf-8908001158480",
+      "sourceUrl": "https://world.openbeautyfacts.org/product/8908001158480",
+      "sourceImageUrl": "https://images.openbeautyfacts.org/images/products/890/800/115/8480/front_en.6.full.jpg",
+      "status": "pending_visual_review",
+      "screenedAt": "2026-11-24T19:29:45.041252+00:00"
     },
     {
       "sha256": "70ea7becea99f014841abf2e522fbd90014585654815360605e967e9bfdfe470",
@@ -4896,19 +4902,20 @@
       "screenedAt": "2026-10-25T13:11:17.183479+00:00"
     },
     {
-      "id": "obf-8906023892085",
-      "sourceUrl": "https://world.openbeautyfacts.org/product/8906023892085",
-      "sourceImageUrl": "https://images.openbeautyfacts.org/images/products/890/602/389/2085/front_en.3.full.jpg",
       "sha256": "b7959dc4ae7b1d4870424d9390b860dcba83cbcac5993b5283d419ccb0390256",
       "width": 3072,
       "height": 4608,
-      "focusRatioToReference": 0.4697,
       "cleanBorderFraction": 0.0,
+      "focusRatioToReference": 0.4292,
       "hardFailures": [],
       "warnings": [
         "Background differs from the clean catalog reference; inspect composition"
       ],
-      "status": "pending_visual_review"
+      "id": "obf-8906023892085",
+      "sourceUrl": "https://world.openbeautyfacts.org/product/8906023892085",
+      "sourceImageUrl": "https://images.openbeautyfacts.org/images/products/890/602/389/2085/front_en.3.full.jpg",
+      "status": "pending_visual_review",
+      "screenedAt": "2026-11-24T19:29:40.863880+00:00"
     },
     {
       "sha256": "ed17ac36e441c463dcb4536e12ad3907ae90451126f19e7ee263530cb7f9b3ac",
@@ -5315,20 +5322,21 @@
       "screenedAt": "2026-10-27T14:30:31.390908+00:00"
     },
     {
-      "id": "obf-8906055790830",
-      "sourceUrl": "https://world.openbeautyfacts.org/product/8906055790830",
-      "sourceImageUrl": "https://images.openbeautyfacts.org/images/products/890/605/579/0830/front_en.3.full.jpg",
       "sha256": "c6febaf1b44bd4af80754d2613568dff7ef03971d9bff51075c599cbd5cfad15",
       "width": 1732,
       "height": 3264,
-      "focusRatioToReference": 0.1612,
-      "cleanBorderFraction": 0.0115,
+      "cleanBorderFraction": 0.0112,
+      "focusRatioToReference": 0.1503,
       "hardFailures": [],
       "warnings": [
         "Low edge detail relative to the reference; inspect focus and label",
         "Background differs from the clean catalog reference; inspect composition"
       ],
-      "status": "pending_visual_review"
+      "id": "obf-8906055790830",
+      "sourceUrl": "https://world.openbeautyfacts.org/product/8906055790830",
+      "sourceImageUrl": "https://images.openbeautyfacts.org/images/products/890/605/579/0830/front_en.3.full.jpg",
+      "status": "pending_visual_review",
+      "screenedAt": "2026-11-24T19:29:42.317087+00:00"
     },
     {
       "sha256": "80f160b984c0a178b493dbf4bc495981826b9fde0241166f9b55e1b56d90a7b4",
@@ -6433,19 +6441,20 @@
       "screenedAt": "2026-11-10T16:25:21.157007+00:00"
     },
     {
-      "id": "obf-9341110079854",
-      "sourceUrl": "https://world.openbeautyfacts.org/product/9341110079854",
-      "sourceImageUrl": "https://images.openbeautyfacts.org/images/products/934/111/007/9854/front_en.3.full.jpg",
       "sha256": "ce6e4dcb7e6aeb84fcfc15cd58dad32fe77c1e2794cfcc27e7f053994089ccb0",
       "width": 339,
       "height": 1032,
-      "focusRatioToReference": 0.2801,
       "cleanBorderFraction": 0.9632,
+      "focusRatioToReference": 0.2802,
       "hardFailures": [],
       "warnings": [
         "Low edge detail relative to the reference; inspect focus and label"
       ],
-      "status": "pending_visual_review"
+      "id": "obf-9341110079854",
+      "sourceUrl": "https://world.openbeautyfacts.org/product/9341110079854",
+      "sourceImageUrl": "https://images.openbeautyfacts.org/images/products/934/111/007/9854/front_en.3.full.jpg",
+      "status": "pending_visual_review",
+      "screenedAt": "2026-11-24T19:29:47.563508+00:00"
     },
     {
       "id": "obf-3349666007921",
@@ -7819,20 +7828,21 @@
       "screenedAt": "2026-11-08T15:11:07.443000+00:00"
     },
     {
-      "id": "obf-93660150501002",
-      "sourceUrl": "https://world.openbeautyfacts.org/product/93660150501002",
-      "sourceImageUrl": "https://images.openbeautyfacts.org/images/products/936/601/505/01002/front_fr.3.full.jpg",
       "sha256": "8a956b085857e614eeedb056117155b4d567984a41ec1e7549e8f0c12bf82b9d",
       "width": 3024,
       "height": 4032,
-      "focusRatioToReference": 0.1598,
       "cleanBorderFraction": 0.0,
+      "focusRatioToReference": 0.1523,
       "hardFailures": [],
       "warnings": [
         "Low edge detail relative to the reference; inspect focus and label",
         "Background differs from the clean catalog reference; inspect composition"
       ],
-      "status": "pending_visual_review"
+      "id": "obf-93660150501002",
+      "sourceUrl": "https://world.openbeautyfacts.org/product/93660150501002",
+      "sourceImageUrl": "https://images.openbeautyfacts.org/images/products/936/601/505/01002/front_fr.3.full.jpg",
+      "status": "pending_visual_review",
+      "screenedAt": "2026-11-24T19:29:48.840034+00:00"
     },
     {
       "sha256": "4d4759727d02872a17bf9c71c27bc2d8f0b8a20a6e7ed0be32852c8af584ef73",
